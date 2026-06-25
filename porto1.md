@@ -178,7 +178,7 @@ Section 17  -->  Catatan dan Temuan Utama
 ### Hourly Demand Profile (Annual Average)
 
 <p align="center">
-  <img width="650" height="250" alt="image"
+  <img width="650" height="270" alt="image"
        src="https://github.com/user-attachments/assets/b75196d7-dd90-47cc-a3bd-4dc2a786ec1e" />
 </p>
 
@@ -187,7 +187,7 @@ A bimodal pattern, peaking at 08:00 (~1,050 units) and at 18:00 (~1,554 units).
 ### Optimal Staff Allocation vs Requirement — Baseline
 
 <p align="center">
-  <img width="650" height="300" alt="image"
+  <img width="650" height="305" alt="image"
        src="https://github.com/user-attachments/assets/c0bc7aa2-ae9e-463b-bb96-0237879b36c3" />
 </p>
 
@@ -205,7 +205,7 @@ The ranked impact of a ±20% change in each parameter on total operational cost.
 ### Trade-off Frontier — Cost vs Service Level
 
 <p align="center">
-  <img width="650" height="350" alt="image"
+  <img width="650" height="370" alt="image"
        src="https://github.com/user-attachments/assets/8edbdd39-fe0a-432f-99ce-e166d62618db" />
 </p>
 
@@ -272,7 +272,7 @@ See [LICENSE](LICENSE) for full details.
 
 **Ahmad Kenzy Farzaq**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/kenzyfarzq)
+[![GitHub](https://img.shields.io/badge/GitHub-kenzyfarzq-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/kenzyfarzq)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-kenzyfarzq-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/kenzyfarzq-60b790320/)
 [![Email](https://img.shields.io/badge/Email-kenzyfarzq@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq@gmail.com)
 
