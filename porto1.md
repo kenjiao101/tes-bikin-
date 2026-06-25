@@ -30,21 +30,44 @@ Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** untuk m
 
 ---
 
-## 🎥 Demo & Screenshots
+## 📊 Dataset
 
-> 📓 **Notebook:** [[nbviewer](https://nbviewer.org/github/[username]/workforce-scheduling-mip-sensitivity-analysis/blob/main/notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb)] &nbsp;|&nbsp; [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/[username]/workforce-scheduling-mip-sensitivity-analysis/blob/main/notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb)
+### Metadata
 
-<br>
+| Atribut | Detail |
+|---|---|
+| **Sumber** | UCI Machine Learning Repository |
+| **Link** | [Seoul Bike Sharing Demand (id=560)](https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand) |
+| **Ukuran awal** | 8.760 baris x 14 kolom |
+| **Ukuran operasional** | 8.465 baris (295 baris non-operasional difilter) |
+| **Format** | CSV |
+| **Lisensi** | CC BY 4.0 |
+| **Cakupan Waktu** | 2017-12-01 hingga 2018-11-30 (1 tahun penuh) |
+| **DOI** | 10.24432/C5F62R |
 
-| Profil Demand per Jam (Rata-rata Tahunan) | Alokasi Staf Optimal vs Kebutuhan — Baseline |
-|:---:|:---:|
-| 📷 *PASTE gambar output Section 7.2 di sini* | 📷 *PASTE gambar output Section 11.3 di sini* |
-| *Pola bimodal dengan puncak jam 08:00 (~1.050 unit) dan jam 18:00 (~1.554 unit)* | *Distribusi staf reguler (biru) dan staf tambahan (oranye) vs kebutuhan aktual per jam* |
+### Data Dictionary (Kolom Kunci)
 
-| Tornado Chart — Sensitivitas Parameter | Trade-off Frontier — Biaya vs Service Level |
-|:---:|:---:|
-| 📷 *PASTE gambar output Section 13.2 di sini* | 📷 *PASTE gambar output Section 14.2 di sini* |
-| *Urutan dampak perubahan ±20% per parameter terhadap total biaya operasional* | *Kurva biaya optimal sebagai fungsi target service level, rentang 70%–100%* |
+| Kolom | Tipe | Deskripsi | Contoh Nilai |
+|---|:---:|---|---|
+| `date` | `object` | Tanggal observasi | `01/12/2017` |
+| `rented_bike_count` | `int64` | **Variabel utama** — jumlah sepeda yang disewa per jam | `254`, `0` |
+| `hour` | `int64` | Jam observasi dalam sehari (0–23) | `8`, `18` |
+| `temperature` | `float64` | Suhu udara (°C) | `-6.2`, `32.4` |
+| `humidity` | `int64` | Kelembapan relatif (%) | `36`, `91` |
+| `seasons` | `object` | Musim saat observasi | `Winter`, `Summer` |
+| `holiday` | `object` | Status hari libur | `Holiday`, `No Holiday` |
+| `functioning_day` | `object` | Status operasional layanan — dipakai sebagai filter awal | `Yes`, `No` |
+
+### Reproduksi Data
+
+```bash
+# Dataset diunduh otomatis saat notebook dijalankan — tidak ada langkah manual
+
+# Jika koneksi API tidak tersedia, gunakan file lokal:
+# data/raw/SeoulBikeData.csv  (sumber sama: UCI id=560)
+```
+
+> **Catatan filter:** 295 baris dengan `functioning_day = No` dan `rented_bike_count = 0` dikeluarkan sebelum analisis karena merepresentasikan jam layanan tutup, bukan demand rendah. Menyertakan baris ini dalam profil demand akan membuat estimasi kebutuhan staf bias ke bawah.
 
 ---
 
@@ -91,41 +114,6 @@ Seoul Bike Sharing, 8.760 rows  ---►  Data Preparation  ---►     Hourly, Sea
 ```
 
 </details>
-
----
-
-## 📁 Project Structure
-
-```
-workforce-scheduling-mip-sensitivity-analysis/
-|
-+-- notebooks/
-|   +-- workforce_allocation_mip_sensitivity_analysis.ipynb   <- START HERE
-|
-+-- data/
-|   +-- raw/
-|       +-- SeoulBikeData.csv       # Fallback lokal jika UCI API tidak tersedia
-|
-+-- docs/
-|   +-- img/                        # Ekspor chart dari notebook, simpan di sini
-|       +-- 01_demand_distribution.png
-|       +-- 02_hourly_demand_profile.png
-|       +-- 03_seasonal_demand_profile.png
-|       +-- 04_holiday_vs_noholiday.png
-|       +-- 05_heatmap_demand_season.png
-|       +-- 06_staffing_baseline.png
-|       +-- 07_cost_comparison_scenarios.png
-|       +-- 08_tornado_chart.png
-|       +-- 09_tradeoff_frontier.png
-|       +-- 10_shadow_price_per_hour.png
-|
-+-- .gitignore
-+-- requirements.txt
-+-- LICENSE
-+-- README.md
-```
-
-> **Entry point:** Buka `notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb` dan jalankan sel dari atas ke bawah. Notebook ini self-contained — mulai dari data loading hingga seluruh sensitivity analysis bisa dieksekusi dalam satu sesi tanpa file eksternal tambahan.
 
 ---
 
@@ -200,44 +188,21 @@ Section 17  -->  Catatan dan Temuan Utama
 
 ---
 
-## 📊 Dataset
+## 🎥 Demo & Screenshots
 
-### Metadata
+> 📓 **Notebook:** [[nbviewer](https://nbviewer.org/github/[username]/workforce-scheduling-mip-sensitivity-analysis/blob/main/notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb)] &nbsp;|&nbsp; [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/[username]/workforce-scheduling-mip-sensitivity-analysis/blob/main/notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb)
 
-| Atribut | Detail |
-|---|---|
-| **Sumber** | UCI Machine Learning Repository |
-| **Link** | [Seoul Bike Sharing Demand (id=560)](https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand) |
-| **Ukuran awal** | 8.760 baris x 14 kolom |
-| **Ukuran operasional** | 8.465 baris (295 baris non-operasional difilter) |
-| **Format** | CSV |
-| **Lisensi** | CC BY 4.0 |
-| **Cakupan Waktu** | 2017-12-01 hingga 2018-11-30 (1 tahun penuh) |
-| **DOI** | 10.24432/C5F62R |
+<br>
 
-### Data Dictionary (Kolom Kunci)
+| Profil Demand per Jam (Rata-rata Tahunan) | Alokasi Staf Optimal vs Kebutuhan — Baseline |
+|:---:|:---:|
+| 📷 *PASTE gambar output Section 7.2 di sini* | 📷 *PASTE gambar output Section 11.3 di sini* |
+| *Pola bimodal dengan puncak jam 08:00 (~1.050 unit) dan jam 18:00 (~1.554 unit)* | *Distribusi staf reguler (biru) dan staf tambahan (oranye) vs kebutuhan aktual per jam* |
 
-| Kolom | Tipe | Deskripsi | Contoh Nilai |
-|---|:---:|---|---|
-| `date` | `object` | Tanggal observasi | `01/12/2017` |
-| `rented_bike_count` | `int64` | **Variabel utama** — jumlah sepeda yang disewa per jam | `254`, `0` |
-| `hour` | `int64` | Jam observasi dalam sehari (0–23) | `8`, `18` |
-| `temperature` | `float64` | Suhu udara (°C) | `-6.2`, `32.4` |
-| `humidity` | `int64` | Kelembapan relatif (%) | `36`, `91` |
-| `seasons` | `object` | Musim saat observasi | `Winter`, `Summer` |
-| `holiday` | `object` | Status hari libur | `Holiday`, `No Holiday` |
-| `functioning_day` | `object` | Status operasional layanan — dipakai sebagai filter awal | `Yes`, `No` |
-
-### Reproduksi Data
-
-```bash
-# Dataset diunduh otomatis saat notebook dijalankan — tidak ada langkah manual
-
-# Jika koneksi API tidak tersedia, gunakan file lokal:
-# data/raw/SeoulBikeData.csv  (sumber sama: UCI id=560)
-```
-
-> **Catatan filter:** 295 baris dengan `functioning_day = No` dan `rented_bike_count = 0` dikeluarkan sebelum analisis karena merepresentasikan jam layanan tutup, bukan demand rendah. Menyertakan baris ini dalam profil demand akan membuat estimasi kebutuhan staf bias ke bawah.
+| Tornado Chart — Sensitivitas Parameter | Trade-off Frontier — Biaya vs Service Level |
+|:---:|:---:|
+| 📷 *PASTE gambar output Section 13.2 di sini* | 📷 *PASTE gambar output Section 14.2 di sini* |
+| *Urutan dampak perubahan ±20% per parameter terhadap total biaya operasional* | *Kurva biaya optimal sebagai fungsi target service level, rentang 70%–100%* |
 
 ---
 
@@ -324,6 +289,6 @@ See [LICENSE](LICENSE) for full details.
   <sub>
     ⭐ Jika project ini bermanfaat, pertimbangkan untuk memberikan star!
     <br>
-    Made with ❤️ by <a href="https://github.com/[username]">[Nama]</a> · Last updated: 2026-06
+    Made by <a href="https://github.com/kenzyfarzq">[Nama]</a> · Last updated: 2026-06
   </sub>
 </div>
