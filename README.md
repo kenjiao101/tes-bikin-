@@ -94,7 +94,7 @@ Setelah pembersihan dan penggabungan, dataset akhir berisi **37 provinsi** denga
 | Akses Internet (%) | 85.95 | 90.17 | 16.09 | 12.15 - 97.57 |
 | Kemiskinan (%) | 11.33 | 10.47 | 6.74 | 4.00 - 32.97 |
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />
+<img width="720" height="570" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />
 
 ### Hubungan Kemiskinan dan Akses Internet
 
@@ -114,9 +114,9 @@ Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 
 Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna substantif tersendiri.
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
+<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
+<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
 
 ### Uji Asumsi Regresi
 
@@ -126,7 +126,7 @@ Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96%
 | Homoskedastisitas | Breusch-Pagan | LM = 20.43, p < 0.001 | Tidak terpenuhi |
 | Tidak ada autokorelasi | Durbin-Watson | DW = 1.04 | Tidak terpenuhi (autokorelasi positif) |
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/2538bc2a-e996-4844-8c0c-2db73259dd6e" />
+<img width="720" height="570" alt="image" src="https://github.com/user-attachments/assets/2538bc2a-e996-4844-8c0c-2db73259dd6e" />
 
 Dua dari tiga asumsi klasik regresi tidak terpenuhi sepenuhnya. Interpretasi koefisien (arah dan signifikansi) tetap valid, tetapi standard error dan confidence interval yang dilaporkan berpotensi bias akibat heteroskedastisitas dan autokorelasi. Lihat bagian Keterbatasan.
 
@@ -134,15 +134,15 @@ Dua dari tiga asumsi klasik regresi tidak terpenuhi sepenuhnya. Interpretasi koe
 
 Kedua variabel dikategorikan menjadi Rendah/Sedang/Tinggi berdasarkan kuartil (Q1 dan Q3).
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/262cf076-6046-4277-9645-c69db167ed0b" />
+<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/262cf076-6046-4277-9645-c69db167ed0b" />
 
-<img width="440" height="350" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
+<img width="400" height="350" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
 
 Tabel kontingensi menunjukkan 77.8% sel memiliki frekuensi harapan di bawah 5, sehingga chi-square 3x3 dilengkapi dengan Fisher's Exact Test pada tabel 2x2 (kategori digabung menjadi Tinggi vs Rendah-Sedang). Sel dengan kontribusi terbesar terhadap nilai chi-square adalah kombinasi **Kemiskinan Tinggi x Akses Internet Rendah** (observasi 7 provinsi, ekspektasi 2.43 provinsi, kontribusi 42.50% dari total chi-square).
 
 <img width="720" height="570" alt="image" src="https://github.com/user-attachments/assets/894cf4e6-83a9-4f1f-ab7f-0d7ee7ab9ad8" />
 
-<img width="700" height="250" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
+<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
 
 ### Post-Hoc dan Goodness-of-Fit
 
