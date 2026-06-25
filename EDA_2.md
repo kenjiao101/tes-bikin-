@@ -4,15 +4,15 @@ An applied statistics study examining the digital divide in Indonesia in 2024, u
 
 ## 📝 Table of Contents
 
-1. [Project Overview](#-project-overview)
-2. [Main Problem](#-main-problem)
+1. [Overview](#-overview)
+2. [Problem Statement](#-problem-statement)
 3. [Objectives](#-objectives)
-4. [Data Sources](#-data-sources)
-5. [Tools and Technologies](#-tools-and-technologies)
+4. [Dataset](#-dataset)
+5. [Tech Stack](#-tech-stack)
 6. [Methodology](#-methodology)
 7. [Workflow](#-workflow)
-8. [Results and Key Findings](#-results-and-key-findings)
-9. [How to Run](#-how-to-run)
+8. [Results and Performance](#-results-and-performance)
+9. [Getting Started](#-getting-started)
 10. [Limitations](#-limitations)
 ---
 
@@ -22,7 +22,7 @@ This project examines whether the poverty rate in a province is associated with 
 
 What sets this project apart from a simple correlation analysis is its methodological consistency. Whenever a statistical assumption fails to be met (homoscedasticity, minimum expected frequency in the contingency table), this project does not ignore it, but instead switches to a more appropriate method (Fisher's Exact Test) or explicitly records it as a model limitation.
 
-## ❓ Main Problem
+## ❓ Problem Statement
 
 Internet access is often assumed to be an indicator of digital equality, but its distribution in Indonesia is suspected to be uneven and correlated with the socioeconomic conditions of a region. Questions this study aims to answer:
 
@@ -37,7 +37,7 @@ Internet access is often assumed to be an indicator of digital equality, but its
 - Identify the provinces that are the main drivers behind the significance of this relationship.
 - Present all results with full transparency regarding violations of statistical assumptions, rather than reporting only significant findings.
 
-## 📊 Data Sources
+## 📊 Dataset
 
 Two official datasets from BPS (Statistics Indonesia), 2024:
 
@@ -50,7 +50,7 @@ Data collection notes:
 - From the poverty dataset, the column used corresponds to the March 2024 (Semester I) period, chosen to maintain temporal consistency with the internet access survey period.
 - The raw CSV files are not included directly in this repository. Download them from the two links above, then place them in `data/raw/`. It is recommended to rename the files to something more concise, such as `internet_access_2024.csv` and `poverty_rate_2024.csv`, and adjust the path in the notebook accordingly.
 
-## 🛠️ Tools and Technologies
+## 🛠️ Tech Stack
 
 - Python 3
 - pandas, numpy (data manipulation)
@@ -83,7 +83,7 @@ The notebook follows six sequential sections, designed to be run from top to bot
 5. **Predictive Modeling and Correlation Testing**: Pearson correlation, linear regression, F-test and t-test, classical assumption testing, diagnostic visualization.
 6. **Chi-Square Testing**: independence testing, Cramer's V, Fisher's Exact Test, post-hoc pairwise comparison, goodness-of-fit test, comparison of categorical vs. numerical results.
 
-## 📈 Results and Key Findings
+## 📈 Results and Performance
 
 ### Data Summary
 
@@ -185,7 +185,7 @@ Papua Pegunungan and Papua Tengah were detected as significant outliers (Z-score
 
 The poverty rate and internet access across provinces in Indonesia in 2024 are negatively, strongly, and statistically significantly related, consistently shown by both the numerical approach (Pearson r, regression) and the categorical approach (chi-square, Cramer's V, Fisher's Exact Test). Not a single province was found with a combination of both high poverty and high internet access, indicating a real digital divide between regions rather than mere random variation.
 
-## 🚀 How to Run
+## 🚀 Getting Started
 
 1. Clone the repository:
 ```bash
@@ -204,7 +204,7 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Download the two datasets from the links in the [Data Sources](#-data-sources) section, then place them in `data/raw/`.
+4. Download the two datasets from the links in the [Dataset](#-dataset) section, then place them in `data/raw/`.
 
 5. **Important, reproducibility note**: the original notebook was developed in Google Colab and uses the file upload widget (`google.colab.files.upload()`) in section 1.2. To run it locally (Jupyter/VS Code), replace that cell with direct file reading from a local folder:
 
@@ -224,4 +224,4 @@ Execute the cells sequentially from top to bottom.
 - **Two classical regression assumptions are not met** (homoscedasticity and non-autocorrelation). The coefficient and the direction of the relationship remain valid, but the resulting standard errors and p-values are slightly biased.
 - **Small sample size**, so the results are susceptible to being influenced by a small number of extreme provinces (Papua Pegunungan and Papua Tengah were detected as outliers on both variables).
 - **Single-year cross-sectional data (2024)**, so it cannot be used to make claims about trends or causal relationships, only association at a single point in time.
-- **The notebook depends on Google Colab** for data input, so it cannot yet be run directly outside Colab without minor modifications (see the [How to Run](#-how-to-run) section).
+- **The notebook depends on Google Colab** for data input, so it cannot yet be run directly outside Colab without minor modifications (see the [Getting Started](#-getting-started) section).
