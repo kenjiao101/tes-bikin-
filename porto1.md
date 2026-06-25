@@ -158,10 +158,6 @@ Section 17  -->  Catatan dan Temuan Utama
 
 ## 🎥 Demo & Screenshots
 
-> 📓 **Notebook:** [[nbviewer](https://nbviewer.org/github/[username]/workforce-scheduling-mip-sensitivity-analysis/blob/main/notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb)] &nbsp;|&nbsp; [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/[username]/workforce-scheduling-mip-sensitivity-analysis/blob/main/notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb)
-
-<br>
-
 | Profil Demand per Jam (Rata-rata Tahunan) | Alokasi Staf Optimal vs Kebutuhan — Baseline |
 |:---:|:---:|
 | <img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/b75196d7-dd90-47cc-a3bd-4dc2a786ec1e" /> | <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/c0bc7aa2-ae9e-463b-bb96-0237879b36c3" /> |
