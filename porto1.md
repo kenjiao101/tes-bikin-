@@ -271,8 +271,8 @@ See [LICENSE](LICENSE) for full details.
 
 **[Full Name]**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-[nama]-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/[username])
-[![Email](https://img.shields.io/badge/Email-[email]-D14836?style=flat-square&logo=gmail)](mailto:[email])
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-kenzyfarzq-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/kenzyfarzq)
+[![Email](https://img.shields.io/badge/Email-kenzyfarzq-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq)
 
 <br>
 
@@ -284,6 +284,6 @@ See [LICENSE](LICENSE) for full details.
   <sub>
     ⭐ If you find this project useful, consider giving it a star!
     <br>
-    Made by <a href="https://github.com/kenzyfarzq">[Name]</a> · Last updated: 2026-06
+    Made by <a href="https://github.com/kenzyfarzq">[kenzyfarzq]</a> · Last updated: 2026-06
   </sub>
 </div>
