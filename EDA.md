@@ -87,8 +87,6 @@ Notebook mengikuti enam bagian berurutan, dapat dijalankan dari atas ke bawah ta
 
 ### Ringkasan Data
 
-Setelah pembersihan dan penggabungan, dataset akhir berisi **37 provinsi** dengan variabel utama Internet_Total (persentase akses internet) dan Kemiskinan_Persen (persentase penduduk miskin). Satu provinsi (DKI Jakarta) dihapus karena missing value pada kolom Internet_Perdesaan (kurang dari 5% dari total data).
-
 | Variabel | Mean | Median | Std Dev | Rentang |
 |---|---|---|---|---|
 | Akses Internet (%) | 85.95 | 90.17 | 16.09 | 12.15 - 97.57 |
@@ -224,6 +222,6 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 ## ⚠️ Keterbatasan
 
 - **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungannya tetap valid, tetapi standard error dan p-value yang dihasilkan sedikit bias.
-- **Ukuran sampel kecil** (37 provinsi), sehingga hasil rentan dipengaruhi oleh sedikit provinsi ekstrem (Papua Pegunungan, Papua Tengah terdeteksi sebagai outlier pada kedua variabel).
+- **Ukuran sampel kecil**, sehingga hasil rentan dipengaruhi oleh sedikit provinsi ekstrem (Papua Pegunungan, Papua Tengah terdeteksi sebagai outlier pada kedua variabel).
 - **Data cross-sectional satu tahun (2024)**, sehingga tidak dapat digunakan untuk klaim tren atau hubungan kausal, hanya asosiasi pada satu titik waktu.
 - **Notebook bergantung pada Google Colab** untuk input data, sehingga belum dapat dijalankan langsung di luar Colab tanpa modifikasi kecil (lihat bagian Cara Menjalankan).
