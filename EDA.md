@@ -223,7 +223,7 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 
 ## ⚠️ Keterbatasan
 
-- **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungan tetap valid, tetapi standard error dan p-value yang dilaporkan berpotensi terlalu optimis. Penggunaan robust standard error akan memberikan estimasi ketidakpastian yang lebih akurat.
+- **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungannya tetap valid, tetapi standard error dan p-value yang dihasilkan sedikit bias.
 - **Ukuran sampel kecil** (37 provinsi), sehingga hasil rentan dipengaruhi oleh sedikit provinsi ekstrem (Papua Pegunungan, Papua Tengah terdeteksi sebagai outlier pada kedua variabel).
 - **Data cross-sectional satu tahun (2024)**, sehingga tidak dapat digunakan untuk klaim tren atau hubungan kausal, hanya asosiasi pada satu titik waktu.
 - **Notebook bergantung pada Google Colab** untuk input data, sehingga belum dapat dijalankan langsung di luar Colab tanpa modifikasi kecil (lihat bagian Cara Menjalankan).
