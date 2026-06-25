@@ -250,17 +250,9 @@ Section 17  -->  Catatan dan Temuan Utama
 
 ## ⚠️ Notes / Limitations
 
-- **Scope:** Analisis ini menggunakan data bike-sharing Seoul periode Desember 2017 sampai November 2018. Profil demand, pola musiman, dan hasil optimasi tidak dapat digeneralisasi langsung ke sistem bike-sharing di kota atau negara lain tanpa kalibrasi ulang terhadap kondisi lokal.
-
 - **Parameter Asumsi:** Seluruh parameter biaya dan kapasitas operasional (upah Rp25.000/jam, kapasitas 50 transaksi/staf/jam, batas 20 staf per shift, premium 1,5× untuk staf tambahan) bukan berasal dari dataset. Parameter ini adalah asumsi operasional yang ditetapkan secara eksplisit dan didokumentasikan di Section 8. Sensitivitas terhadap perubahan masing-masing parameter diperiksa secara sistematis di Section 13.
 
 - **Representative Day:** Profil demand yang menjadi input model merupakan rata-rata historis per kelompok (musim atau status holiday), bukan demand satu hari aktual. Nilai kebutuhan staf per jam sebaiknya dibaca sebagai estimasi rata-rata, bukan angka pasti harian.
-
-- **Model Scope:** Project ini adalah model shift scheduling dan analisis sensitivitas, bukan sistem prediksi demand. Tidak ada komponen machine learning atau time series forecasting di dalamnya.
-
-- **Skalabilitas:** Model mencakup 3 shift dan 24 slot jam dalam satu hari representatif. Ekstensi ke horizon perencanaan mingguan atau bulanan membutuhkan reformulasi dan kemungkinan penggantian solver.
-
-- **Dependensi Platform:** Diuji menggunakan Python 3.10+ dan PuLP 2.7+ dengan CBC solver bawaan. Kompatibilitas pada versi Python di bawah 3.10 atau solver alternatif tidak diuji.
 
 ---
 
@@ -281,7 +273,7 @@ See [LICENSE](LICENSE) for full details.
 
 <br>
 
-> 💬 Menemukan bug atau punya saran? [Buka issue baru](https://github.com/[username]/workforce-scheduling-mip-sensitivity-analysis/issues/new).
+> 💬 Menemukan bug atau punya saran? [Buka issue baru](https://github.com/kenzyfarzq/workforce-scheduling-mip-sensitivity-analysis/issues/new).
 
 ---
 
