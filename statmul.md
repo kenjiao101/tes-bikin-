@@ -30,7 +30,7 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 
 | Heatmap Korelasi Antar Variabel Kimia | Separasi Kelas pada Ruang PCA 2D |
 |:---:|:---:|
-| <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/c64e78fc-37dc-4706-a9c3-c65a9064597a" /> | <img width="600" height="250" alt="image" src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" /> |
+| <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/c64e78fc-37dc-4706-a9c3-c65a9064597a" /> | <img width="700" height="370" alt="image" src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" /> |
 | *Heatmap 13×13 dengan colormap RdYlGn menunjukkan 6 pasangan dengan korelasi kuat (r > 0.60), terutama cluster variabel fenolik di kelompok Flavanoids, Total_phenols, dan OD280/OD315* | *Scatter PCA 2D — PC1 menjelaskan `36.20%` dan PC2 `19.21%` variansi. Pemisahan ketiga kelas mulai terlihat di ruang dua dimensi* |
 
 | Profil Mean Terstandardisasi per Kelas (MANOVA) | LDA: Separasi Kelas dan Confusion Matrix |
