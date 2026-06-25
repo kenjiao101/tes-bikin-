@@ -114,9 +114,15 @@ Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 
 Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna penting.
 
-<img width="680" height="400" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
+<p align="center">
+  <img width="680" height="400" alt="image"
+       src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
+</p>
 
-<img width="680" height="400" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
+<p align="center">
+  <img width="680" height="400" alt="image"
+       src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
+</p>
 
 ### Uji Asumsi Regresi
 
