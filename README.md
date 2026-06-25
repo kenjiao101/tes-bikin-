@@ -118,7 +118,7 @@ Setelah pembersihan dan penggabungan, dataset akhir berisi **37 provinsi** denga
 | Akses Internet (%) | 85.95 | 90.17 | 16.09 | 12.15 - 97.57 |
 | Kemiskinan (%) | 11.33 | 10.47 | 6.74 | 4.00 - 32.97 |
 
-<img width="1390" height="989" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />
+<img width="1390" height="500" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />
 
 ### Hubungan Kemiskinan dan Akses Internet
 
