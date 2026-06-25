@@ -178,7 +178,7 @@ Section 17  -->  Catatan dan Temuan Utama
 ### Hourly Demand Profile (Annual Average)
 
 <p align="center">
-  <img width="650" height="270" alt="image"
+  <img width="640" height="275" alt="image"
        src="https://github.com/user-attachments/assets/b75196d7-dd90-47cc-a3bd-4dc2a786ec1e" />
 </p>
 
