@@ -16,7 +16,7 @@ An applied statistics study examining the digital divide in Indonesia in 2024, u
 10. [Limitations](#-limitations)
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
 This project examines whether the poverty rate in a province is associated with the household internet access rate in that province, using official BPS (Statistics Indonesia) data from 2024 covering 37 provinces in Indonesia. The analysis is carried out in six sequential stages: data collection, data cleaning and merging, data exploration, variable categorization, regression modeling with classical assumption testing, and chi-square testing with effect size and corrective tests when statistical assumptions are not met.
 
