@@ -96,9 +96,7 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 5. **Asumsi multivariat tidak terpenuhi namun analisis tetap dapat dipertahankan** — Henze-Zirkler Test: HZ = `1.0743`, p ≈ `0.000` (tidak normal multivariat). Box's M Test: χ² = `209.99`, df = `56`, p = `1.15e-19` (kovarian tidak homogen). Kedua kondisi ini ditangani dengan justifikasi ukuran sampel `n = 178` yang cukup besar dan distribusi antar kelas yang relatif seimbang (CLT berlaku), serta adanya `12` outlier multivariat (`6.74%`) yang tidak mendominasi data.
 
 6. **PCA dan LDA mengkonfirmasi separabilitas kelas secara visual dan kuantitatif** — PCA 2 komponen menangkap `55.41%` variansi keseluruhan (PC1 = `36.20%`, PC2 = `19.21%`), dengan pemisahan visual yang cukup jelas antar kelas. LDA menghasilkan pemisahan optimal dengan LD1 menjelaskan `68.75%` variansi antar kelas. Akurasi resubstitusi mencapai `100.00%` (lihat keterbatasan di bawah).
-
 <br>
-
 ## 🚀 Getting Started
 
 > This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
