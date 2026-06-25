@@ -118,7 +118,7 @@ Setelah pembersihan dan penggabungan, dataset akhir berisi **37 provinsi** denga
 | Akses Internet (%) | 85.95 | 90.17 | 16.09 | 12.15 - 97.57 |
 | Kemiskinan (%) | 11.33 | 10.47 | 6.74 | 4.00 - 32.97 |
 
-`[TEMPEL GAMBAR DI SINI: Histogram dan boxplot distribusi Akses Internet serta Tingkat Kemiskinan (Bagian 3.2, analisis univariate)]`
+`<img width="1390" height="989" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />`
 
 ### Hubungan Kemiskinan dan Akses Internet
 
@@ -138,7 +138,7 @@ Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 
 Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna substantif tersendiri.
 
-`[TEMPEL GAMBAR DI SINI: Scatter plot hubungan Kemiskinan vs Akses Internet dengan trendline (Bagian 3.3, analisis bivariate)]`
+`<img width="1091" height="689" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />`
 
 `[TEMPEL GAMBAR DI SINI: Scatter plot dan garis regresi dengan anotasi persamaan dan R² (Bagian 5.6, visualisasi regresi)]`
 
