@@ -8,7 +8,7 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 2. [Masalah Utama](#masalah-utama)
 3. [Tujuan](#tujuan)
 4. [Sumber Data](#sumber-data)
-5. [Tools dan Teknologi](#tools-dan-teknologi)
+5. [🛠️ Tools dan Teknologi](#🛠️-tools-dan-teknologi)
 6. [Metodologi](#metodologi)
 7. [Workflow](#workflow)
 8. [Hasil dan Temuan Utama](#hasil-dan-temuan-utama)
@@ -50,7 +50,7 @@ Catatan pengambilan data:
 - Dari dataset kemiskinan, kolom yang digunakan adalah periode Maret 2024 (Semester I), dipilih untuk konsistensi temporal dengan periode survei akses internet.
 - File CSV mentah tidak disertakan langsung di repository ini. Unduh dari kedua link di atas, lalu letakkan di `data/raw/`. Disarankan mengganti nama file menjadi lebih ringkas, misalnya `internet_access_2024.csv` dan `poverty_rate_2024.csv`, dan menyesuaikan path pada notebook.
 
-## Tools dan Teknologi
+## 🛠️ Tools dan Teknologi
 
 - Python 3
 - pandas, numpy (manipulasi data)
