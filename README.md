@@ -5,7 +5,7 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 ## Daftar Isi
 
 1. [📌 Ringkasan Proyek](#ringkasan-proyek)
-2. [Masalah Utama](#masalah-utama)
+2. [Masalah Utama](#-masalah-utama)
 3. [Tujuan](#tujuan)
 4. [Sumber Data](#sumber-data)
 5. [🛠️ Tools dan Teknologi](#🛠️-tools-dan-teknologi)
