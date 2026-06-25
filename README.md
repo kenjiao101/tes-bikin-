@@ -126,7 +126,7 @@ Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96%
 | Homoskedastisitas | Breusch-Pagan | LM = 20.43, p < 0.001 | Tidak terpenuhi |
 | Tidak ada autokorelasi | Durbin-Watson | DW = 1.04 | Tidak terpenuhi (autokorelasi positif) |
 
-<img width="1189" height="790" alt="image" src="https://github.com/user-attachments/assets/2538bc2a-e996-4844-8c0c-2db73259dd6e" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/2538bc2a-e996-4844-8c0c-2db73259dd6e" />
 
 Dua dari tiga asumsi klasik regresi tidak terpenuhi sepenuhnya. Interpretasi koefisien (arah dan signifikansi) tetap valid, tetapi standard error dan confidence interval yang dilaporkan berpotensi bias akibat heteroskedastisitas dan autokorelasi. Lihat bagian Keterbatasan.
 
