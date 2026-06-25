@@ -2,10 +2,6 @@
 
 ### Menganalisis perbedaan profil kimia tiga cultivar wine Italia menggunakan pipeline statistika multivariat pada UCI Wine Dataset untuk mengidentifikasi variabel pembeda utama secara statistik.
 
-<br>
-
-</div>
-
 ---
 
 ## 📌 Overview
@@ -21,37 +17,6 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 **Gap:** Meskipun dataset ini sering dijadikan benchmark klasifikasi machine learning, analisis statistika multivariat yang sistematis mencakup pengujian asumsi formal, uji hipotesis dengan beberapa metode, kuantifikasi effect size, dan identifikasi variabel pembeda utama jarang dikerjakan secara menyeluruh dalam satu alur analisis yang runtut dan terdokumentasi.
 
 **Solusi:** Project ini menerapkan pipeline analisis multivariat end-to-end, mencakup: EDA komprehensif, pengujian normalitas multivariat via Henze-Zirkler Test, deteksi outlier multivariat via Mahalanobis Distance, Hotelling T² untuk perbandingan pasangan kelas, Box's M untuk homogenitas kovarian, MANOVA dengan Wilks' Lambda beserta partial η², post-hoc ANOVA univariat, serta PCA dan LDA sebagai analisis lanjutan. Hasilnya berupa bukti statistik yang kuat bahwa ketiga kelas wine berbeda secara signifikan, dengan Flavanoids, Alcohol, dan Total_phenols sebagai variabel paling diskriminatif.
-
----
-
-## 🎥 Demo & Screenshots
-
-<br>
-
-| Heatmap Korelasi Antar Variabel Kimia | Separasi Kelas pada Ruang PCA 2D |
-|:---:|:---:|
-| <img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/c64e78fc-37dc-4706-a9c3-c65a9064597a" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" /> |
-| *Heatmap 13×13 dengan colormap RdYlGn menunjukkan 6 pasangan dengan korelasi kuat (r > 0.60), terutama cluster variabel fenolik di kelompok Flavanoids, Total_phenols, dan OD280/OD315* | *Scatter PCA 2D — PC1 menjelaskan `36.20%` dan PC2 `19.21%` variansi. Pemisahan ketiga kelas mulai terlihat di ruang dua dimensi* |
-
-| Profil Mean Terstandardisasi per Kelas (MANOVA) | LDA: Separasi Kelas dan Confusion Matrix |
-|:---:|:---:|
-| <img width="1648" height="590" alt="image" src="https://github.com/user-attachments/assets/507b9ba9-e706-4eda-b270-c9e012420f9d" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/cfec45df-3207-4a0b-9292-dfdc2e985fc7" /> |
-| *Line plot profil mean z-score tiga kelas wine. Kelas 1 dominan tinggi di Flavanoids dan Alcohol; Kelas 3 dominan rendah. Pola pembedaan paling tajam terlihat pada variabel fenol* | *Scatter LDA 2D + confusion matrix penuh diagonal (59/59, 71/71, 48/48) dari akurasi resubstitusi `100.00%` menggunakan seluruh 13 fitur* |
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Teknologi | Peran dalam Project |
-|:---:|:---:|---|
-| Language | Python 3.12 | Bahasa utama seluruh pipeline analisis |
-| Environment | Google Colab / Jupyter Notebook | Eksekusi interaktif, eksplorasi bertahap, dan output beranotasi |
-| Data Access | ucimlrepo `0.0.7` | Fetch dataset langsung dari UCI ML Repository via API — tanpa file CSV lokal |
-| Data Processing | Pandas `2.2.2`, NumPy `2.0.2` | Manipulasi DataFrame, kalkulasi matriks kovarian, dan transformasi statistik |
-| Statistical Testing | SciPy `1.16.3`, Pingouin `0.6.1`, Statsmodels `0.14.6` | Uji Henze-Zirkler, Hotelling T², Box's M Test, dan MANOVA (Wilks' Lambda) |
-| Visualization | Matplotlib `3.10.0`, Seaborn `0.13.2` | 14 visualisasi: histogram+KDE, boxplot, heatmap korelasi, pairplot, scatter PCA/LDA, dan confusion matrix |
-| ML / Dimensionality Reduction | Scikit-learn `1.6.1` | StandardScaler untuk normalisasi, PCA untuk reduksi dimensi, LDA untuk analisis diskriminan |
-| Version Control | Git + GitHub | Source control dan publikasi portofolio |
 
 ---
 
@@ -85,7 +50,34 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 | `Color_intensity` | `float` | Intensitas warna wine yang diukur secara fotometrik | `4.38` |
 | `Malicacid` | `float` | Kandungan asam malat (g/L) — pembeda ke-4 (η² ≈ `0.297`) | `1.78` |
 
-> Dataset diakses langsung via `ucimlrepo.fetch_ucirepo(id=109)` — tidak tersedia di folder `data/` karena tidak memerlukan penyimpanan file lokal.
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Teknologi | Peran dalam Project |
+|:---:|:---:|---|
+| Language | Python 3.12 | Bahasa utama seluruh pipeline analisis |
+| Environment | Google Colab / Jupyter Notebook | Eksekusi interaktif, eksplorasi bertahap, dan output beranotasi |
+| Data Access | ucimlrepo `0.0.7` | Fetch dataset langsung dari UCI ML Repository via API — tanpa file CSV lokal |
+| Data Processing | Pandas `2.2.2`, NumPy `2.0.2` | Manipulasi DataFrame, kalkulasi matriks kovarian, dan transformasi statistik |
+| Statistical Testing | SciPy `1.16.3`, Pingouin `0.6.1`, Statsmodels `0.14.6` | Uji Henze-Zirkler, Hotelling T², Box's M Test, dan MANOVA (Wilks' Lambda) |
+| Visualization | Matplotlib `3.10.0`, Seaborn `0.13.2` | 14 visualisasi: histogram+KDE, boxplot, heatmap korelasi, pairplot, scatter PCA/LDA, dan confusion matrix |
+| ML / Dimensionality Reduction | Scikit-learn `1.6.1` | StandardScaler untuk normalisasi, PCA untuk reduksi dimensi, LDA untuk analisis diskriminan |
+| Version Control | Git + GitHub | Source control dan publikasi portofolio |
+
+---
+
+## 🎥 Demo & Screenshots
+
+| Heatmap Korelasi Antar Variabel Kimia | Separasi Kelas pada Ruang PCA 2D |
+|:---:|:---:|
+| <img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/c64e78fc-37dc-4706-a9c3-c65a9064597a" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" /> |
+| *Heatmap 13×13 dengan colormap RdYlGn menunjukkan 6 pasangan dengan korelasi kuat (r > 0.60), terutama cluster variabel fenolik di kelompok Flavanoids, Total_phenols, dan OD280/OD315* | *Scatter PCA 2D — PC1 menjelaskan `36.20%` dan PC2 `19.21%` variansi. Pemisahan ketiga kelas mulai terlihat di ruang dua dimensi* |
+
+| Profil Mean Terstandardisasi per Kelas (MANOVA) | LDA: Separasi Kelas dan Confusion Matrix |
+|:---:|:---:|
+| <img width="1648" height="590" alt="image" src="https://github.com/user-attachments/assets/507b9ba9-e706-4eda-b270-c9e012420f9d" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/cfec45df-3207-4a0b-9292-dfdc2e985fc7" /> |
+| *Line plot profil mean z-score tiga kelas wine. Kelas 1 dominan tinggi di Flavanoids dan Alcohol; Kelas 3 dominan rendah. Pola pembedaan paling tajam terlihat pada variabel fenol* | *Scatter LDA 2D + confusion matrix penuh diagonal (59/59, 71/71, 48/48) dari akurasi resubstitusi `100.00%` menggunakan seluruh 13 fitur* |
 
 ---
 
