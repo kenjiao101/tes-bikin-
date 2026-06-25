@@ -12,6 +12,19 @@
 
 </div>
 
+## 📝 Table of Contents
+
+1. [Overview](#-overview)
+2. [Problem Statement](#-problem-statement)
+3. [Dataset](#-dataset)
+4. [Tech Stack](#-tech-stack)
+5. [Getting Started](#-getting-started)
+6. [Usage](#-Usage)
+7. [Screenshots](#-screenshots)
+8. [Results and Performance](#-results-and-performance)
+9. [Limitations](#-limitations)
+10. [License](#-license)
+11. [Contact](#-contact)
 ---
 
 ## 📌 Overview
@@ -156,7 +169,7 @@ Section 17  -->  Catatan dan Temuan Utama
 
 ---
 
-## 🎥 Demo & Screenshots
+## 🎥 Screenshots
 
 | Profil Demand per Jam (Rata-rata Tahunan) | Alokasi Staf Optimal vs Kebutuhan — Baseline |
 |:---:|:---:|
@@ -170,7 +183,7 @@ Section 17  -->  Catatan dan Temuan Utama
 
 ---
 
-## 📈 Results & Performance
+## 📈 Results and Performance
 
 ### Hasil Optimasi per Skenario
 
@@ -210,7 +223,7 @@ Section 17  -->  Catatan dan Temuan Utama
 
 ---
 
-## ⚠️ Notes / Limitations
+## ⚠️ Limitations
 
 - **Parameter Asumsi:** Seluruh parameter biaya dan kapasitas operasional (upah Rp25.000/jam, kapasitas 50 transaksi/staf/jam, batas 20 staf per shift, premium 1,5× untuk staf tambahan) bukan berasal dari dataset. Parameter ini adalah asumsi operasional yang ditetapkan secara eksplisit dan didokumentasikan di Section 8. Sensitivitas terhadap perubahan masing-masing parameter diperiksa secara sistematis di Section 13.
 
@@ -234,7 +247,7 @@ See [LICENSE](LICENSE) for full details.
 
 <br>
 
-> 💬 Menemukan bug atau punya saran? [Buka issue baru](https://github.com/kenzyfarzq/workforce-scheduling-mip-sensitivity-analysis/issues/new).
+> 💬 Menemukan bug atau punya saran? [Buka issue baru](https://github.com/username/workforce-scheduling-mip-sensitivity-analysis/issues/new).
 
 ---
 
