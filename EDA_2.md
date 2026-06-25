@@ -4,16 +4,16 @@ An applied statistics study examining the digital divide in Indonesia in 2024, u
 
 ## 📝 Table of Contents
 
-1. [Project Overview](#-ringkasan-proyek)
-2. [Main Problem](#-masalah-utama)
-3. [Objectives](#-tujuan)
-4. [Data Sources](#-sumber-data)
-5. [Tools and Technologies](#-tools-dan-teknologi)
-6. [Methodology](#-metodologi)
+1. [Project Overview](#-project-overview)
+2. [Main Problem](#-main-problem)
+3. [Objectives](#-objectives)
+4. [Data Sources](#-data-sources)
+5. [Tools and Technologies](#-tools-and-technologies)
+6. [Methodology](#-methodology)
 7. [Workflow](#-workflow)
-8. [Results and Key Findings](#-hasil-dan-temuan-utama)
-9. [How to Run](#-cara-menjalankan)
-10. [Limitations](#-keterbatasan)
+8. [Results and Key Findings](#-results-and-key-findings)
+9. [How to Run](#-how-to-run)
+10. [Limitations](#-limitations)
 ---
 
 ## 📌 Project Overview
