@@ -4,16 +4,16 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 
 ## Daftar Isi
 
-1. [📌 Ringkasan Proyek](#ringkasan-proyek)
+1. [Ringkasan Proyek](#-ringkasan-proyek)
 2. [Masalah Utama](#-masalah-utama)
-3. [Tujuan](#tujuan)
-4. [Sumber Data](#sumber-data)
-5. [🛠️ Tools dan Teknologi](#🛠️-tools-dan-teknologi)
-6. [Metodologi](#metodologi)
-7. [Workflow](#workflow)
-8. [Hasil dan Temuan Utama](#hasil-dan-temuan-utama)
-9. [Cara Menjalankan](#cara-menjalankan)
-10. [Keterbatasan](#keterbatasan)
+3. [Tujuan](#-tujuan)
+4. [Sumber Data](#-sumber-data)
+5. [Tools dan Teknologi](#-tools-dan-teknologi)
+6. [Metodologi](#-metodologi)
+7. [Workflow](#-workflow)
+8. [Hasil dan Temuan Utama](#-hasil-dan-temuan-utama)
+9. [Cara Menjalankan](#-cara-menjalankan)
+10. [Keterbatasan](#-keterbatasan)
 ---
 
 ## 📌 Ringkasan Proyek
@@ -37,7 +37,7 @@ Akses internet sering diasumsikan sebagai indikator kesetaraan digital, tetapi d
 - Mengidentifikasi provinsi-provinsi yang menjadi pendorong utama (driver) dari signifikansi hubungan tersebut.
 - Menyajikan seluruh hasil dengan transparansi penuh terhadap pelanggaran asumsi statistik, bukan hanya melaporkan hasil yang signifikan.
 
-## Sumber Data
+## 📊 Sumber Data
 
 Dua dataset resmi dari BPS (Badan Pusat Statistik Republik Indonesia), tahun 2024:
 
@@ -72,7 +72,7 @@ Pendekatan statistik dipilih berdasarkan jenis data dan kebutuhan validasi silan
 7. **Post-hoc pairwise comparison dengan koreksi Bonferroni** untuk mengidentifikasi pasangan kategori mana yang signifikan secara individual setelah uji chi-square keseluruhan signifikan.
 8. **Goodness-of-fit test** untuk memeriksa apakah distribusi kategori kemiskinan dan akses internet merata atau tidak secara independen dari hubungan antar keduanya.
 
-## Workflow
+## 📐 Workflow
 
 Notebook mengikuti enam bagian berurutan, dapat dijalankan dari atas ke bawah tanpa loncatan:
 
@@ -83,7 +83,7 @@ Notebook mengikuti enam bagian berurutan, dapat dijalankan dari atas ke bawah ta
 5. **Pemodelan Prediktif dan Uji Korelasi**: korelasi Pearson, regresi linear, uji F dan t, uji asumsi klasik, visualisasi diagnostik.
 6. **Uji Chi-Square**: uji independensi, Cramer's V, Fisher's Exact Test, post-hoc pairwise comparison, goodness-of-fit test, perbandingan hasil kategorik vs numerik.
 
-## Hasil dan Temuan Utama
+## 📈 Hasil dan Temuan Utama
 
 ### Ringkasan Data
 
@@ -163,7 +163,7 @@ Papua Pegunungan dan Papua Tengah terdeteksi sebagai outlier signifikan (Z-score
 
 Tingkat kemiskinan dan akses internet antarprovinsi di Indonesia tahun 2024 berhubungan negatif, kuat, dan signifikan secara statistik, konsisten ditunjukkan baik dari pendekatan numerik (Pearson r, regresi) maupun pendekatan kategorik (chi-square, Cramer's V, Fisher's Exact Test). Tidak ditemukan satu pun provinsi dengan kombinasi kemiskinan tinggi dan akses internet tinggi secara bersamaan, mengindikasikan kesenjangan digital yang nyata antarwilayah, bukan sekadar variasi acak.
 
-## Cara Menjalankan
+## 🚀 Cara Menjalankan
 
 1. Clone repository:
 ```bash
@@ -197,7 +197,7 @@ jupyter notebook notebooks/digital_divide_statistical_analysis.ipynb
 ```
 Eksekusi sel secara berurutan dari atas ke bawah.
 
-## Keterbatasan
+## ⚠️ Keterbatasan
 
 - **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungan tetap valid, tetapi standard error dan p-value yang dilaporkan berpotensi terlalu optimis. Penggunaan robust standard error akan memberikan estimasi ketidakpastian yang lebih akurat.
 - **Ukuran sampel kecil** (37 provinsi), sehingga hasil rentan dipengaruhi oleh sedikit provinsi ekstrem (Papua Pegunungan, Papua Tengah terdeteksi sebagai outlier pada kedua variabel).
