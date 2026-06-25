@@ -7,6 +7,7 @@
 <br>
 
 [![License](https://img.shields.io/badge/license-MIT-3DA639?style=flat-square)](LICENSE)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](notebooks/)
 [![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)]()
 [![PuLP](https://img.shields.io/badge/solver-PuLP%20%2B%20CBC-5C6BC0?style=flat-square)]()
 
@@ -271,6 +272,7 @@ See [LICENSE](LICENSE) for full details.
 
 **Ahmad Kenzy Farzaq**
 
+[![GitHub](https://img.shields.io/badge/GitHub-username-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/username)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-kenzyfarzq-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/kenzyfarzq-60b790320/)
 [![Email](https://img.shields.io/badge/Email-kenzyfarzq@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq@gmail.com)
 
