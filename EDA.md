@@ -191,8 +191,8 @@ Tingkat kemiskinan dan akses internet antarprovinsi di Indonesia tahun 2024 berh
 
 1. Clone repository:
 ```bash
-git clone https://github.com/kenzyfarzq/digital-divide-indonesia-2024.git
-cd digital-divide-indonesia-2024
+git clone https://github.com/kenzyfarzq/digital-divide-indonesia.git
+cd digital-divide-indonesia
 ```
 
 2. Buat virtual environment (Opsional):
