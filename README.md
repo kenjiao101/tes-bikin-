@@ -138,9 +138,9 @@ Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 
 Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna substantif tersendiri.
 
-`<img width="1091" height="689" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />`
+<img width="1091" height="689" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
 
-`[TEMPEL GAMBAR DI SINI: Scatter plot dan garis regresi dengan anotasi persamaan dan R² (Bagian 5.6, visualisasi regresi)]`
+<img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
 
 ### Uji Asumsi Regresi
 
@@ -150,7 +150,7 @@ Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96%
 | Homoskedastisitas | Breusch-Pagan | LM = 20.43, p < 0.001 | Tidak terpenuhi |
 | Tidak ada autokorelasi | Durbin-Watson | DW = 1.04 | Tidak terpenuhi (autokorelasi positif) |
 
-`[TEMPEL GAMBAR DI SINI: Panel diagnostik 4 plot, Residuals vs Fitted, Normal Q-Q, Scale-Location, Histogram Residual (Bagian 5.8)]`
+<img width="1189" height="790" alt="image" src="https://github.com/user-attachments/assets/2538bc2a-e996-4844-8c0c-2db73259dd6e" />
 
 Dua dari tiga asumsi klasik regresi tidak terpenuhi sepenuhnya. Interpretasi koefisien (arah dan signifikansi) tetap valid, tetapi standard error dan confidence interval yang dilaporkan berpotensi bias akibat heteroskedastisitas dan autokorelasi. Lihat bagian Keterbatasan.
 
@@ -158,15 +158,15 @@ Dua dari tiga asumsi klasik regresi tidak terpenuhi sepenuhnya. Interpretasi koe
 
 Kedua variabel dikategorikan menjadi Rendah/Sedang/Tinggi berdasarkan kuartil (Q1 dan Q3).
 
-`[TEMPEL GAMBAR DI SINI: Dua pie chart distribusi kategori Akses Internet dan Kemiskinan (Bagian 4.5)]`
+<img width="1139" height="490" alt="image" src="https://github.com/user-attachments/assets/262cf076-6046-4277-9645-c69db167ed0b" />
 
-`[TEMPEL GAMBAR DI SINI: Heatmap crosstabulation Kemiskinan vs Akses Internet (Bagian 4.5)]`
+<img width="745" height="590" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
 
 Tabel kontingensi menunjukkan 77.8% sel memiliki frekuensi harapan di bawah 5, sehingga chi-square 3x3 dilengkapi dengan Fisher's Exact Test pada tabel 2x2 (kategori digabung menjadi Tinggi vs Rendah-Sedang). Sel dengan kontribusi terbesar terhadap nilai chi-square adalah kombinasi **Kemiskinan Tinggi x Akses Internet Rendah** (observasi 7 provinsi, ekspektasi 2.43 provinsi, kontribusi 42.50% dari total chi-square).
 
-`[TEMPEL GAMBAR DI SINI: Heatmap 4-panel chi-square, Observed Frequencies, Expected Frequencies, Standardized Residuals, Grouped Bar Chart (Bagian 6.4)]`
+<img width="1192" height="990" alt="image" src="https://github.com/user-attachments/assets/894cf4e6-83a9-4f1f-ab7f-0d7ee7ab9ad8" />
 
-`[TEMPEL GAMBAR DI SINI: Heatmap dan grouped bar chart tabel kontingensi 2x2 untuk Fisher's Exact Test (Bagian 6.3.1)]`
+<img width="1390" height="590" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
 
 ### Post-Hoc dan Goodness-of-Fit
 
@@ -254,12 +254,6 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 - Seluruh visualisasi pada bagian Hasil dan Temuan Utama ditandai sebagai placeholder. Silakan tempel gambar asli dari notebook pada posisi yang ditandai sesuai deskripsi di setiap placeholder.
 - Lisensi belum ditentukan pada draft ini. Jika repository akan dirilis sebagai open-source, MIT License adalah pilihan umum untuk proyek analisis seperti ini.
 - Nama file dataset asli dari BPS memiliki format panjang dengan akhiran duplikat unduhan (misalnya "(1).csv"). Disarankan mengganti nama file menjadi lebih ringkas saat menyimpan di `data/raw/`.
-
-## File Terkait
-
-- Dataset Akses Internet: [BPS](https://www.bps.go.id/id/statistics-table/2/Mzk4IzI=/persentase-rumah-tangga-yang-pernah-mengakses-internet-dalam-3-bulan-terakhir-menurut-provinsi-dan-klasifikasi-daerah.html)
-- Dataset Kemiskinan: [BPS](https://www.bps.go.id/id/statistics-table/2/MTkyIzI=/persentase-penduduk-miskin--p0--menurut-provinsi-dan-daerah.html)
-- `requirements.txt` untuk reproduksi environment
 
 ## Author
 
