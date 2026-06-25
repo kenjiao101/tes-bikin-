@@ -1,0 +1,9 @@
+# Dependencies untuk digital-divide-indonesia-2024
+
+pandas
+numpy
+matplotlib
+seaborn
+scipy
+scikit-learn
+jupyter
