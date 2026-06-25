@@ -2,13 +2,21 @@
 
 ### Menganalisis perbedaan profil kimia tiga cultivar wine Italia menggunakan pipeline statistika multivariat pada UCI Wine Dataset untuk mengidentifikasi variabel pembeda utama secara statistik.
 
+## 📝 Table of Contents
+
+1. [Overview](#-overview)
+2. [Problem Statement](#-problem-statement)
+4. [Dataset](#-dataset)
+5. [Tech Stack](#-tech-stack)
+7. [Screenshots](#-screenshots)
+8. [Results and Performance](#-results-and-performance)
+9. [Getting Started](#-getting-started)
+10. [Limitations](#-limitations)
 ---
 
 ## 📌 Overview
 
 Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari UCI Machine Learning Repository, yang berisi 178 sampel wine Italia dari tiga cultivar berbeda dengan 13 variabel kimia. Pipeline analisis mencakup eksplorasi data, pengujian asumsi multivariat (normalitas dan homogenitas kovarian), uji hipotesis formal (Hotelling T² dan MANOVA), serta analisis lanjutan menggunakan PCA dan LDA. Target utama analisis ini adalah reviewer teknis, akademisi, dan siapapun yang ingin melihat implementasi statistika multivariat secara runtut dalam satu alur kerja yang terstruktur. Output berupa notebook beranotasi lengkap dengan 14 visualisasi, tabel ringkasan hasil setiap uji statistik, dan interpretasi temuan secara statistik maupun praktis.
-
----
 
 ## ❓ Problem Statement
 
@@ -17,8 +25,6 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 **Gap:** Meskipun dataset ini sering dijadikan benchmark klasifikasi machine learning, analisis statistika multivariat yang sistematis mencakup pengujian asumsi formal, uji hipotesis dengan beberapa metode, kuantifikasi effect size, dan identifikasi variabel pembeda utama jarang dikerjakan secara menyeluruh dalam satu alur analisis yang runtut dan terdokumentasi.
 
 **Solusi:** Project ini menerapkan pipeline analisis multivariat end-to-end, mencakup: EDA komprehensif, pengujian normalitas multivariat via Henze-Zirkler Test, deteksi outlier multivariat via Mahalanobis Distance, Hotelling T² untuk perbandingan pasangan kelas, Box's M untuk homogenitas kovarian, MANOVA dengan Wilks' Lambda beserta partial η², post-hoc ANOVA univariat, serta PCA dan LDA sebagai analisis lanjutan. Hasilnya berupa bukti statistik yang kuat bahwa ketiga kelas wine berbeda secara signifikan, dengan Flavanoids, Alcohol, dan Total_phenols sebagai variabel paling diskriminatif.
-
----
 
 ## 📊 Dataset
 
@@ -50,8 +56,6 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 | `Color_intensity` | `float` | Intensitas warna wine yang diukur secara fotometrik | `4.38` |
 | `Malicacid` | `float` | Kandungan asam malat (g/L) — pembeda ke-4 (η² ≈ `0.297`) | `1.78` |
 
----
-
 ## 🛠️ Tech Stack
 
 | Layer | Teknologi | Peran dalam Project |
@@ -65,9 +69,7 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 | ML / Dimensionality Reduction | Scikit-learn `1.6.1` | StandardScaler untuk normalisasi, PCA untuk reduksi dimensi, LDA untuk analisis diskriminan |
 | Version Control | Git + GitHub | Source control dan publikasi portofolio |
 
----
-
-## 🎥 Demo & Screenshots
+## 🎥 Screenshots
 
 | Heatmap Korelasi Antar Variabel Kimia | Separasi Kelas pada Ruang PCA 2D |
 |:---:|:---:|
@@ -78,8 +80,6 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 |:---:|:---:|
 | <img width="1648" height="590" alt="image" src="https://github.com/user-attachments/assets/507b9ba9-e706-4eda-b270-c9e012420f9d" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/cfec45df-3207-4a0b-9292-dfdc2e985fc7" /> |
 | *Line plot profil mean z-score tiga kelas wine. Kelas 1 dominan tinggi di Flavanoids dan Alcohol; Kelas 3 dominan rendah. Pola pembedaan paling tajam terlihat pada variabel fenol* | *Scatter LDA 2D + confusion matrix penuh diagonal (59/59, 71/71, 48/48) dari akurasi resubstitusi `100.00%` menggunakan seluruh 13 fitur* |
-
----
 
 ## 📈 Results & Performance
 
@@ -97,9 +97,33 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 
 6. **PCA dan LDA mengkonfirmasi separabilitas kelas secara visual dan kuantitatif** — PCA 2 komponen menangkap `55.41%` variansi keseluruhan (PC1 = `36.20%`, PC2 = `19.21%`), dengan pemisahan visual yang cukup jelas antar kelas. LDA menghasilkan pemisahan optimal dengan LD1 menjelaskan `68.75%` variansi antar kelas. Akurasi resubstitusi mencapai `100.00%` (lihat keterbatasan di bawah).
 
----
+## 🚀 Getting Started
 
-## ⚠️ Notes / Limitations
+> This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
+
+1. Navigate to this project folder:
+```bash
+cd multivariate-statistical-analysis
+```
+
+2. Create a virtual environment (Optional):
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the notebook:
+```bash
+jupyter notebook notebooks/multivariate_statistical_analysis_wine.ipynb
+```
+Execute the cells sequentially from top to bottom.
+
+## ⚠️ Limitations
 
 - **Scope:** Analisis ini mencakup satu dataset spesifik berisi `178` sampel wine Italia dari satu region geografis. Temuan ini tidak dimaksudkan untuk digeneralisasi ke wine dari region, negara, atau proses produksi lain karena karakteristik kimia wine sangat dipengaruhi oleh faktor terroir.
 
