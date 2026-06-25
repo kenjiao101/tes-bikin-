@@ -16,7 +16,7 @@
 
 ## 📌 Overview
 
-Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** untuk mengoptimalkan alokasi dan biaya tenaga kerja pada sistem bike-sharing Seoul. Dataset yang digunakan adalah Seoul Bike Sharing Demand dari UCI Repository (8.760 record selama satu tahun penuh, Desember 2017 sampai November 2018), yang diolah menjadi profil demand per jam sebagai input kebutuhan staf. Model diselesaikan menggunakan solver CBC via PuLP, lalu divalidasi dan diuji pada sembilan skenario empiris berbasis musim dan status hari libur, analisis sensitivitas parametrik melalui tornado chart, kurva trade-off biaya terhadap service level, serta diagnostik LP relaxation dengan shadow price. Output akhirnya adalah kerangka keputusan operasional yang secara kuantitatif menunjukkan biaya optimal per skenario, urutan prioritas validasi asumsi, dan batas service level yang sepadan dari sisi penghematan biaya.
+Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** dan **Linear Programming (LP)** untuk mengoptimalkan alokasi dan biaya tenaga kerja pada sistem bike-sharing Seoul. Dataset yang digunakan adalah Seoul Bike Sharing Demand dari UCI Repository (8.760 record selama satu tahun penuh, Desember 2017 sampai November 2018), yang diolah menjadi profil demand per jam sebagai input kebutuhan staf. Model diselesaikan menggunakan solver CBC via PuLP, lalu divalidasi dan diuji pada sembilan skenario empiris berbasis musim dan status hari libur, analisis sensitivitas parametrik melalui tornado chart, kurva trade-off biaya terhadap service level, serta diagnostik LP relaxation dengan shadow price. Output akhirnya adalah kerangka keputusan operasional yang secara kuantitatif menunjukkan biaya optimal per skenario, urutan prioritas validasi asumsi, dan batas service level yang sepadan dari sisi penghematan biaya.
 
 ---
 
@@ -196,12 +196,12 @@ Section 17  -->  Catatan dan Temuan Utama
 
 | Profil Demand per Jam (Rata-rata Tahunan) | Alokasi Staf Optimal vs Kebutuhan — Baseline |
 |:---:|:---:|
-| 📷 *PASTE gambar output Section 7.2 di sini* | 📷 *PASTE gambar output Section 11.3 di sini* |
+| <img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/b75196d7-dd90-47cc-a3bd-4dc2a786ec1e" /> | <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/c0bc7aa2-ae9e-463b-bb96-0237879b36c3" /> |
 | *Pola bimodal dengan puncak jam 08:00 (~1.050 unit) dan jam 18:00 (~1.554 unit)* | *Distribusi staf reguler (biru) dan staf tambahan (oranye) vs kebutuhan aktual per jam* |
 
 | Tornado Chart — Sensitivitas Parameter | Trade-off Frontier — Biaya vs Service Level |
 |:---:|:---:|
-| 📷 *PASTE gambar output Section 13.2 di sini* | 📷 *PASTE gambar output Section 14.2 di sini* |
+| <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/fb8ad9ac-8e52-400d-9b4b-6a6d23e1eb82" /> | <img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/8edbdd39-fe0a-432f-99ce-e166d62618db" /> |
 | *Urutan dampak perubahan ±20% per parameter terhadap total biaya operasional* | *Kurva biaya optimal sebagai fungsi target service level, rentang 70%–100%* |
 
 ---
