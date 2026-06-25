@@ -2,7 +2,7 @@
 
 # Workforce Allocation Optimization & Sensitivity Analysis
 
-### Mengoptimalkan alokasi dan biaya tenaga kerja operasional bike-sharing Seoul melalui Mixed-Integer Programming dengan analisis sensitivitas empiris, parametrik, dan trade-off service level
+### Mengoptimalkan biaya dan alokasi tenaga kerja operasional bike-sharing Seoul melalui pendekatan Mathematical Programming dengan analisis sensitivitas empiris, parametrik, dan trade-off service level
 
 <br>
 
