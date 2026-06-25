@@ -235,7 +235,6 @@ See [LICENSE](LICENSE) for full details.
 
 **[Nama Lengkap]**
 
-[![GitHub](https://img.shields.io/badge/GitHub-@[username]-181717?style=flat-square&logo=github)](https://github.com/[username])
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-[nama]-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/[username])
 [![Email](https://img.shields.io/badge/Email-[email]-D14836?style=flat-square&logo=gmail)](mailto:[email])
 
