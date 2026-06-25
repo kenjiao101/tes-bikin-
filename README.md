@@ -136,13 +136,13 @@ Kedua variabel dikategorikan menjadi Rendah/Sedang/Tinggi berdasarkan kuartil (Q
 
 <img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/262cf076-6046-4277-9645-c69db167ed0b" />
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
+<img width="550" height="450" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
 
 Tabel kontingensi menunjukkan 77.8% sel memiliki frekuensi harapan di bawah 5, sehingga chi-square 3x3 dilengkapi dengan Fisher's Exact Test pada tabel 2x2 (kategori digabung menjadi Tinggi vs Rendah-Sedang). Sel dengan kontribusi terbesar terhadap nilai chi-square adalah kombinasi **Kemiskinan Tinggi x Akses Internet Rendah** (observasi 7 provinsi, ekspektasi 2.43 provinsi, kontribusi 42.50% dari total chi-square).
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/894cf4e6-83a9-4f1f-ab7f-0d7ee7ab9ad8" />
+<img width="700" height="550" alt="image" src="https://github.com/user-attachments/assets/894cf4e6-83a9-4f1f-ab7f-0d7ee7ab9ad8" />
 
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
 
 ### Post-Hoc dan Goodness-of-Fit
 
