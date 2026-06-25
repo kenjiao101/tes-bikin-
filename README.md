@@ -5,22 +5,15 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 ## Daftar Isi
 
 1. [Ringkasan Proyek](#ringkasan-proyek)
-2. [Problem Statement](#problem-statement)
+2. [Masalah Utama](#masalah-utama)
 3. [Tujuan](#tujuan)
-4. [Struktur Repository](#struktur-repository)
 5. [Sumber Data](#sumber-data)
 6. [Tools dan Teknologi](#tools-dan-teknologi)
 7. [Metodologi](#metodologi)
 8. [Workflow](#workflow)
 9. [Hasil dan Temuan Utama](#hasil-dan-temuan-utama)
 10. [Cara Menjalankan](#cara-menjalankan)
-11. [Panduan File](#panduan-file)
 12. [Keterbatasan](#keterbatasan)
-13. [Pengembangan Selanjutnya](#pengembangan-selanjutnya)
-14. [Catatan](#catatan)
-15. [File Terkait](#file-terkait)
-16. [Author](#author)
-
 ---
 
 ## Ringkasan Proyek
@@ -29,7 +22,7 @@ Proyek ini menguji apakah tingkat kemiskinan di suatu provinsi berasosiasi denga
 
 Yang membedakan proyek ini dari analisis korelasi sederhana adalah konsistensi metodologis: setiap kali asumsi statistik gagal terpenuhi (homoskedastisitas, frekuensi harapan minimum pada tabel kontingensi), proyek ini tidak mengabaikannya, melainkan beralih ke metode yang lebih tepat (Fisher's Exact Test) atau secara eksplisit mencatatnya sebagai keterbatasan model.
 
-## Problem Statement
+## Masalah Utama
 
 Akses internet sering diasumsikan sebagai indikator kesetaraan digital, tetapi distribusinya di Indonesia diduga tidak merata dan berkorelasi dengan kondisi sosial-ekonomi wilayah. Pertanyaan yang ingin dijawab:
 
@@ -43,23 +36,6 @@ Akses internet sering diasumsikan sebagai indikator kesetaraan digital, tetapi d
 - Memvalidasi hubungan tersebut dari sudut pandang data kategorik menggunakan uji chi-square, Cramer's V, dan Fisher's Exact Test.
 - Mengidentifikasi provinsi-provinsi yang menjadi pendorong utama (driver) dari signifikansi hubungan tersebut.
 - Menyajikan seluruh hasil dengan transparansi penuh terhadap pelanggaran asumsi statistik, bukan hanya melaporkan hasil yang signifikan.
-
-## Struktur Repository
-
-```
-digital-divide-indonesia-2024/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── LICENSE                       (opsional, lihat bagian Catatan)
-├── notebooks/
-│   └── digital_divide_statistical_analysis.ipynb
-├── data/
-│   ├── raw/                      (unduh manual, lihat Sumber Data)
-│   └── processed/                (opsional, dataset gabungan 37 provinsi)
-└── outputs/
-    └── figures/                  (opsional, hasil export visualisasi sebagai PNG)
-```
 
 ## Sumber Data
 
@@ -229,17 +205,3 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 - **Ambang kategorisasi berbasis kuartil** bersifat statistik, bukan ambang kebijakan resmi, sehingga label Rendah/Sedang/Tinggi relevan untuk analisis ini saja.
 - **Notebook bergantung pada Google Colab** untuk input data, sehingga belum dapat dijalankan langsung di luar Colab tanpa modifikasi kecil (lihat bagian Cara Menjalankan).
 - **Korelasi tidak menyimpulkan kausalitas**. Hubungan negatif antara kemiskinan dan akses internet kemungkinan dipengaruhi oleh faktor lain yang tidak dimodelkan, seperti ketersediaan infrastruktur, kebijakan, dan kondisi geografis.
-
-## Pengembangan Selanjutnya
-
-- Menerapkan robust standard error (HC3) atau transformasi data untuk mengatasi heteroskedastisitas.
-- Menambahkan data multi-tahun untuk analisis tren, bukan hanya potret satu tahun.
-- Memasukkan variabel kontrol tambahan (misalnya infrastruktur telekomunikasi, tingkat pendidikan) ke dalam model regresi berganda.
-- Merefaktor kode notebook menjadi fungsi-fungsi modular agar dapat digunakan ulang di luar konteks notebook ini.
-- Mengekspor seluruh visualisasi sebagai file gambar statis di `outputs/figures/` agar dapat ditampilkan langsung di GitHub tanpa membuka notebook.
-
-## Catatan
-
-- Seluruh visualisasi pada bagian Hasil dan Temuan Utama ditandai sebagai placeholder. Silakan tempel gambar asli dari notebook pada posisi yang ditandai sesuai deskripsi di setiap placeholder.
-- Lisensi belum ditentukan pada draft ini. Jika repository akan dirilis sebagai open-source, MIT License adalah pilihan umum untuk proyek analisis seperti ini.
-- Nama file dataset asli dari BPS memiliki format panjang dengan akhiran duplikat unduhan (misalnya "(1).csv"). Disarankan mengganti nama file menjadi lebih ringkas saat menyimpan di `data/raw/`.
