@@ -114,9 +114,9 @@ Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 
 Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna substantif tersendiri.
 
-<img width="800" height="689" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
 
-<img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
 
 ### Uji Asumsi Regresi
 
@@ -134,15 +134,15 @@ Dua dari tiga asumsi klasik regresi tidak terpenuhi sepenuhnya. Interpretasi koe
 
 Kedua variabel dikategorikan menjadi Rendah/Sedang/Tinggi berdasarkan kuartil (Q1 dan Q3).
 
-<img width="1139" height="490" alt="image" src="https://github.com/user-attachments/assets/262cf076-6046-4277-9645-c69db167ed0b" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/262cf076-6046-4277-9645-c69db167ed0b" />
 
-<img width="745" height="590" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/4bcc40f4-375e-4d83-b007-3f1548e730af" />
 
 Tabel kontingensi menunjukkan 77.8% sel memiliki frekuensi harapan di bawah 5, sehingga chi-square 3x3 dilengkapi dengan Fisher's Exact Test pada tabel 2x2 (kategori digabung menjadi Tinggi vs Rendah-Sedang). Sel dengan kontribusi terbesar terhadap nilai chi-square adalah kombinasi **Kemiskinan Tinggi x Akses Internet Rendah** (observasi 7 provinsi, ekspektasi 2.43 provinsi, kontribusi 42.50% dari total chi-square).
 
-<img width="1192" height="990" alt="image" src="https://github.com/user-attachments/assets/894cf4e6-83a9-4f1f-ab7f-0d7ee7ab9ad8" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/894cf4e6-83a9-4f1f-ab7f-0d7ee7ab9ad8" />
 
-<img width="1390" height="590" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
+<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/aa7cc52e-8867-4aab-adfe-d7d8c3f29fbd" />
 
 ### Post-Hoc dan Goodness-of-Fit
 
