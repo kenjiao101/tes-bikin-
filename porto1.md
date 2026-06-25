@@ -2,7 +2,7 @@
 
 # Workforce Allocation Optimization & Sensitivity Analysis
 
-### Mengoptimalkan biaya dan alokasi tenaga kerja operasional bike-sharing Seoul melalui pendekatan Mathematical Programming dengan analisis sensitivitas empiris, parametrik, dan trade-off service level
+### Optimizing the cost and allocation of operational workforce for Seoul's bike-sharing system through a Mathematical Programming approach with empirical, parametric, and service-level trade-off sensitivity analysis
 
 <br>
 
@@ -19,7 +19,7 @@
 3. [Dataset](#-dataset)
 4. [Tech Stack](#-tech-stack)
 5. [Getting Started](#-getting-started)
-6. [Usage](#-Usage)
+6. [Usage](#-usage)
 7. [Screenshots](#-screenshots)
 8. [Results and Performance](#-results-and-performance)
 9. [Limitations](#-limitations)
@@ -29,17 +29,17 @@
 
 ## 📌 Overview
 
-Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** dan **Linear Programming (LP)** untuk mengoptimalkan alokasi dan biaya tenaga kerja pada sistem bike-sharing Seoul. Dataset yang digunakan adalah Seoul Bike Sharing Demand dari UCI Repository (8.760 record selama satu tahun penuh, Desember 2017 sampai November 2018), yang diolah menjadi profil demand per jam sebagai input kebutuhan staf. Model diselesaikan menggunakan solver CBC via PuLP, lalu divalidasi dan diuji pada sembilan skenario empiris berbasis musim dan status hari libur, analisis sensitivitas parametrik melalui tornado chart, kurva trade-off biaya terhadap service level, serta diagnostik LP relaxation dengan shadow price. Output akhirnya adalah kerangka keputusan operasional yang secara kuantitatif menunjukkan biaya optimal per skenario, urutan prioritas validasi asumsi, dan batas service level yang sepadan dari sisi penghematan biaya.
+This project implements a **Mixed-Integer Programming (MIP)** and **Linear Programming (LP)** model to optimize workforce allocation and cost for Seoul's bike-sharing system. The dataset used is the Seoul Bike Sharing Demand dataset from the UCI Repository (8,760 records spanning one full year, December 2017 through November 2018), which is processed into an hourly demand profile used as input for staffing requirements. The model is solved using the CBC solver via PuLP, then validated and tested across nine empirical scenarios based on season and holiday status, parametric sensitivity analysis via a tornado chart, a cost-versus-service-level trade-off curve, and additional diagnostics through LP relaxation with shadow prices. The final output is an operational decision-making framework that quantitatively shows the optimal cost per scenario, a priority order for validating assumptions, and the service-level threshold that corresponds to cost savings.
 
 ---
 
 ## ❓ Problem Statement
 
-**Konteks:** Sistem bike-sharing di perkotaan menghadapi tantangan alokasi staf yang tidak mudah karena demand bergerak sangat dinamis, bimodal dalam satu hari, berbeda jauh antarmusim (rasio hingga 4,6 kali antara Summer dan Winter berdasarkan data Seoul 2017-2018), dan dipengaruhi status hari libur. Tanpa kerangka analitik yang terstruktur, operator cenderung memakai pendekatan statis yang menghasilkan overstaffing di periode sepi sekaligus understaffing di jam puncak.
+**Context:** Urban bike-sharing systems face a non-trivial staffing allocation challenge because demand is highly dynamic, bimodal within a single day, varies widely between seasons (a ratio of up to 4.6 times between Summer and Winter based on the 2017-2018 Seoul data), and is influenced by holiday status. Without a structured analytical framework, operators tend to rely on static approaches that result in overstaffing during quiet periods and understaffing during peak hours at the same time.
 
-**Gap:** Pendekatan workforce planning yang umum digunakan bergantung pada aturan praktis atau perencanaan manual yang tidak memperhitungkan variasi demand secara sistematis. Tidak ada mekanisme formal untuk mengukur seberapa sensitif biaya terhadap perubahan parameter operasional seperti kapasitas per staf atau target service level, padahal informasi ini krusial untuk pengambilan keputusan kebijakan.
+**Gap:** Commonly used workforce planning approaches rely on rules of thumb or manual planning that do not systematically account for demand variation. There is no formal mechanism to measure how sensitive cost is to changes in operational parameters such as capacity per staff member or target service level, even though this information is crucial for policy decision-making.
 
-**Solusi:** Proyek ini memformulasikan masalah alokasi staf sebagai shift scheduling Mixed-Integer Program (varian set-covering Dantzig) dengan variabel staf tambahan sebagai katup pengaman kapasitas. Model diuji pada berbagai skenario empiris dan parametrik, menghasilkan tabel dan kurva keputusan yang dapat langsung dipakai sebagai landasan diskusi kebijakan operasional.
+**Solution:** This project formulates the staffing allocation problem as a shift scheduling Mixed-Integer Program (a variant of Dantzig's set-covering formulation), with a supplemental staff variable acting as a capacity safety valve. The model is tested across various empirical and parametric scenarios, producing decision tables and curves that can be used directly as a basis for operational policy discussions.
 
 ---
 
@@ -47,54 +47,54 @@ Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** dan **L
 
 ### Metadata
 
-| Atribut | Detail |
+| Attribute | Detail |
 |---|---|
-| **Sumber** | UCI Machine Learning Repository |
+| **Source** | UCI Machine Learning Repository |
 | **Link** | [Seoul Bike Sharing Demand (id=560)](https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand) |
-| **Ukuran awal** | 8.760 baris x 14 kolom |
-| **Ukuran operasional** | 8.465 baris (295 baris non-operasional difilter) |
+| **Initial Size** | 8,760 rows x 14 columns |
+| **Operational Size** | 8,465 rows (295 non-operational rows filtered out) |
 | **Format** | CSV |
-| **Lisensi** | CC BY 4.0 |
-| **Cakupan Waktu** | 2017-12-01 hingga 2018-11-30 (1 tahun penuh) |
+| **License** | CC BY 4.0 |
+| **Time Coverage** | 2017-12-01 to 2018-11-30 (1 full year) |
 | **DOI** | 10.24432/C5F62R |
 
-### Data Dictionary (Kolom Kunci)
+### Data Dictionary (Key Columns)
 
-| Kolom | Tipe | Deskripsi | Contoh Nilai |
+| Column | Type | Description | Example Value |
 |---|:---:|---|---|
-| `date` | `object` | Tanggal observasi | `01/12/2017` |
-| `rented_bike_count` | `int64` | **Variabel utama** — jumlah sepeda yang disewa per jam | `254`, `0` |
-| `hour` | `int64` | Jam observasi dalam sehari (0–23) | `8`, `18` |
-| `temperature` | `float64` | Suhu udara (°C) | `-6.2`, `32.4` |
-| `humidity` | `int64` | Kelembapan relatif (%) | `36`, `91` |
-| `seasons` | `object` | Musim saat observasi | `Winter`, `Summer` |
-| `holiday` | `object` | Status hari libur | `Holiday`, `No Holiday` |
-| `functioning_day` | `object` | Status operasional layanan — dipakai sebagai filter awal | `Yes`, `No` |
+| `date` | `object` | Observation date | `01/12/2017` |
+| `rented_bike_count` | `int64` | **Main variable** — number of bikes rented per hour | `254`, `0` |
+| `hour` | `int64` | Hour of observation within the day (0–23) | `8`, `18` |
+| `temperature` | `float64` | Air temperature (°C) | `-6.2`, `32.4` |
+| `humidity` | `int64` | Relative humidity (%) | `36`, `91` |
+| `seasons` | `object` | Season at time of observation | `Winter`, `Summer` |
+| `holiday` | `object` | Holiday status | `Holiday`, `No Holiday` |
+| `functioning_day` | `object` | Service operational status — used as the initial filter | `Yes`, `No` |
 
-### Reproduksi Data
+### Data Reproduction
 
 ```bash
-# Dataset diunduh otomatis saat notebook dijalankan — tidak ada langkah manual
+# The dataset is downloaded automatically when the notebook is run — no manual steps required
 
-# Jika koneksi API tidak tersedia, gunakan file lokal:
-# data/raw/SeoulBikeData.csv  (sumber sama: UCI id=560)
+# If the API connection is unavailable, use the local file:
+# data/raw/SeoulBikeData.csv  (same source: UCI id=560)
 ```
 
-> **Catatan filter:** 295 baris dengan `functioning_day = No` dan `rented_bike_count = 0` dikeluarkan sebelum analisis karena merepresentasikan jam layanan tutup, bukan demand rendah. Menyertakan baris ini dalam profil demand akan membuat estimasi kebutuhan staf bias ke bawah.
+> **Filtering note:** 295 rows with `functioning_day = No` and `rented_bike_count = 0` are excluded before analysis because they represent hours when the service was closed, not low demand. Including these rows in the demand profile would bias the staffing requirement estimate downward.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Teknologi | Peran dalam Project |
+| Layer | Technology | Role in the Project |
 |:---:|:---:|---|
-| Language | Python 3.10+ | Bahasa utama seluruh logika project |
-| Environment | Jupyter Notebook | Eksekusi interaktif, narasi analitik, dan visualisasi inline |
-| Optimization | PuLP 2.7+ | Formulasi MIP dan penyelesaian menggunakan CBC solver bawaan |
-| Data Fetching | ucimlrepo | Akses langsung UCI ML Repository dengan fallback ke CSV lokal |
-| Data Processing | Pandas, NumPy | Manipulasi dataframe, agregasi demand, translasi kebutuhan staf |
-| Visualization | Matplotlib, Seaborn | Profil demand, staffing chart, tornado chart, trade-off frontier |
-| Version Control | Git + GitHub | Source control dan distribusi portofolio |
+| Language | Python 3.10+ | Main language for all project logic |
+| Environment | Jupyter Notebook | Interactive execution, analytical narrative, and inline visualization |
+| Optimization | PuLP 2.7+ | MIP formulation and solving using the built-in CBC solver |
+| Data Fetching | ucimlrepo | Direct access to the UCI ML Repository with a fallback to a local CSV |
+| Data Processing | Pandas, NumPy | Dataframe manipulation, demand aggregation, translation into staffing requirements |
+| Visualization | Matplotlib, Seaborn | Demand profile, staffing chart, tornado chart, trade-off frontier |
+| Version Control | Git + GitHub | Source control and portfolio distribution |
 
 ---
 
@@ -102,7 +102,7 @@ Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** dan **L
 
 ### Prerequisites
 
-| Requirement | Versi Minimum | Verifikasi |
+| Requirement | Minimum Version | Verification |
 |---|:---:|---|
 | Python | 3.10+ | `python --version` |
 | pip | 23.0+ | `pip --version` |
@@ -110,40 +110,43 @@ Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** dan **L
 
 ### Installation
 
+1. Clone the repository
 ```bash
-# 1. Clone repository
-git clone https://github.com/[username]/workforce-scheduling-mip-sensitivity-analysis.git
-cd workforce-scheduling-mip-sensitivity-analysis
-
-# 2. Buat dan aktifkan virtual environment
+git clone https://github.com/kenzyfarzq/workforce-scheduling-optimization.git
+cd workforce-scheduling-optimization
+```
+2. Create and activate a virtual environment
+```bash
 python -m venv venv
 
 source venv/bin/activate          # macOS / Linux
 # venv\Scripts\activate           # Windows (CMD)
 # venv\Scripts\Activate.ps1       # Windows (PowerShell)
+```
+3. Install all dependencies
 
-# 3. Install semua dependensi
+```bash
 pip install -r requirements.txt
 ```
 
 ### Configuration
 
-Tidak ada konfigurasi tambahan yang diperlukan. Project siap dijalankan langsung setelah instalasi.
+No additional configuration is required. The project is ready to run immediately after installation.
 
-Dataset diambil otomatis dari UCI Repository saat notebook dieksekusi menggunakan `ucimlrepo`. Jika koneksi API tidak tersedia, notebook secara otomatis beralih ke file lokal `data/raw/SeoulBikeData.csv` — sumber data yang sama, tanpa perubahan logika apapun.
+The dataset is automatically fetched from the UCI Repository when the notebook is executed using `ucimlrepo`. If the API connection is unavailable, the notebook automatically falls back to the local file `data/raw/SeoulBikeData.csv` — the same data source, with no change in logic.
 
 ---
 
 ## ▶️ Usage
 
-### Menjalankan Notebook
+### Running the Notebook
 
 ```bash
 jupyter notebook
-# Buka: notebooks/workforce_allocation_mip_sensitivity_analysis.ipynb
+# Open: notebooks/or_staffing_optimization_bikesharing.ipynb
 ```
 
-Eksekusi sel secara berurutan dari atas ke bawah. Setiap section dilengkapi narasi analitik yang menjelaskan keputusan metodologis sebelum dan sesudah kode dieksekusi.
+Execute the cells sequentially from top to bottom. Each section includes an analytical narrative explaining the methodological decisions before and after the code is executed.
 
 ```
 Section  1  -->  Import Library
@@ -165,41 +168,67 @@ Section 16  -->  Kesimpulan
 Section 17  -->  Catatan dan Temuan Utama
 ```
 
-> Section 11 sampai 15 dapat dijalankan ulang secara mandiri setelah `solve_model()` didefinisikan di Section 10.
+> Sections 11 through 15 can be re-run independently once `solve_model()` has been defined in Section 10.
 
 ---
 
 ## 🎥 Screenshots
 
-| Profil Demand per Jam (Rata-rata Tahunan) | Alokasi Staf Optimal vs Kebutuhan — Baseline |
-|:---:|:---:|
-| <img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/b75196d7-dd90-47cc-a3bd-4dc2a786ec1e" /> | <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/c0bc7aa2-ae9e-463b-bb96-0237879b36c3" /> |
-| *Pola bimodal dengan puncak jam 08:00 (~1.050 unit) dan jam 18:00 (~1.554 unit)* | *Distribusi staf reguler (biru) dan staf tambahan (oranye) vs kebutuhan aktual per jam* |
+### Hourly Demand Profile (Annual Average)
 
-| Tornado Chart — Sensitivitas Parameter | Trade-off Frontier — Biaya vs Service Level |
-|:---:|:---:|
-| <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/fb8ad9ac-8e52-400d-9b4b-6a6d23e1eb82" /> | <img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/8edbdd39-fe0a-432f-99ce-e166d62618db" /> |
-| *Urutan dampak perubahan ±20% per parameter terhadap total biaya operasional* | *Kurva biaya optimal sebagai fungsi target service level, rentang 70%–100%* |
+<p align="center">
+  <img width="650" height="250" alt="image"
+       src="https://github.com/user-attachments/assets/b75196d7-dd90-47cc-a3bd-4dc2a786ec1e" />
+</p>
+
+A bimodal pattern, peaking at 08:00 (~1,050 units) and at 18:00 (~1,554 units).
+
+### Optimal Staff Allocation vs Requirement — Baseline
+
+<p align="center">
+  <img width="650" height="300" alt="image"
+       src="https://github.com/user-attachments/assets/c0bc7aa2-ae9e-463b-bb96-0237879b36c3" />
+</p>
+
+The distribution of regular staff (blue) and supplemental staff (orange) against the actual hourly requirement.
+
+### Tornado Chart — Parameter Sensitivity
+
+<p align="center">
+  <img width="650" height="350" alt="image"
+       src="https://github.com/user-attachments/assets/fb8ad9ac-8e52-400d-9b4b-6a6d23e1eb82" />
+</p>
+
+The ranked impact of a ±20% change in each parameter on total operational cost.
+
+### Trade-off Frontier — Cost vs Service Level
+
+<p align="center">
+  <img width="650" height="350" alt="image"
+       src="https://github.com/user-attachments/assets/8edbdd39-fe0a-432f-99ce-e166d62618db" />
+</p>
+
+The optimal cost curve as a function of the target service level, across the 70%–100% range.
 
 ---
 
 ## 📈 Results and Performance
 
-### Hasil Optimasi per Skenario
+### Optimization Results by Scenario
 
-| Skenario | Total Biaya | Staf Reguler | Jam Staf Tambahan |
+| Scenario | Total Cost | Regular Staff | Supplemental Staff Hours |
 |---|:---:|:---:|:---:|
-| **Baseline** (rata-rata tahunan) | Rp10.512.500 | 41 orang | 77 |
-| Winter | Rp3.475.000 | 13 orang | 28 |
-| Spring | Rp10.862.500 | 43 orang | 77 |
-| Autumn | Rp13.437.500 | 47 orang | 123 |
-| Summer | Rp15.150.000 | 48 orang | 160 |
-| Holiday | Rp7.562.500 | 34 orang | 33 |
-| No Holiday | Rp10.575.000 | 42 orang | 72 |
+| **Baseline** (annual average) | Rp10.512.500 | 41 people | 77 |
+| Winter | Rp3.475.000 | 13 people | 28 |
+| Spring | Rp10.862.500 | 43 people | 77 |
+| Autumn | Rp13.437.500 | 47 people | 123 |
+| Summer | Rp15.150.000 | 48 people | 160 |
+| Holiday | Rp7.562.500 | 34 people | 33 |
+| No Holiday | Rp10.575.000 | 42 people | 72 |
 
-### Trade-off Biaya vs Service Level
+### Cost vs Service Level Trade-off
 
-| Target Service Level | Total Biaya | Penghematan vs 100% |
+| Target Service Level | Total Cost | Savings vs 100% |
 |:---:|:---:|:---:|
 | 70% | Rp7.662.500 | -27,1% |
 | 80% | Rp8.637.500 | -17,8% |
@@ -207,27 +236,27 @@ Section 17  -->  Catatan dan Temuan Utama
 | 95% | Rp10.250.000 | -2,5% |
 | **100%** | **Rp10.512.500** | **Baseline** |
 
-### Temuan Utama
+### Key Findings
 
-1. **Solusi MIP baseline optimal** dengan total biaya Rp10.512.500 per hari representatif, terdiri dari biaya reguler Rp7.625.000 dan biaya staf tambahan Rp2.887.500 (sekitar 27,5% dari total). Dari 41 staf reguler, Shift Malam menyerap paling banyak (20 orang) meski berdurasi hanya 7 jam, karena menanggung puncak demand jam 18:00 yang sendirian membutuhkan 32 orang.
+1. **The baseline MIP solution is optimal**, with a total cost of Rp10.512.500 per representative day, consisting of a regular cost of Rp7.625.000 and a supplemental staff cost of Rp2.887.500 (around 27,5% of the total). Of the 41 regular staff, the Night Shift absorbs the most (20 people) despite lasting only 7 hours, because it alone covers the 18:00 demand peak, which requires 32 people on its own.
 
-2. **Variasi biaya antarmusim mencapai 4,4 kali lipat**: dari Rp3.475.000 di Winter hingga Rp15.150.000 di Summer, konsisten dengan selisih demand musiman sekitar 4,6:1 (226 vs 1.034 unit/jam rata-rata). Perencanaan staf statis sepanjang tahun berisiko menghasilkan overstaffing besar di Winter dan understaffing serius di Summer secara bersamaan.
+2. **Cost variation between seasons reaches 4,4 times**: from Rp3.475.000 in Winter to Rp15.150.000 in Summer, consistent with a seasonal demand gap of around 4,6:1 (226 vs 1.034 units/hour on average). A static year-round staffing plan risks producing significant overstaffing in Winter and serious understaffing in Summer at the same time.
 
-3. **Kapasitas per staf adalah parameter paling sensitif**: penurunan kapasitas 20% menaikkan total biaya +25,3%, sedikit melampaui dampak kenaikan demand 20% (+20,8%) maupun kenaikan tarif staf tambahan 20% (+5,3%). Batas staf per shift hampir tidak berpengaruh (di bawah 2%), yang berlawanan dengan intuisi manajemen yang biasanya menyoroti headcount cap sebagai penggerak biaya utama.
+3. **Capacity per staff member is the most sensitive parameter**: a 20% reduction in capacity raises total cost by +25,3%, slightly exceeding the impact of a 20% increase in demand (+20,8%) or a 20% increase in the supplemental staff rate (+5,3%). The staff-per-shift cap has almost no effect (under 2%), which runs counter to management intuition that typically highlights the headcount cap as the main cost driver.
 
-4. **Menurunkan target service level dari 100% ke 70% menghemat 27,1% biaya** (dari Rp10.512.500 menjadi Rp7.662.500), namun penghematan ini datang dengan konsekuensi eksplisit berupa kekurangan staf di sejumlah jam. Kurva frontier ini dirancang sebagai alat diskusi dengan pemangku kebijakan operasional, bukan rekomendasi tunggal.
+4. **Lowering the target service level from 100% to 70% saves 27,1% in cost** (from Rp10.512.500 to Rp7.662.500), but this saving comes with the explicit consequence of staff shortages during certain hours. This frontier curve is designed as a discussion tool with operational policy stakeholders, not as a single definitive recommendation.
 
-5. **Tidak ada integrality gap** antara solusi MIP dan LP relaxation (keduanya Rp10.512.500), mengonfirmasi bahwa solusi integer sudah sepenuhnya optimal tanpa perlu rounding heuristic. Shadow price pada batas kapasitas Shift Malam bernilai -Rp12.500, menandakan pelonggaran batas shift tersebut berpotensi menurunkan biaya dengan mensubstitusi sebagian staf tambahan yang lebih mahal.
+5. **There is no integrality gap** between the MIP solution and the LP relaxation (both Rp10.512.500), confirming that the integer solution is already fully optimal without requiring any rounding heuristic. The shadow price on the Night Shift capacity constraint is -Rp12.500, indicating that relaxing that shift's limit could potentially reduce cost by substituting some of the more expensive supplemental staff.
 
-> 📂 Seluruh output numerik, tabel, dan visualisasi tersedia langsung di dalam notebook.
+> 📂 All numerical output, tables, and visualizations are available directly within the notebook.
 
 ---
 
 ## ⚠️ Limitations
 
-- **Parameter Asumsi:** Seluruh parameter biaya dan kapasitas operasional (upah Rp25.000/jam, kapasitas 50 transaksi/staf/jam, batas 20 staf per shift, premium 1,5× untuk staf tambahan) bukan berasal dari dataset. Parameter ini adalah asumsi operasional yang ditetapkan secara eksplisit dan didokumentasikan di Section 8. Sensitivitas terhadap perubahan masing-masing parameter diperiksa secara sistematis di Section 13.
+- **Assumed Parameters:** All cost and operational capacity parameters (a wage of Rp25.000/hour, a capacity of 50 transactions/staff/hour, a cap of 20 staff per shift, a 1,5× premium for supplemental staff) are not derived from the dataset. These parameters are operational assumptions that are explicitly stated and documented in Section 8. Sensitivity to changes in each parameter is systematically examined in Section 13.
 
-- **Representative Day:** Profil demand yang menjadi input model merupakan rata-rata historis per kelompok (musim atau status holiday), bukan demand satu hari aktual. Nilai kebutuhan staf per jam sebaiknya dibaca sebagai estimasi rata-rata, bukan angka pasti harian.
+- **Representative Day:** The demand profile used as model input is a historical average per group (season or holiday status), not the demand of any single actual day. The hourly staffing requirement figures should be read as average estimates, not exact daily figures.
 
 ---
 
@@ -240,21 +269,21 @@ See [LICENSE](LICENSE) for full details.
 
 ## 📬 Contact
 
-**[Nama Lengkap]**
+**[Full Name]**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-[nama]-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/[username])
 [![Email](https://img.shields.io/badge/Email-[email]-D14836?style=flat-square&logo=gmail)](mailto:[email])
 
 <br>
 
-> 💬 Menemukan bug atau punya saran? [Buka issue baru](https://github.com/username/workforce-scheduling-mip-sensitivity-analysis/issues/new).
+> 💬 Found a bug or have a suggestion? [Open a new issue](https://github.com/kenzyfarzq/workforce-scheduling-optimization/issues/new).
 
 ---
 
 <div align="center">
   <sub>
-    ⭐ Jika project ini bermanfaat, pertimbangkan untuk memberikan star!
+    ⭐ If you find this project useful, consider giving it a star!
     <br>
-    Made by <a href="https://github.com/kenzyfarzq">[Nama]</a> · Last updated: 2026-06
+    Made by <a href="https://github.com/kenzyfarzq">[Name]</a> · Last updated: 2026-06
   </sub>
 </div>
