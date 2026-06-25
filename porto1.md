@@ -7,11 +7,8 @@
 <br>
 
 [![License](https://img.shields.io/badge/license-MIT-3DA639?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/status-completed-blue?style=flat-square)]()
-[![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/jupyter-notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](notebooks/)
+[![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org
 [![PuLP](https://img.shields.io/badge/solver-PuLP%20%2B%20CBC-5C6BC0?style=flat-square)]()
-[![Last Commit](https://img.shields.io/github/last-commit/[username]/workforce-scheduling-mip-sensitivity-analysis?style=flat-square)](https://github.com/[username]/workforce-scheduling-mip-sensitivity-analysis/commits)
 
 </div>
 
