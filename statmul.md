@@ -83,7 +83,7 @@ The 13×13 heatmap, using an RdYlGn colormap, reveals six variable pairs with st
 ### Class Separation in 2D PCA Space
 
 <p align="center">
-  <img width="700" height="360" alt="image"
+  <img width="700" height="310" alt="image"
        src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" />
 </p>
 
@@ -92,7 +92,7 @@ The 2D PCA scatter plot shows PC1 explaining `36.20%` and PC2 explaining `19.21%
 ### Standardized Mean Profile per Class (MANOVA)
 
 <p align="center">
-  <img width="1648" height="590" alt="image"
+  <img width="700" height="310" alt="image"
        src="https://github.com/user-attachments/assets/507b9ba9-e706-4eda-b270-c9e012420f9d" />
 </p>
 
@@ -101,7 +101,7 @@ This line plot shows the standardized (z-score) mean profile for the three wine 
 ### LDA: Class Separation and Confusion Matrix
 
 <p align="center">
-  <img width="700" height="360" alt="image"
+  <img width="700" height="310" alt="image"
        src="https://github.com/user-attachments/assets/cfec45df-3207-4a0b-9292-dfdc2e985fc7" />
 </p>
 
