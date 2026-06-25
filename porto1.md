@@ -83,38 +83,6 @@ Proyek ini mengimplementasikan model **Mixed-Integer Programming (MIP)** dan **L
 | Visualization | Matplotlib, Seaborn | Profil demand, staffing chart, tornado chart, trade-off frontier |
 | Version Control | Git + GitHub | Source control dan distribusi portofolio |
 
-<details>
-<summary>📐 Pipeline Diagram</summary>
-<br>
-
-```
-UCI Repository API (id=560)                                        EDA & Demand Profiling
-Seoul Bike Sharing, 8.760 rows  ---►  Data Preparation  ---►     Hourly, Seasonal,
-+ Local CSV Fallback                   Date parsing               Holiday, Heatmap,
-                                       Non-op filter              Weekday/Weekend
-                                       8.760 --► 8.465 rows
-                                                                          |
-                                   +------------------------------------------+
-                                   |  Demand Derivation                        |
-                                   |  required_staff(h) = ceil(demand(h) / 50) |
-                                   +------------------------------------------+
-                                                                          |
-                                   +------------------------------------------+
-                                   |  Mixed-Integer Programming (PuLP + CBC)   |
-                                   |  min  S cost_reg * x_s  +  S cost_ot * o_h|
-                                   |  s.t. coverage >= R_h * alpha, x_s <= 20  |
-                                   +------------------------------------------+
-                                                  |
-          +----------------------------+----------+---------------------------+
-          |                            |                                      |
-          v                            v                                      v
- Sensitivity Analysis (12-13)   Trade-off Frontier (14)         LP Relaxation (15)
- Empirical: 4 musim + Holiday   Service Level 70%-100%          Shadow price per jam
- Parametric: Tornado Chart +-20% 7-point cost-service mapping   Integrality gap check
-```
-
-</details>
-
 ---
 
 ## 🚀 Getting Started
