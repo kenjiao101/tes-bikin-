@@ -1,6 +1,6 @@
-# Analisis Multivariat Karakteristik Wine
+# Multivariate Analysis of Wine Characteristics
 
-### Menganalisis perbedaan profil kimia tiga cultivar wine Italia menggunakan pipeline statistika multivariat pada UCI Wine Dataset untuk mengidentifikasi variabel pembeda utama secara statistik.
+### Analyzing the chemical profile differences of three Italian wine cultivars using a multivariate statistics pipeline on the UCI Wine Dataset to statistically identify the main discriminating variables.
 
 ## 📝 Table of Contents
 
@@ -16,86 +16,112 @@
 
 ## 📌 Overview
 
-Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari UCI Machine Learning Repository, yang berisi 178 sampel wine Italia dari tiga cultivar berbeda dengan 13 variabel kimia. Pipeline analisis mencakup eksplorasi data, pengujian asumsi multivariat (normalitas dan homogenitas kovarian), uji hipotesis formal (Hotelling T² dan MANOVA), serta analisis lanjutan menggunakan PCA dan LDA. Target utama analisis ini adalah reviewer teknis, akademisi, dan siapapun yang ingin melihat implementasi statistika multivariat secara runtut dalam satu alur kerja yang terstruktur. Output berupa notebook beranotasi lengkap dengan 14 visualisasi, tabel ringkasan hasil setiap uji statistik, dan interpretasi temuan secara statistik maupun praktis.
+This project is a multivariate statistical analysis of the Wine Dataset from the UCI Machine Learning Repository, containing 178 samples of Italian wine from three different cultivars with 13 chemical variables. The analysis pipeline covers data exploration, multivariate assumption testing (normality and covariance homogeneity), formal hypothesis testing (Hotelling's T² and MANOVA), as well as further analysis using PCA and LDA. The primary audience for this analysis is technical reviewers, academics, and anyone interested in seeing a systematic implementation of multivariate statistics within a single structured workflow. The output is a fully annotated notebook with 14 visualizations, summary tables of results for each statistical test, and an interpretation of the findings from both a statistical and practical standpoint.
 
 ## ❓ Problem Statement
 
-**Konteks:** Wine Dataset dari UCI ML Repository (DOI: 10.24432/C5PC7J) berisi hasil analisis kimia 178 sampel wine Italia yang berasal dari tiga cultivar berbeda di satu region yang sama. Dataset ini memiliki 13 variabel kimia kontinu sebagai fitur dan satu variabel target kelas (1, 2, 3). Pertanyaan utamanya adalah, apakah ketiga kelas wine tersebut memiliki profil kimia multivariat yang berbeda secara signifikan, dan jika ya, variabel mana yang paling berkontribusi terhadap perbedaan tersebut?
+**Context:** The Wine Dataset from the UCI ML Repository (DOI: 10.24432/C5PC7J) contains the chemical analysis results of 178 Italian wine samples originating from three different cultivars within the same region. This dataset has 13 continuous chemical variables as features and one categorical target variable (1, 2, 3). The central question is whether the three wine classes have significantly different multivariate chemical profiles, and if so, which variables contribute most to that difference.
 
-**Gap:** Meskipun dataset ini sering dijadikan benchmark klasifikasi machine learning, analisis statistika multivariat yang sistematis mencakup pengujian asumsi formal, uji hipotesis dengan beberapa metode, kuantifikasi effect size, dan identifikasi variabel pembeda utama jarang dikerjakan secara menyeluruh dalam satu alur analisis yang runtut dan terdokumentasi.
+**Gap:** Although this dataset is frequently used as a machine learning classification benchmark, a systematic multivariate statistical analysis covering formal assumption testing, hypothesis testing with multiple methods, effect size quantification, and identification of the key discriminating variables is rarely carried out comprehensively within a single coherent and well-documented analytical workflow.
 
-**Solusi:** Project ini menerapkan pipeline analisis multivariat end-to-end, mencakup: EDA komprehensif, pengujian normalitas multivariat via Henze-Zirkler Test, deteksi outlier multivariat via Mahalanobis Distance, Hotelling T² untuk perbandingan pasangan kelas, Box's M untuk homogenitas kovarian, MANOVA dengan Wilks' Lambda beserta partial η², post-hoc ANOVA univariat, serta PCA dan LDA sebagai analisis lanjutan. Hasilnya berupa bukti statistik yang kuat bahwa ketiga kelas wine berbeda secara signifikan, dengan Flavanoids, Alcohol, dan Total_phenols sebagai variabel paling diskriminatif.
+**Solution:** This project implements an end-to-end multivariate analysis pipeline, covering: comprehensive EDA, multivariate normality testing via the Henze-Zirkler Test, multivariate outlier detection via Mahalanobis Distance, Hotelling's T² for pairwise class comparisons, Box's M Test for covariance homogeneity, MANOVA with Wilks' Lambda along with partial η², post-hoc univariate ANOVA, as well as PCA and LDA as further analysis. The result is strong statistical evidence that the three wine classes differ significantly, with Flavanoids, Alcohol, and Total_phenols as the most discriminative variables.
 
 ## 📊 Dataset
 
 ### Metadata
 
-| Atribut | Detail |
+| Attribute | Detail |
 |---|---|
-| **Sumber** | UCI Machine Learning Repository |
+| **Source** | UCI Machine Learning Repository |
 | **Link** | [Wine Dataset (ID: 109)](https://archive.ics.uci.edu/dataset/109/wine) |
 | **DOI** | [10.24432/C5PC7J](https://doi.org/10.24432/C5PC7J) |
-| **Ukuran** | `178` baris × `14` kolom (`13` fitur + `1` target) |
-| **Format** | Diakses via API (`ucimlrepo.fetch_ucirepo(id=109)`) — tidak perlu file lokal |
-| **Lisensi** | CC BY 4.0 |
-| **Tahun Pembuatan Dataset** | 1992 |
-| **Pembuat** | Stefan Aeberhard, M. Forina |
-| **Distribusi Kelas** | Kelas 1: `59` obs (`33.1%`) · Kelas 2: `71` obs (`39.9%`) · Kelas 3: `48` obs (`27.0%`) |
-| **Missing Values** | Tidak ada (`0` dari `178` observasi) |
+| **Size** | `178` rows × `14` columns (`13` features + `1` target) |
+| **Format** | Accessed via API (`ucimlrepo.fetch_ucirepo(id=109)`) — no local file required |
+| **License** | CC BY 4.0 |
+| **Dataset Creation Year** | 1992 |
+| **Creator(s)** | Stefan Aeberhard, M. Forina |
+| **Class Distribution** | Class 1: `59` obs (`33.1%`) · Class 2: `71` obs (`39.9%`) · Class 3: `48` obs (`27.0%`) |
+| **Missing Values** | None (`0` out of `178` observations) |
 
-### Data Dictionary (Kolom Kunci)
+### Data Dictionary (Key Columns)
 
-| Kolom | Tipe Data | Deskripsi | Contoh Nilai |
+| Column | Data Type | Description | Example Value |
 |---|:---:|---|---|
-| `class` | `int` | **Variabel target** — label kelas wine berdasarkan cultivar (`1`, `2`, atau `3`) | `1` |
-| `Flavanoids` | `float` | Subkelompok fenol utama yang mempengaruhi warna dan rasa wine (g/L) — **variabel paling diskriminatif** (η² = `0.7278`) | `2.76` |
-| `Alcohol` | `float` | Kadar alkohol (%) — pembeda terkuat ke-2 (η² = `0.6069`) | `13.20` |
-| `Total_phenols` | `float` | Total senyawa fenolik, berkaitan dengan rasa pahit dan antioksidan (g/L) — pembeda terkuat ke-3 (η² ≈ `0.517`) | `2.80` |
-| `Proline` | `int` | Kandungan asam amino proline (mg/L) — variabel dengan varians terbesar (std = `314.91`) | `1050` |
-| `0D280_0D315_of_diluted_wines` | `float` | Rasio OD280/OD315 untuk kemurnian protein dan fenol — berkorelasi kuat dengan Flavanoids (r = `0.79`) | `3.40` |
-| `Color_intensity` | `float` | Intensitas warna wine yang diukur secara fotometrik | `4.38` |
-| `Malicacid` | `float` | Kandungan asam malat (g/L) — pembeda ke-4 (η² ≈ `0.297`) | `1.78` |
+| `class` | `int` | **Target variable** — wine class label based on cultivar (`1`, `2`, or `3`) | `1` |
+| `Flavanoids` | `float` | Main phenol subgroup affecting wine color and flavor (g/L) — **most discriminative variable** (η² = `0.7278`) | `2.76` |
+| `Alcohol` | `float` | Alcohol content (%) — 2nd strongest discriminator (η² = `0.6069`) | `13.20` |
+| `Total_phenols` | `float` | Total phenolic compounds, related to bitterness and antioxidant properties (g/L) — 3rd strongest discriminator (η² ≈ `0.517`) | `2.80` |
+| `Proline` | `int` | Proline amino acid content (mg/L) — variable with the largest variance (std = `314.91`) | `1050` |
+| `0D280_0D315_of_diluted_wines` | `float` | OD280/OD315 ratio for protein and phenol purity — strongly correlated with Flavanoids (r = `0.79`) | `3.40` |
+| `Color_intensity` | `float` | Wine color intensity measured photometrically | `4.38` |
+| `Malicacid` | `float` | Malic acid content (g/L) — 4th discriminator (η² ≈ `0.297`) | `1.78` |
 
 ## 🛠️ Tech Stack
 
-| Layer | Teknologi | Peran dalam Project |
+| Layer | Technology | Role in the Project |
 |:---:|:---:|---|
-| Language | Python 3.12 | Bahasa utama seluruh pipeline analisis |
-| Environment | Google Colab / Jupyter Notebook | Eksekusi interaktif, eksplorasi bertahap, dan output beranotasi |
-| Data Access | ucimlrepo `0.0.7` | Fetch dataset langsung dari UCI ML Repository via API — tanpa file CSV lokal |
-| Data Processing | Pandas `2.2.2`, NumPy `2.0.2` | Manipulasi DataFrame, kalkulasi matriks kovarian, dan transformasi statistik |
-| Statistical Testing | SciPy `1.16.3`, Pingouin `0.6.1`, Statsmodels `0.14.6` | Uji Henze-Zirkler, Hotelling T², Box's M Test, dan MANOVA (Wilks' Lambda) |
-| Visualization | Matplotlib `3.10.0`, Seaborn `0.13.2` | 14 visualisasi: histogram+KDE, boxplot, heatmap korelasi, pairplot, scatter PCA/LDA, dan confusion matrix |
-| ML / Dimensionality Reduction | Scikit-learn `1.6.1` | StandardScaler untuk normalisasi, PCA untuk reduksi dimensi, LDA untuk analisis diskriminan |
-| Version Control | Git + GitHub | Source control dan publikasi portofolio |
+| Language | Python 3.12 | Main language for the entire analysis pipeline |
+| Environment | Google Colab / Jupyter Notebook | Interactive execution, step-by-step exploration, and annotated output |
+| Data Access | ucimlrepo `0.0.7` | Fetches the dataset directly from the UCI ML Repository via API — no local CSV file needed |
+| Data Processing | Pandas `2.2.2`, NumPy `2.0.2` | DataFrame manipulation, covariance matrix calculations, and statistical transformations |
+| Statistical Testing | SciPy `1.16.3`, Pingouin `0.6.1`, Statsmodels `0.14.6` | Henze-Zirkler test, Hotelling's T², Box's M Test, and MANOVA (Wilks' Lambda) |
+| Visualization | Matplotlib `3.10.0`, Seaborn `0.13.2` | 14 visualizations: histogram+KDE, boxplot, correlation heatmap, pairplot, PCA/LDA scatter plots, and confusion matrix |
+| ML / Dimensionality Reduction | Scikit-learn `1.6.1` | StandardScaler for normalization, PCA for dimensionality reduction, LDA for discriminant analysis |
+| Version Control | Git + GitHub | Source control and portfolio publishing |
 
 ## 🎥 Screenshots
 
-| Heatmap Korelasi Antar Variabel Kimia | Separasi Kelas pada Ruang PCA 2D |
-|:---:|:---:|
-| <img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/c64e78fc-37dc-4706-a9c3-c65a9064597a" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" /> |
-| *Heatmap 13×13 dengan colormap RdYlGn menunjukkan 6 pasangan dengan korelasi kuat (r > 0.60), terutama cluster variabel fenolik di kelompok Flavanoids, Total_phenols, dan OD280/OD315* | *Scatter PCA 2D — PC1 menjelaskan `36.20%` dan PC2 `19.21%` variansi. Pemisahan ketiga kelas mulai terlihat di ruang dua dimensi* |
+### Correlation Heatmap Across Chemical Variables
 
-| Profil Mean Terstandardisasi per Kelas (MANOVA) | LDA: Separasi Kelas dan Confusion Matrix |
-|:---:|:---:|
-| <img width="1648" height="590" alt="image" src="https://github.com/user-attachments/assets/507b9ba9-e706-4eda-b270-c9e012420f9d" /> | <img width="700" height="360" alt="image" src="https://github.com/user-attachments/assets/cfec45df-3207-4a0b-9292-dfdc2e985fc7" /> |
-| *Line plot profil mean z-score tiga kelas wine. Kelas 1 dominan tinggi di Flavanoids dan Alcohol; Kelas 3 dominan rendah. Pola pembedaan paling tajam terlihat pada variabel fenol* | *Scatter LDA 2D + confusion matrix penuh diagonal (59/59, 71/71, 48/48) dari akurasi resubstitusi `100.00%` menggunakan seluruh 13 fitur* |
+<p align="center">
+  <img width="500" height="400" alt="image"
+       src="https://github.com/user-attachments/assets/c64e78fc-37dc-4706-a9c3-c65a9064597a" />
+</p>
+
+The 13×13 heatmap, using an RdYlGn colormap, reveals six variable pairs with strong correlation (r > 0.60), most notably a cluster of phenolic variables among Flavanoids, Total_phenols, and OD280/OD315.
+
+### Class Separation in 2D PCA Space
+
+<p align="center">
+  <img width="700" height="360" alt="image"
+       src="https://github.com/user-attachments/assets/1781b690-600b-4a7c-93fd-468ab574558c" />
+</p>
+
+The 2D PCA scatter plot shows PC1 explaining `36.20%` and PC2 explaining `19.21%` of the variance. Separation between the three classes is already visible in two-dimensional space.
+
+### Standardized Mean Profile per Class (MANOVA)
+
+<p align="center">
+  <img width="1648" height="590" alt="image"
+       src="https://github.com/user-attachments/assets/507b9ba9-e706-4eda-b270-c9e012420f9d" />
+</p>
+
+This line plot shows the standardized (z-score) mean profile for the three wine classes. Class 1 is dominantly high in Flavanoids and Alcohol, while Class 3 is dominantly low. The sharpest distinguishing pattern appears in the phenolic variables.
+
+### LDA: Class Separation and Confusion Matrix
+
+<p align="center">
+  <img width="700" height="360" alt="image"
+       src="https://github.com/user-attachments/assets/cfec45df-3207-4a0b-9292-dfdc2e985fc7" />
+</p>
+
+The 2D LDA scatter plot, together with a confusion matrix showing a fully correct diagonal (59/59, 71/71, 48/48), reflects a resubstitution accuracy of `100.00%` using all 13 features.
 
 ## 📈 Results & Performance
 
-### Temuan Utama
+### Key Findings
 
-1. **Ketiga kelas wine berbeda secara signifikan pada seluruh kombinasi pasangan** — Hotelling T² menghasilkan p-value yang sangat kecil untuk semua tiga pasangan: Kelas 1 vs 2 (`T² = 799.66`, p = `1.35e-43`), Kelas 1 vs 3 (`T² = 3075.74`, p = `8.15e-63`), dan Kelas 2 vs 3 (`T² = 800.30`, p = `7.46e-41`). Perbedaan multivariat terbesar terjadi antara Kelas 1 dan Kelas 3, dengan nilai T² hampir 4x lipat dibanding dua pasangan lainnya.
+1. **All three wine classes differ significantly across every pairwise combination** — Hotelling's T² produced extremely small p-values for all three pairs: Class 1 vs 2 (`T² = 799.66`, p = `1.35e-43`), Class 1 vs 3 (`T² = 3075.74`, p = `8.15e-63`), and Class 2 vs 3 (`T² = 800.30`, p = `7.46e-41`). The largest multivariate difference occurs between Class 1 and Class 3, with a T² value almost 4 times larger than the other two pairs.
 
-2. **MANOVA mengkonfirmasi perbedaan yang kuat dengan effect size sangat besar** — Wilks' Lambda = `0.2067`, F = `93.21`, p = `7.55e-55`. Partial η² = `0.7933`, artinya lebih dari `79.33%` variabilitas kombinasi variabel kimia dapat dijelaskan oleh perbedaan kelas wine. Nilai ini jauh melampaui ambang batas "Large Effect Size" (η² > `0.14`) berdasarkan kriteria Cohen.
+2. **MANOVA confirms a strong difference with a very large effect size** — Wilks' Lambda = `0.2067`, F = `93.21`, p = `7.55e-55`. Partial η² = `0.7933`, meaning more than `79.33%` of the combined variability in the chemical variables can be explained by differences between wine classes. This value far exceeds the "Large Effect Size" threshold (η² > `0.14`) under Cohen's criteria.
 
-3. **Flavanoids, Alcohol, dan Total_phenols adalah variabel pembeda utama** — Post-hoc ANOVA univariat menunjukkan Flavanoids (η² = `0.7278`, F = `233.93`) sebagai variabel paling diskriminatif antar kelas, diikuti Alcohol (η² = `0.6069`, F = `135.08`) dan Total_phenols (η² ≈ `0.517`). Seluruh 7 variabel yang diuji menunjukkan perbedaan signifikan (`p < 0.05`).
+3. **Flavanoids, Alcohol, and Total_phenols are the main discriminating variables** — Post-hoc univariate ANOVA shows Flavanoids (η² = `0.7278`, F = `233.93`) as the most discriminative variable between classes, followed by Alcohol (η² = `0.6069`, F = `135.08`) and Total_phenols (η² ≈ `0.517`). All 7 variables tested show significant differences (`p < 0.05`).
 
-4. **Terdapat 6 pasangan variabel dengan korelasi kuat (|r| > 0.60)** — Flavanoids dan Total_phenols memiliki korelasi Pearson tertinggi (`r = 0.8646`), diikuti Flavanoids-OD280/OD315 (`r ≈ 0.79`) dan Total_phenols-OD280/OD315 (`r ≈ 0.70`). Cluster korelasi kuat ini konsisten dengan asal-usul kimianya sebagai kelompok senyawa fenolik yang berkaitan.
+4. **There are 6 variable pairs with strong correlation (|r| > 0.60)** — Flavanoids and Total_phenols have the highest Pearson correlation (`r = 0.8646`), followed by Flavanoids-OD280/OD315 (`r ≈ 0.79`) and Total_phenols-OD280/OD315 (`r ≈ 0.70`). This cluster of strong correlations is consistent with their chemical origin as a related group of phenolic compounds.
 
-5. **Asumsi multivariat tidak terpenuhi namun analisis tetap dapat dipertahankan** — Henze-Zirkler Test: HZ = `1.0743`, p ≈ `0.000` (tidak normal multivariat). Box's M Test: χ² = `209.99`, df = `56`, p = `1.15e-19` (kovarian tidak homogen). Kedua kondisi ini ditangani dengan justifikasi ukuran sampel `n = 178` yang cukup besar dan distribusi antar kelas yang relatif seimbang (CLT berlaku), serta adanya `12` outlier multivariat (`6.74%`) yang tidak mendominasi data.
+5. **Multivariate assumptions are not met, but the analysis remains defensible** — Henze-Zirkler Test: HZ = `1.0743`, p ≈ `0.000` (not multivariate normal). Box's M Test: χ² = `209.99`, df = `56`, p = `1.15e-19` (covariance not homogeneous). Both conditions are addressed on the grounds that the sample size `n = 178` is sufficiently large and the class distribution is relatively balanced (the CLT applies), along with the presence of `12` multivariate outliers (`6.74%`) that do not dominate the data.
 
-6. **PCA dan LDA mengkonfirmasi separabilitas kelas secara visual dan kuantitatif** — PCA 2 komponen menangkap `55.41%` variansi keseluruhan (PC1 = `36.20%`, PC2 = `19.21%`), dengan pemisahan visual yang cukup jelas antar kelas. LDA menghasilkan pemisahan optimal dengan LD1 menjelaskan `68.75%` variansi antar kelas. Akurasi resubstitusi mencapai `100.00%` (lihat keterbatasan di bawah).
+6. **PCA and LDA confirm class separability both visually and quantitatively** — The 2-component PCA captures `55.41%` of the overall variance (PC1 = `36.20%`, PC2 = `19.21%`), with fairly clear visual separation between classes. LDA produces optimal separation with LD1 explaining `68.75%` of the between-class variance. Resubstitution accuracy reaches `100.00%` (see limitations below).
 
 ## 🚀 Getting Started
 
@@ -125,10 +151,10 @@ Execute the cells sequentially from top to bottom.
 
 ## ⚠️ Limitations
 
-- **Scope:** Analisis ini mencakup satu dataset spesifik berisi `178` sampel wine Italia dari satu region geografis. Temuan ini tidak dimaksudkan untuk digeneralisasi ke wine dari region, negara, atau proses produksi lain karena karakteristik kimia wine sangat dipengaruhi oleh faktor terroir.
+- **Scope:** This analysis covers a single specific dataset containing `178` Italian wine samples from one geographic region. These findings are not intended to be generalized to wines from other regions, countries, or production processes, since the chemical characteristics of wine are heavily influenced by terroir.
 
-- **Asumsi Analisis:** Asumsi normalitas multivariat (Henze-Zirkler, p ≈ `0.000`) dan homogenitas kovarian (Box's M, p = `1.15e-19`) tidak terpenuhi. MANOVA dan Hotelling T² tetap dijalankan berdasarkan pertimbangan bahwa `n = 178` cukup besar untuk menerapkan Central Limit Theorem dan distribusi antar kelas relatif seimbang. Kondisi ini tidak memengaruhi arah kesimpulan, namun perlu diperhatikan dalam konteks inferensi formal.
+- **Analysis Assumptions:** The assumptions of multivariate normality (Henze-Zirkler, p ≈ `0.000`) and covariance homogeneity (Box's M, p = `1.15e-19`) are not met. MANOVA and Hotelling's T² were still carried out on the grounds that `n = 178` is large enough to invoke the Central Limit Theorem and that the class distribution is relatively balanced. This does not affect the direction of the conclusions, but it should be taken into account in the context of formal inference.
 
-- **LDA Resubstitution Accuracy:** Akurasi LDA `100.00%` adalah hasil resubstitusi, yaitu model dievaluasi pada data yang sama dengan data pelatihan. Nilai ini bersifat optimistis dan kemungkinan lebih rendah pada data baru. Angka ini mencerminkan kekuatan separabilitas fitur, bukan estimasi kemampuan generalisasi model.
+- **LDA Resubstitution Accuracy:** The `100.00%` LDA accuracy is a resubstitution result, meaning the model was evaluated on the same data used for training. This figure is optimistic and likely to be lower on new data. It reflects the strength of feature separability rather than an estimate of the model's generalization ability.
 
-- **Generalisasi:** Temuan dalam project ini belum divalidasi pada sampel wine lain di luar dataset UCI ini. Diperlukan validasi eksternal dengan data independen sebelum temuan ini digunakan sebagai dasar keputusan analitis di luar konteks dataset ini.
+- **Generalization:** The findings in this project have not been validated against other wine samples outside this UCI dataset. External validation with independent data is required before these findings are used as a basis for analytical decisions outside the context of this dataset.
