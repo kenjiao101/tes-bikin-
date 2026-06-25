@@ -204,7 +204,7 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Unduh dua dataset dari link pada bagian [Sumber Data](#sumber-data), lalu letakkan di `data/raw/`.
+4. Unduh dua dataset dari link pada bagian [Sumber Data](#-sumber-data), lalu letakkan di `data/raw/`.
 
 5. **Penting, catatan reproducibility**: notebook asli dikembangkan di Google Colab dan menggunakan widget unggah file (`google.colab.files.upload()`) pada bagian 1.2. Untuk menjalankan secara lokal (Jupyter/VS Code), ganti sel tersebut dengan pembacaan file langsung dari folder lokal:
 
@@ -224,4 +224,4 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 - **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungannya tetap valid, tetapi standard error dan p-value yang dihasilkan sedikit bias.
 - **Ukuran sampel kecil**, sehingga hasil rentan dipengaruhi oleh sedikit provinsi ekstrem (Papua Pegunungan, Papua Tengah terdeteksi sebagai outlier pada kedua variabel).
 - **Data cross-sectional satu tahun (2024)**, sehingga tidak dapat digunakan untuk klaim tren atau hubungan kausal, hanya asosiasi pada satu titik waktu.
-- **Notebook bergantung pada Google Colab** untuk input data, sehingga belum dapat dijalankan langsung di luar Colab tanpa modifikasi kecil (lihat bagian Cara Menjalankan).
+- **Notebook bergantung pada Google Colab** untuk input data, sehingga belum dapat dijalankan langsung di luar Colab tanpa modifikasi kecil (lihat bagian [Cara Menjalankan](#-cara-menjalankan)).
