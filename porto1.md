@@ -133,7 +133,7 @@ pip install -r requirements.txt
 
 No additional configuration is required. The project is ready to run immediately after installation.
 
-The dataset is automatically fetched from the UCI Repository when the notebook is executed using `ucimlrepo`. If the API connection is unavailable, the notebook automatically falls back to the local file `data/raw/SeoulBikeData.csv` — the same data source, with no change in logic.
+The dataset is automatically fetched from the UCI Repository when the notebook is executed using `ucimlrepo`. If the API connection is unavailable, the notebook automatically falls back to the local file `data/raw/SeoulBikeData.csv`, the same data source with no change in logic.
 
 ---
 
@@ -269,7 +269,7 @@ See [LICENSE](LICENSE) for full details.
 
 ## 📬 Contact
 
-**[Full Name]**
+**Ahmad Kenzy Farzaq**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-kenzyfarzq-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/kenzyfarzq-60b790320/)
 [![Email](https://img.shields.io/badge/Email-kenzyfarzq@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq@gmail.com)
