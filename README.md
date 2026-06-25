@@ -221,17 +221,6 @@ jupyter notebook notebooks/digital_divide_statistical_analysis.ipynb
 ```
 Eksekusi sel secara berurutan dari atas ke bawah.
 
-## Panduan File
-
-| File/Folder | Fungsi |
-|---|---|
-| `README.md` | Dokumentasi utama repository |
-| `requirements.txt` | Daftar dependency Python untuk reproduksi environment |
-| `notebooks/digital_divide_statistical_analysis.ipynb` | Notebook utama berisi seluruh analisis, dari pengumpulan data sampai uji chi-square |
-| `data/raw/` | Lokasi dataset mentah hasil unduhan dari BPS (tidak disertakan langsung) |
-| `data/processed/` | Opsional, lokasi dataset gabungan bersih (37 provinsi) jika ingin disimpan terpisah |
-| `outputs/figures/` | Opsional, lokasi hasil export visualisasi sebagai file gambar statis |
-
 ## Keterbatasan
 
 - **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungan tetap valid secara substantif, tetapi standard error dan p-value yang dilaporkan berpotensi terlalu optimis. Penggunaan robust standard error akan memberikan estimasi ketidakpastian yang lebih akurat.
@@ -254,8 +243,3 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 - Seluruh visualisasi pada bagian Hasil dan Temuan Utama ditandai sebagai placeholder. Silakan tempel gambar asli dari notebook pada posisi yang ditandai sesuai deskripsi di setiap placeholder.
 - Lisensi belum ditentukan pada draft ini. Jika repository akan dirilis sebagai open-source, MIT License adalah pilihan umum untuk proyek analisis seperti ini.
 - Nama file dataset asli dari BPS memiliki format panjang dengan akhiran duplikat unduhan (misalnya "(1).csv"). Disarankan mengganti nama file menjadi lebih ringkas saat menyimpan di `data/raw/`.
-
-## Author
-
-[Nama Anda]
-[Tautan profil GitHub/LinkedIn, opsional]
