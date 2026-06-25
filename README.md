@@ -112,11 +112,11 @@ Persamaan regresi yang dihasilkan:
 Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 ```
 
-Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna substantif tersendiri.
+Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna penting.
 
-<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
+<img width="700" height="370" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
 
-<img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
+<img width="700" height="370" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
 
 ### Uji Asumsi Regresi
 
@@ -199,7 +199,7 @@ Eksekusi sel secara berurutan dari atas ke bawah.
 
 ## Keterbatasan
 
-- **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungan tetap valid secara substantif, tetapi standard error dan p-value yang dilaporkan berpotensi terlalu optimis. Penggunaan robust standard error akan memberikan estimasi ketidakpastian yang lebih akurat.
+- **Dua asumsi regresi klasik tidak terpenuhi** (homoskedastisitas dan non-autokorelasi). Koefisien dan arah hubungan tetap valid, tetapi standard error dan p-value yang dilaporkan berpotensi terlalu optimis. Penggunaan robust standard error akan memberikan estimasi ketidakpastian yang lebih akurat.
 - **Ukuran sampel kecil** (37 provinsi), sehingga hasil rentan dipengaruhi oleh sedikit provinsi ekstrem (Papua Pegunungan, Papua Tengah terdeteksi sebagai outlier pada kedua variabel).
 - **Data cross-sectional satu tahun (2024)**, sehingga tidak dapat digunakan untuk klaim tren atau hubungan kausal, hanya asosiasi pada satu titik waktu.
 - **Ambang kategorisasi berbasis kuartil** bersifat statistik, bukan ambang kebijakan resmi, sehingga label Rendah/Sedang/Tinggi relevan untuk analisis ini saja.
