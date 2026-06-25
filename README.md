@@ -7,20 +7,20 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 1. [Ringkasan Proyek](#ringkasan-proyek)
 2. [Masalah Utama](#masalah-utama)
 3. [Tujuan](#tujuan)
-5. [Sumber Data](#sumber-data)
-6. [Tools dan Teknologi](#tools-dan-teknologi)
-7. [Metodologi](#metodologi)
-8. [Workflow](#workflow)
-9. [Hasil dan Temuan Utama](#hasil-dan-temuan-utama)
-10. [Cara Menjalankan](#cara-menjalankan)
-12. [Keterbatasan](#keterbatasan)
+4. [Sumber Data](#sumber-data)
+5. [Tools dan Teknologi](#tools-dan-teknologi)
+6. [Metodologi](#metodologi)
+7. [Workflow](#workflow)
+8. [Hasil dan Temuan Utama](#hasil-dan-temuan-utama)
+9. [Cara Menjalankan](#cara-menjalankan)
+10. [Keterbatasan](#keterbatasan)
 ---
 
 ## Ringkasan Proyek
 
-Proyek ini menguji apakah tingkat kemiskinan di suatu provinsi berasosiasi dengan tingkat akses internet rumah tangga di provinsi tersebut, menggunakan data resmi BPS (Badan Pusat Statistik) tahun 2024 untuk 37 provinsi di Indonesia. Analisis dilakukan dalam enam tahap berurutan: pengumpulan data, pembersihan dan penggabungan dataset, eksplorasi data, kategorisasi variabel, pemodelan regresi dengan uji asumsi klasik, dan uji chi-square dengan effect size serta uji koreksi saat asumsi statistik tidak terpenuhi.
+Proyek ini menguji apakah tingkat kemiskinan di suatu provinsi berasosiasi dengan tingkat akses internet rumah tangga di provinsi tersebut, menggunakan data resmi BPS (Badan Pusat Statistik) tahun 2024 untuk 37 provinsi di Indonesia. Analisis dilakukan dalam enam tahap berurutan, yaitu: pengumpulan data, pembersihan dan penggabungan dataset, eksplorasi data, kategorisasi variabel, pemodelan regresi dengan uji asumsi klasik, dan uji chi-square dengan effect size serta uji koreksi saat asumsi statistik tidak terpenuhi.
 
-Yang membedakan proyek ini dari analisis korelasi sederhana adalah konsistensi metodologis: setiap kali asumsi statistik gagal terpenuhi (homoskedastisitas, frekuensi harapan minimum pada tabel kontingensi), proyek ini tidak mengabaikannya, melainkan beralih ke metode yang lebih tepat (Fisher's Exact Test) atau secara eksplisit mencatatnya sebagai keterbatasan model.
+Yang membedakan proyek ini dari analisis korelasi sederhana adalah konsistensi metodologis. Setiap kali asumsi statistik gagal terpenuhi (homoskedastisitas, frekuensi harapan minimum pada tabel kontingensi), proyek ini tidak mengabaikannya, melainkan beralih ke metode yang lebih tepat (Fisher's Exact Test) atau secara eksplisit mencatatnya sebagai keterbatasan model.
 
 ## Masalah Utama
 
@@ -94,7 +94,7 @@ Setelah pembersihan dan penggabungan, dataset akhir berisi **37 provinsi** denga
 | Akses Internet (%) | 85.95 | 90.17 | 16.09 | 12.15 - 97.57 |
 | Kemiskinan (%) | 11.33 | 10.47 | 6.74 | 4.00 - 32.97 |
 
-<img width="1390" height="500" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/ea500da9-f791-4c35-a150-e90a1c51d008" />
 
 ### Hubungan Kemiskinan dan Akses Internet
 
@@ -114,7 +114,7 @@ Internet_Total = 108.16 + (-1.96) x Kemiskinan_Persen
 
 Setiap kenaikan 1% tingkat kemiskinan dikaitkan dengan penurunan rata-rata 1.96% akses internet (CI 95%: -2.43 sampai -1.49), valid hanya dalam rentang data yang diamati (4.00% - 32.97%). Intercept (108.16%) berada di luar rentang 0-100% karena hasil ekstrapolasi di luar data observasi, sehingga tidak memiliki makna substantif tersendiri.
 
-<img width="1091" height="689" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
+<img width="800" height="689" alt="image" src="https://github.com/user-attachments/assets/99897e03-e1c7-4c1e-8c96-66984171e6b5" />
 
 <img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/b68772db-fea0-4154-b5af-bb4277972460" />
 
