@@ -97,6 +97,8 @@ Project ini merupakan analisis statistika multivariat terhadap Wine Dataset dari
 
 6. **PCA dan LDA mengkonfirmasi separabilitas kelas secara visual dan kuantitatif** — PCA 2 komponen menangkap `55.41%` variansi keseluruhan (PC1 = `36.20%`, PC2 = `19.21%`), dengan pemisahan visual yang cukup jelas antar kelas. LDA menghasilkan pemisahan optimal dengan LD1 menjelaskan `68.75%` variansi antar kelas. Akurasi resubstitusi mencapai `100.00%` (lihat keterbatasan di bawah).
 
+<br>
+
 ## 🚀 Getting Started
 
 > This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
