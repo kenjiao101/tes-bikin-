@@ -2,7 +2,7 @@
 
 Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2024, menggunakan korelasi Pearson, regresi linear dengan uji asumsi klasik penuh, dan uji chi-square dengan Cramer's V serta Fisher's Exact Test.
 
-## Daftar Isi
+## 📝 Daftar Isi
 
 1. [Ringkasan Proyek](#-ringkasan-proyek)
 2. [Masalah Utama](#-masalah-utama)
@@ -30,7 +30,7 @@ Akses internet sering diasumsikan sebagai indikator kesetaraan digital, tetapi d
 - Jika ada, seberapa kuat hubungan tersebut, dan apakah hasilnya konsisten ketika diuji dengan pendekatan numerik (regresi/korelasi) maupun pendekatan kategorik (chi-square)?
 - Provinsi mana yang paling menyimpang dari pola umum, dan apa implikasinya terhadap kesenjangan digital nasional?
 
-## Tujuan
+## 🎯 Tujuan
 
 - Mengukur kekuatan dan arah hubungan antara persentase kemiskinan dan persentase akses internet menggunakan korelasi Pearson dan regresi linear sederhana.
 - Memvalidasi hubungan tersebut dari sudut pandang data kategorik menggunakan uji chi-square, Cramer's V, dan Fisher's Exact Test.
@@ -59,7 +59,7 @@ Catatan pengambilan data:
 - scikit-learn (LinearRegression, r2_score, untuk keperluan inferensial)
 - Google Colab (lingkungan pengembangan asli)
 
-## Metodologi
+## 🔬 Metodologi
 
 Pendekatan statistik dipilih berdasarkan jenis data dan kebutuhan validasi silang:
 
