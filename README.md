@@ -4,7 +4,7 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 
 ## Daftar Isi
 
-1. [Ringkasan Proyek](#ringkasan-proyek)
+1. [📌 Ringkasan Proyek](#ringkasan-proyek)
 2. [Masalah Utama](#masalah-utama)
 3. [Tujuan](#tujuan)
 4. [Sumber Data](#sumber-data)
@@ -16,13 +16,13 @@ Studi statistik terapan yang menelusuri kesenjangan digital di Indonesia tahun 2
 10. [Keterbatasan](#keterbatasan)
 ---
 
-## Ringkasan Proyek
+## 📌 Ringkasan Proyek
 
 Proyek ini menguji apakah tingkat kemiskinan di suatu provinsi berasosiasi dengan tingkat akses internet rumah tangga di provinsi tersebut, menggunakan data resmi BPS (Badan Pusat Statistik) tahun 2024 untuk 37 provinsi di Indonesia. Analisis dilakukan dalam enam tahap berurutan, yaitu: pengumpulan data, pembersihan dan penggabungan dataset, eksplorasi data, kategorisasi variabel, pemodelan regresi dengan uji asumsi klasik, dan uji chi-square dengan effect size serta uji koreksi saat asumsi statistik tidak terpenuhi.
 
 Yang membedakan proyek ini dari analisis korelasi sederhana adalah konsistensi metodologis. Setiap kali asumsi statistik gagal terpenuhi (homoskedastisitas, frekuensi harapan minimum pada tabel kontingensi), proyek ini tidak mengabaikannya, melainkan beralih ke metode yang lebih tepat (Fisher's Exact Test) atau secara eksplisit mencatatnya sebagai keterbatasan model.
 
-## Masalah Utama
+## ❓ Masalah Utama
 
 Akses internet sering diasumsikan sebagai indikator kesetaraan digital, tetapi distribusinya di Indonesia diduga tidak merata dan berkorelasi dengan kondisi sosial-ekonomi wilayah. Pertanyaan yang ingin dijawab:
 
@@ -167,11 +167,11 @@ Tingkat kemiskinan dan akses internet antarprovinsi di Indonesia tahun 2024 berh
 
 1. Clone repository:
 ```bash
-git clone https://github.com/<username>/digital-divide-indonesia-2024.git
+git clone https://github.com/kenzyfarzq/digital-divide-indonesia-2024.git
 cd digital-divide-indonesia-2024
 ```
 
-2. (Opsional) Buat virtual environment:
+2. Buat virtual environment (Opsional):
 ```bash
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
