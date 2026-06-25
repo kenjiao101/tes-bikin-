@@ -184,8 +184,6 @@ Section 17  -->  Catatan dan Temuan Utama
 | Holiday | Rp7.562.500 | 34 orang | 33 |
 | No Holiday | Rp10.575.000 | 42 orang | 72 |
 
-*"Jam Staf Tambahan" adalah jumlah unit staf tambahan yang dijumlahkan lintas 24 jam dalam satu hari representatif.*
-
 ### Trade-off Biaya vs Service Level
 
 | Target Service Level | Total Biaya | Penghematan vs 100% |
