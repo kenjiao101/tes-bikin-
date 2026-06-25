@@ -204,7 +204,7 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Download the two datasets from the links in the [Data Sources](#-sumber-data) section, then place them in `data/raw/`.
+4. Download the two datasets from the links in the [Data Sources](#-data-sources) section, then place them in `data/raw/`.
 
 5. **Important, reproducibility note**: the original notebook was developed in Google Colab and uses the file upload widget (`google.colab.files.upload()`) in section 1.2. To run it locally (Jupyter/VS Code), replace that cell with direct file reading from a local folder:
 
@@ -224,4 +224,4 @@ Execute the cells sequentially from top to bottom.
 - **Two classical regression assumptions are not met** (homoscedasticity and non-autocorrelation). The coefficient and the direction of the relationship remain valid, but the resulting standard errors and p-values are slightly biased.
 - **Small sample size**, so the results are susceptible to being influenced by a small number of extreme provinces (Papua Pegunungan and Papua Tengah were detected as outliers on both variables).
 - **Single-year cross-sectional data (2024)**, so it cannot be used to make claims about trends or causal relationships, only association at a single point in time.
-- **The notebook depends on Google Colab** for data input, so it cannot yet be run directly outside Colab without minor modifications (see the [How to Run](#-cara-menjalankan) section).
+- **The notebook depends on Google Colab** for data input, so it cannot yet be run directly outside Colab without minor modifications (see the [How to Run](#-how-to-run) section).
