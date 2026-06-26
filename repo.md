@@ -25,9 +25,9 @@ This repository is a curated, continuously updated collection of data science pr
 
 | Project | Description |
 |---|---|
-| [`digital-divide-indonesia`](./digital-divide-indonesia) | Statistical analysis of the relationship between poverty and internet access across Indonesian provinces, drawing on 2024 BPS data and validated through Pearson correlation, linear regression, and chi-square test with Cramer's V and Fisher's Exact Test. |
-| [`discrete-math-price-dynamics-jatim`](./discrete-math-price-dynamics-jatim) | [Satu kalimat singkat: topik dan dataset yang dipakai] |
-| [`multivariate-statistical-analysis`](./multivariate-statistical-analysis) | [Satu kalimat singkat: topik dan dataset yang dipakai] |
+| [`digital-divide-indonesia`](https://github.com/kenzyfarzaq/data-science-projects/tree/main/digital-divide-indonesia) | Statistical analysis of the relationship between poverty and internet access across Indonesian provinces, drawing on 2024 BPS data and validated through Pearson correlation, linear regression, and chi-square test with Cramer's V and Fisher's Exact Test. |
+| [`discrete-math-price-dynamics-jatim`](https://github.com/kenzyfarzaq/data-science-projects/tree/main/discrete-math-price-dynamics-jatim) | Multivariate statistical analysis of chemical composition differences across three Italian wine cultivars, drawing on UCI Wine Dataset (178 samples, 13 physicochemical features) and validated through Henze-Zirkler normality testing, Hotelling T², MANOVA (Wilks' Λ = 0.21, η² = 0.79), post-hoc univariate ANOVA, PCA, and LDA. |
+| [`multivariate-statistical-analysis`](https://github.com/kenzyfarzaq/data-science-projects/tree/main/multivariate-statistical-analysis) | Computational analysis of commodity price dynamics in East Java, examining seasonal volatility patterns across 10 staple goods during Eid and New Year periods, drawing on official SISKAPERBAPO government data and validated through Finite State Machine classification, recurrence relations, mathematical induction, graph theory, Boolean logic, combinatorics, number theory, set theory, and discrete probability with Markov Chains. |
 
 Each folder includes a dedicated README providing relevant details about the project.
 
