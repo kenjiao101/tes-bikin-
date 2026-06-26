@@ -7,8 +7,8 @@
 <br>
 
 [![License](https://img.shields.io/badge/license-MIT-3DA639?style=flat-square)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)]()
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](notebooks/)
+[![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)]()
 [![PuLP](https://img.shields.io/badge/solver-PuLP%20%2B%20CBC-5C6BC0?style=flat-square)]()
 
 </div>
