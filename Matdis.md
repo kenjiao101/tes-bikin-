@@ -1,6 +1,6 @@
 # Modeling Staple Food Price Dynamics in East Java Using 9 Discrete Mathematics Concepts
 
-### Analyzing price spike patterns for 10 staple food commodities ahead of Tahun Baru and Lebaran using an integrated discrete mathematics framework — from FSMs with adaptive thresholds and multi-step Markov Chains to set operations and combinatorics, applied to official SISKAPERBAPO East Java data.
+### Analyzing price spike patterns for 10 staple food commodities ahead of Tahun Baru (New Year) and Lebaran (Eid Al-Fitr) using an integrated discrete mathematics framework from FSMs with adaptive thresholds and multi-step Markov Chains to set operations and combinatorics, applied to official SISKAPERBAPO East Java data.
 
 ## 📝 Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## 📌 Overview
 
-This project applies nine discrete mathematics concepts in an integrated way to model the price dynamics of 10 staple food commodities in East Java during the periods leading up to Tahun Baru and Lebaran, using weekly SISKAPERBAPO data (covering weeks −4 through +4 relative to each event). From the `36 baris × 13 kolom` wide-format data that was loaded, a `melt` transformation produces `360 observations`, which after deduplication based on the event-commodity-week combination become `180 observations` valid for analysis. The analytical pipeline classifies each observation into one of 4 discrete market states via an FSM with adaptive, quantile-based thresholds, mathematically validates the recursive prediction formula via induction, and quantifies market state transition probabilities using Markov Chains. The final output consists of `11 visualisasi komprehensif`, a state transition matrix, a Venn diagram of set operations, and a `rekomendasi_per_komoditas.csv` file that classifies the 10 commodities into 4 risk levels with estimated potential savings per commodity.
+This project applies nine discrete mathematics concepts in an integrated way to model the price dynamics of 10 staple food commodities in East Java during the periods leading up to Tahun Baru (New Year) and Lebaran (Eid Al-Fitr), using weekly SISKAPERBAPO data (covering weeks −4 through +4 relative to each event). From the `36 baris × 13 kolom` wide-format data that was loaded, a `melt` transformation produces `360 observations`, which after deduplication based on the event-commodity-week combination become `180 observations` valid for analysis. The analytical pipeline classifies each observation into one of 4 discrete market states via an FSM with adaptive, quantile-based thresholds, mathematically validates the recursive prediction formula via induction, and quantifies market state transition probabilities using Markov Chains. The final output consists of `11 visualisasi komprehensif`, a state transition matrix, a Venn diagram of set operations, and a `rekomendasi_per_komoditas.csv` file that classifies the 10 commodities into 4 risk levels with estimated potential savings per commodity.
 
 ## ❓ Problem Statement
 
