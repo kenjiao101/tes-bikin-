@@ -13,8 +13,6 @@
 7. [Screenshots](#-screenshots)
 8. [Results and Performance](#-results-and-performance)
 9. [Limitations](#-limitations)
-10. [License](#-license)
-11. [Contact](#-contact)
 ---
 
 ## 📌 Overview
@@ -77,15 +75,15 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 
 | Dashboard Komprehensif — 11 Panel, 9 Konsep | Graf Transisi FSM dengan Shortest Path |
 |:---:|:---:|
-| (Screenshot: output Section 10 — dashboard 4×3 grid berisi: panel recurrence tren 5 komoditas paling volatile dengan zona AMAN/BAHAYA/PEMULIHAN berwarna, pie chart FSM 81.7% Normal, graf NetworkX, bar chart Boolean logic, C(4,k), heatmap Markov P², dan truth table Boolean) | (Screenshot: panel bawah Section 4 — directed graph NetworkX dengan 4 node berwarna: hijau Normal, kuning Siaga, oranye Peringatan, merah PUNCAK; edge berlabel probabilitas; highlight merah shortest path Normal → Siaga → Peringatan → PUNCAK) |
+| <img width="1400" height="1950" alt="image" src="https://github.com/user-attachments/assets/fda92fe4-ac8b-4ea9-8f48-8a3e92b6ca4a" /> | <img width="1000" height="550" alt="image" src="https://github.com/user-attachments/assets/612ddabe-ec83-4c5c-8c11-75ef80c5ba9a" /> |
 | *Integrasi visual seluruh hasil analisis — Section 10* | *Representasi G=(V,E): density 0.917, P(Normal→PUNCAK) = 0.42% via 3 transisi* |
 
 | Venn Diagram Operasi Himpunan | PMF dan Markov Chains Multi-Step |
 |:---:|:---:|
-| (Screenshot: output Section 8 — Venn diagram dua lingkaran biru Lebaran dan merah muda Tahun Baru; area A-B berisi Daging Ayam/Daging Sapi/Gula Pasir \|3\|; area A∩B berisi Bawang Merah/Bawang Putih \|2\|; box (A∪B)ᶜ berisi Telur Ayam/Cabai Rawit/dll \|5\|) | (Screenshot: 4-panel Section 9 — bar chart PMF dengan P(<0%)=0.633 tertinggi; heatmap P² dan P³ berwarna YlOrRd; bar grouped chart evolusi probabilitas P¹/P²/P³ dari state Normal) |
+| <img width="747" height="790" alt="image" src="https://github.com/user-attachments/assets/de6cb4f8-b8a7-4746-94d0-8d1260ef3723" /> | <img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/463a2ac1-bdb0-43a6-af46-b1b63b4506ee" /> |
 | *A ∩ B = {Bawang Merah, Bawang Putih}; 5 komoditas tidak pernah spike (complement)* | *E(X) = −12.76%; P³(Normal→PUNCAK) = 0.0042; steady-state Normal = 57.8%* |
 
-## 📈 Results & Performance
+## 📈 Results and Performance
 
 ### Ringkasan Kuantitatif per Konsep
 
@@ -147,7 +145,7 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 
 8. **PMF dan Markov steady-state menunjukkan pasar cenderung pulih ke kondisi Normal.** Distribusi steady-state: Normal `57.8%`, yang lebih tinggi dari distribusi objektif `81.7%`, namun secara arah konsisten bahwa Normal adalah kondisi dominan jangka panjang. Dari state Peringatan, probabilitas pemulihan ke Normal dalam 2 langkah adalah `P²[Peringatan→Normal]` = `0.029` (rendah), menunjukkan bahwa sekali masuk Peringatan, kondisi cenderung bertahan atau memburuk sebelum membaik.
 
-> 📂 Output rekomendasi per komoditas tersimpan di `outputs/rekomendasi_per_komoditas.csv`. Catatan: File output yang dihasilkan tergantung pada konfigurasi yang dipilih di Section 0.
+> 📂 Output rekomendasi per komoditas tersimpan di `outputs/rekomendasi_per_komoditas.csv`. Catatan: File output yang dihasilkan bergantung pada konfigurasi yang dipilih di Section 0.
 
 ## 🚀 Getting Started
 
