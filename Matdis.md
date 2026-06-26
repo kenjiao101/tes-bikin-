@@ -37,8 +37,8 @@ This project applies nine discrete mathematics concepts in an integrated way to 
 | **Format** | Excel (`.xlsx`) — wide format |
 | **Size (wide)** | `36 baris × 13 kolom` (2 events × 18 dates, 10 commodity columns + 3 metadata columns) |
 | **Size (long, post-melt)** | `360 observations` → `180 observations` after `drop_duplicates(['event','commodity','week'])` |
-| **Commodities** | 10 types: Beras, Gula Pasir, Minyak Goreng, Daging Sapi, Daging Ayam, Telur Ayam, Bawang Merah, Bawang Putih, Cabai Merah, Cabai Rawit |
-| **Event** | 2 events: Lebaran, Tahun Baru |
+| **Commodities** | 10 types: Beras (Rice), Gula Pasir (Sugar), Minyak Goreng (Cooking Oil), Daging Sapi (Beef), Daging Ayam (Chicken Meat), Telur Ayam (Chicken Eggs), Bawang Merah (Shallot), Bawang Putih (Garlic), Cabai Merah (Red Chili), Cabai Rawit (Bird’s Eye Chili) |
+| **Event** | 2 events: Lebaran (Eid Al-Fitr), Tahun Baru (New Year) |
 | **Time Coverage** | 2024–2025; week (−4) through week (+4) relative to the event day |
 | **Analysis Combinations** | `20 combinations` (10 commodities × 2 events, via `itertools.product`) |
 
