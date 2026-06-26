@@ -2,13 +2,24 @@
 
 ### Menganalisis pola lonjakan harga 10 komoditas sembako menjelang Tahun Baru dan Lebaran menggunakan kerangka teori matematika diskrit terintegrasi — dari FSM dengan threshold adaptif, Markov Chains multi-step, hingga operasi himpunan dan kombinatorika atas data resmi SISKAPERBAPO Jawa Timur.
 
+## 📝 Table of Contents
+
+1. [Overview](#-overview)
+2. [Problem Statement](#-problem-statement)
+3. [Dataset](#-dataset)
+4. [Tech Stack](#-tech-stack)
+5. [Getting Started](#-getting-started)
+6. [Usage](#-usage)
+7. [Screenshots](#-screenshots)
+8. [Results and Performance](#-results-and-performance)
+9. [Limitations](#-limitations)
+10. [License](#-license)
+11. [Contact](#-contact)
 ---
 
 ## 📌 Overview
 
 Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi untuk memodelkan dinamika harga 10 komoditas sembako di Jawa Timur selama periode menjelang Tahun Baru dan Lebaran, menggunakan data mingguan SISKAPERBAPO (rentang minggu −4 hingga +4 per event). Dari `36 baris × 13 kolom` wide-format yang dimuat, transformasi `melt` menghasilkan `360 observasi` yang setelah deduplication berdasarkan kombinasi event-komoditas-minggu menjadi `180 observasi` valid untuk dianalisis. Pipeline analitik yang dibangun mengklasifikasikan setiap observasi ke dalam 4 state pasar diskrit via FSM dengan threshold adaptif berbasis kuantil, memvalidasi formula prediksi rekursif secara matematis via induksi, dan mengkuantifikasi probabilitas transisi kondisi pasar dengan Markov Chains. Output akhir berupa `11 visualisasi komprehensif`, matriks transisi state, Venn diagram operasi himpunan, dan file `rekomendasi_per_komoditas.csv` yang mengklasifikasikan 10 komoditas ke dalam 4 level risiko dengan estimasi potensi penghematan per komoditas.
-
----
 
 ## ❓ Problem Statement
 
@@ -17,8 +28,6 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 **Gap:** Analisis deskriptif tidak mampu menjawab pertanyaan kritis seperti: berapa probabilitas kondisi pasar bergerak dari Normal ke PUNCAK dalam 3 minggu? Komoditas mana yang secara konsisten spike di kedua event, dan mana yang spike hanya pada satu event? Seberapa akurat model rekursif sederhana dalam memprediksi harga minggu depan? Pertanyaan-pertanyaan ini membutuhkan kerangka matematis diskrit yang formal, bukan sekadar observasi visual pola harga.
 
 **Solusi:** Pipeline analitik ini mengintegrasikan 9 konsep matematika diskrit — FSM M = (Q, Σ, δ, q₀, F) untuk klasifikasi kondisi pasar real-time dengan threshold adaptif berbasis Q25/Q50/Q75, formula rekursif P(n) = P(n-1) × (1+r) yang divalidasi via induksi matematis pada 20/20 kombinasi, graf transisi probabilistik G = (V, E) dengan `|V|=4, |E|=11, density=0.917`, dan Markov Chains untuk prediksi multi-step. Outputnya adalah sistem pemodelan terintegrasi yang menghasilkan rekomendasi strategis per komoditas yang dapat langsung dioperasionalkan.
-
----
 
 ## 📊 Dataset
 
@@ -51,8 +60,6 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 | `state` | `str` | **Variabel turunan** — klasifikasi FSM berbasis threshold adaptif | `"Normal"`, `"PUNCAK"` |
 | `T1`, `T2`, `T3` | `float` | **Variabel turunan** — threshold Siaga/Peringatan/PUNCAK per kombinasi event-komoditas | `2.0`, `5.0`, `10.0` |
 
----
-
 ## 🛠️ Tech Stack
 
 | Layer | Teknologi | Peran dalam Proyek |
@@ -66,8 +73,6 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 | Linear Algebra | NumPy `linalg` | Matrix exponentiation Markov (`matrix_power`), eigendecomposition steady-state (`eig`) |
 | Version Control | Git + GitHub | Source control dan dokumentasi perubahan |
 
----
-
 ## 🎥 Screenshots
 
 | Dashboard Komprehensif — 11 Panel, 9 Konsep | Graf Transisi FSM dengan Shortest Path |
@@ -79,8 +84,6 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 |:---:|:---:|
 | (Screenshot: output Section 8 — Venn diagram dua lingkaran biru Lebaran dan merah muda Tahun Baru; area A-B berisi Daging Ayam/Daging Sapi/Gula Pasir \|3\|; area A∩B berisi Bawang Merah/Bawang Putih \|2\|; box (A∪B)ᶜ berisi Telur Ayam/Cabai Rawit/dll \|5\|) | (Screenshot: 4-panel Section 9 — bar chart PMF dengan P(<0%)=0.633 tertinggi; heatmap P² dan P³ berwarna YlOrRd; bar grouped chart evolusi probabilitas P¹/P²/P³ dari state Normal) |
 | *A ∩ B = {Bawang Merah, Bawang Putih}; 5 komoditas tidak pernah spike (complement)* | *E(X) = −12.76%; P³(Normal→PUNCAK) = 0.0042; steady-state Normal = 57.8%* |
-
----
 
 ## 📈 Results & Performance
 
@@ -146,7 +149,40 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 
 > 📂 Output rekomendasi per komoditas tersimpan di `outputs/rekomendasi_per_komoditas.csv`. Catatan: File output yang dihasilkan tergantung pada konfigurasi yang dipilih di Section 0.
 
----
+## 🚀 Getting Started
+
+> This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
+
+1. Navigate to this project folder:
+```bash
+cd discrete-math-price-dynamics-jatim
+```
+
+2. Create a virtual environment (Optional):
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. The dataset are already included in this repository. After cloning or downloading the repository, the file will already be available locally.
+
+5. **Important, reproducibility note**: the original notebook was developed in Google Colab and uses the file upload widget (`google.colab.files.upload()`). To run it locally (Jupyter/VS Code), replace that cell with direct file reading from a local folder:
+```bash
+import pandas as pd
+df_raw = pd.read_excel('data/dataset_harga_sembako_2024_2025.xlsx')
+```
+> Pastikan file `dataset_harga_sembako_2024_2025.xlsx` sudah ditempatkan di folder `data/` sebelum menjalankan notebook.
+
+6. Run the notebook:
+```bash
+jupyter notebook notebooks/price_dynamics_discrete_math_analysis.ipynb
+```
+Execute the cells sequentially from top to bottom.
 
 ## ⚠️ Limitations
 
