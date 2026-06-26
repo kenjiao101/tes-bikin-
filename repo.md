@@ -29,7 +29,7 @@ This repository is a curated, continuously updated collection of data science pr
 | [`discrete-math-price-dynamics-jatim`](./discrete-math-price-dynamics-jatim) | [Satu kalimat singkat: topik dan dataset yang dipakai] |
 | [`multivariate-statistical-analysis`](./multivariate-statistical-analysis) | [Satu kalimat singkat: topik dan dataset yang dipakai] |
 
-Each folder contains its own README with full methodology, dataset sourcing, and setup instructions.
+Each folder includes a dedicated README providing relevant details about the project.
 
 ---
 
