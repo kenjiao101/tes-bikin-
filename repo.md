@@ -35,12 +35,19 @@ Each folder includes a dedicated README providing relevant details about the pro
 
 ## 🚀 Getting Started
 
+1. Clone the repository
 ```bash
 git clone https://github.com/kenzyfarzq/data-science-projects.git
 cd data-science-projects
 ```
 
-Navigate into the project folder you want to explore, then follow its own README for setup and run instructions. Each project is self-contained and may use slightly different dependencies, so environment setup is handled per-folder rather than at the repository root.
+2. Navigate to the project you want to explore
+```bash
+cd <project-folder>
+```
+
+### Configuration
+No environment variables or API keys are required. Some projects fetch their dataset automatically when the notebook is executed, others require a manual download step, see the Dataset section in each project's individual README for the exact instructions that apply to that project.
 
 ---
 
@@ -60,27 +67,8 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for full details.
 
 <br>
 
-> 💬 Found a bug or have a suggestion? [Open a new issue](https://github.com/kenzyfarzq/workforce-scheduling-optimization/issues/new).
-
----
-
 <div align="center">
   <sub>
-    ⭐ If you find this project useful, consider giving it a star!
-    <br>
-    Made by <a href="https://github.com/kenzyfarzq">kenzyfarzq</a> · 2026-06
+    Made by <a href="https://github.com/kenzyfarzq">kenzyfarzq</a>
   </sub>
-</div>
-
-## 📬 Contact
-
-**[Nama Lengkap Anda]**
-
-[![GitHub](https://img.shields.io/badge/GitHub-@kenzyfarzq-181717?style=flat-square&logo=github)](https://github.com/kenzyfarzq)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-[nama]-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/[username])
-
-<br>
-
-<div align="center">
-  <sub>Made with care, one semester at a time.</sub>
 </div>
