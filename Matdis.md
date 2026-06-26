@@ -1,6 +1,6 @@
-# Pemodelan Dinamika Harga Sembako di Jawa Timur Menggunakan 9 Konsep Matematika Diskrit
+# Modeling Staple Food Price Dynamics in East Java Using 9 Discrete Mathematics Concepts
 
-### Menganalisis pola lonjakan harga 10 komoditas sembako menjelang Tahun Baru dan Lebaran menggunakan kerangka teori matematika diskrit terintegrasi — dari FSM dengan threshold adaptif, Markov Chains multi-step, hingga operasi himpunan dan kombinatorika atas data resmi SISKAPERBAPO Jawa Timur.
+### Analyzing price spike patterns for 10 staple food commodities ahead of Tahun Baru and Lebaran using an integrated discrete mathematics framework — from FSMs with adaptive thresholds and multi-step Markov Chains to set operations and combinatorics, applied to official SISKAPERBAPO East Java data.
 
 ## 📝 Table of Contents
 
@@ -17,106 +17,130 @@
 
 ## 📌 Overview
 
-Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi untuk memodelkan dinamika harga 10 komoditas sembako di Jawa Timur selama periode menjelang Tahun Baru dan Lebaran, menggunakan data mingguan SISKAPERBAPO (rentang minggu −4 hingga +4 per event). Dari `36 baris × 13 kolom` wide-format yang dimuat, transformasi `melt` menghasilkan `360 observasi` yang setelah deduplication berdasarkan kombinasi event-komoditas-minggu menjadi `180 observasi` valid untuk dianalisis. Pipeline analitik yang dibangun mengklasifikasikan setiap observasi ke dalam 4 state pasar diskrit via FSM dengan threshold adaptif berbasis kuantil, memvalidasi formula prediksi rekursif secara matematis via induksi, dan mengkuantifikasi probabilitas transisi kondisi pasar dengan Markov Chains. Output akhir berupa `11 visualisasi komprehensif`, matriks transisi state, Venn diagram operasi himpunan, dan file `rekomendasi_per_komoditas.csv` yang mengklasifikasikan 10 komoditas ke dalam 4 level risiko dengan estimasi potensi penghematan per komoditas.
+This project applies nine discrete mathematics concepts in an integrated way to model the price dynamics of 10 staple food commodities in East Java during the periods leading up to Tahun Baru and Lebaran, using weekly SISKAPERBAPO data (covering weeks −4 through +4 relative to each event). From the `36 baris × 13 kolom` wide-format data that was loaded, a `melt` transformation produces `360 observasi`, which after deduplication based on the event-commodity-week combination become `180 observasi` valid for analysis. The analytical pipeline classifies each observation into one of 4 discrete market states via an FSM with adaptive, quantile-based thresholds, mathematically validates the recursive prediction formula via induction, and quantifies market state transition probabilities using Markov Chains. The final output consists of `11 visualisasi komprehensif`, a state transition matrix, a Venn diagram of set operations, and a `rekomendasi_per_komoditas.csv` file that classifies the 10 commodities into 4 risk levels with estimated potential savings per commodity.
 
 ## ❓ Problem Statement
 
-**Konteks:** Lonjakan harga bahan pokok menjelang Lebaran dan Tahun Baru adalah fenomena berulang yang berdampak pada daya beli masyarakat Jawa Timur. Data resmi SISKAPERBAPO mencatat harga harian per komoditas, namun selama ini dimanfaatkan hanya untuk pelaporan deskriptif, tanpa pemodelan formal yang dapat menghasilkan aturan keputusan terukur atau prediksi probabilistik.
+**Context:** Staple food price spikes ahead of Lebaran and Tahun Baru are a recurring phenomenon that affects the purchasing power of the East Java population. Official SISKAPERBAPO data records daily prices per commodity, but it has so far only been used for descriptive reporting, without formal modeling capable of producing measurable decision rules or probabilistic predictions.
 
-**Gap:** Analisis deskriptif tidak mampu menjawab pertanyaan kritis seperti: berapa probabilitas kondisi pasar bergerak dari Normal ke PUNCAK dalam 3 minggu? Komoditas mana yang secara konsisten spike di kedua event, dan mana yang spike hanya pada satu event? Seberapa akurat model rekursif sederhana dalam memprediksi harga minggu depan? Pertanyaan-pertanyaan ini membutuhkan kerangka matematis diskrit yang formal, bukan sekadar observasi visual pola harga.
+**Gap:** Descriptive analysis cannot answer critical questions such as: what is the probability of a market condition moving from Normal to PUNCAK within 3 weeks? Which commodities consistently spike across both events, and which spike in only one? How accurate is a simple recursive model at predicting next week's price? These questions require a formal discrete mathematical framework, not merely a visual observation of price patterns.
 
-**Solusi:** Pipeline analitik ini mengintegrasikan 9 konsep matematika diskrit — FSM M = (Q, Σ, δ, q₀, F) untuk klasifikasi kondisi pasar real-time dengan threshold adaptif berbasis Q25/Q50/Q75, formula rekursif P(n) = P(n-1) × (1+r) yang divalidasi via induksi matematis pada 20/20 kombinasi, graf transisi probabilistik G = (V, E) dengan `|V|=4, |E|=11, density=0.917`, dan Markov Chains untuk prediksi multi-step. Outputnya adalah sistem pemodelan terintegrasi yang menghasilkan rekomendasi strategis per komoditas yang dapat langsung dioperasionalkan.
+**Solution:** This analytical pipeline integrates 9 discrete mathematics concepts — an FSM M = (Q, Σ, δ, q₀, F) for real-time market condition classification with adaptive thresholds based on Q25/Q50/Q75, a recursive formula P(n) = P(n-1) × (1+r) validated mathematically via induction across 20/20 combinations, a probabilistic transition graph G = (V, E) with `|V|=4, |E|=11, density=0.917`, and Markov Chains for multi-step prediction. The output is an integrated modeling system that produces strategic, directly actionable recommendations per commodity.
 
 ## 📊 Dataset
 
 ### Metadata
 
-| Atribut | Detail |
+| Attribute | Detail |
 |---|---|
-| **Sumber** | SISKAPERBAPO — Sistem Informasi Ketersediaan dan Perkembangan Harga Bahan Pokok Provinsi Jawa Timur |
+| **Source** | SISKAPERBAPO — East Java Province's Information System for the Availability and Price Development of Staple Goods |
 | **Format** | Excel (`.xlsx`) — wide format |
-| **Ukuran (wide)** | `36 baris × 13 kolom` (2 event × 18 tanggal, 10 kolom komoditas + 3 kolom metadata) |
-| **Ukuran (long, post-melt)** | `360 observasi` → `180 observasi` setelah `drop_duplicates(['event','commodity','week'])` |
-| **Komoditas** | 10 jenis: Beras, Gula Pasir, Minyak Goreng, Daging Sapi, Daging Ayam, Telur Ayam, Bawang Merah, Bawang Putih, Cabai Merah, Cabai Rawit |
-| **Event** | 2 event: Lebaran, Tahun Baru |
-| **Cakupan Waktu** | 2024–2025; minggu ke-(−4) hingga ke-(+4) relatif terhadap hari H |
-| **Kombinasi Analisis** | `20 kombinasi` (10 komoditas × 2 event, via `itertools.product`) |
-
-> Dataset dicommit dalam repositori ini — data bersumber dari sistem informasi resmi pemerintah Jawa Timur. Tempatkan file `dataset_harga_sembako_2024_2025.xlsx` di direktori `data/` sebelum menjalankan notebook.
+| **Size (wide)** | `36 baris × 13 kolom` (2 events × 18 dates, 10 commodity columns + 3 metadata columns) |
+| **Size (long, post-melt)** | `360 observasi` → `180 observasi` after `drop_duplicates(['event','commodity','week'])` |
+| **Commodities** | 10 types: Beras, Gula Pasir, Minyak Goreng, Daging Sapi, Daging Ayam, Telur Ayam, Bawang Merah, Bawang Putih, Cabai Merah, Cabai Rawit |
+| **Event** | 2 events: Lebaran, Tahun Baru |
+| **Time Coverage** | 2024–2025; week (−4) through week (+4) relative to the event day |
+| **Analysis Combinations** | `20 kombinasi` (10 commodities × 2 events, via `itertools.product`) |
 
 ### Data Dictionary — Long Format (Post-Transform)
 
-| Kolom | Tipe Data | Deskripsi | Contoh Nilai |
+| Column | Data Type | Description | Example Value |
 |---|:---:|---|---|
-| `event` | `str` | Jenis hari besar yang menjadi acuan analisis | `"Lebaran"`, `"Tahun Baru"` |
-| `week` | `int` | Posisi minggu relatif terhadap hari H | `-4`, `0`, `+3` |
-| `date` | `date` | Tanggal rekap dalam minggu tersebut | `2024-03-27` |
-| `commodity` | `str` | Nama komoditas (10 jenis) | `"Bawang Merah"`, `"Beras"` |
-| `price` | `float` | Harga rata-rata komoditas (Rp) | `27532.0`, `14938.0` |
-| `base_price` | `float` | **Variabel turunan** — harga baseline (minggu paling awal per event-komoditas) | `27532.0` |
-| `increase_pct` | `float` | **Variabel turunan** — % kenaikan relatif terhadap `base_price` | `-3.18`, `+38.1` |
-| `state` | `str` | **Variabel turunan** — klasifikasi FSM berbasis threshold adaptif | `"Normal"`, `"PUNCAK"` |
-| `T1`, `T2`, `T3` | `float` | **Variabel turunan** — threshold Siaga/Peringatan/PUNCAK per kombinasi event-komoditas | `2.0`, `5.0`, `10.0` |
+| `event` | `str` | Type of holiday used as the analysis reference | `"Lebaran"`, `"Tahun Baru"` |
+| `week` | `int` | Week position relative to the event day | `-4`, `0`, `+3` |
+| `date` | `date` | Recap date within that week | `2024-03-27` |
+| `commodity` | `str` | Commodity name (10 types) | `"Bawang Merah"`, `"Beras"` |
+| `price` | `float` | Average commodity price (Rp) | `27532.0`, `14938.0` |
+| `base_price` | `float` | **Derived variable** — baseline price (earliest week per event-commodity) | `27532.0` |
+| `increase_pct` | `float` | **Derived variable** — % increase relative to `base_price` | `-3.18`, `+38.1` |
+| `state` | `str` | **Derived variable** — FSM classification based on adaptive thresholds | `"Normal"`, `"PUNCAK"` |
+| `T1`, `T2`, `T3` | `float` | **Derived variable** — Siaga/Peringatan/PUNCAK thresholds per event-commodity combination | `2.0`, `5.0`, `10.0` |
 
 ## 🛠️ Tech Stack
 
-| Layer | Teknologi | Peran dalam Proyek |
+| Layer | Technology | Role in the Project |
 |:---:|:---:|---|
-| Language | Python 3.10+ | Bahasa utama seluruh pipeline analisis |
-| Environment | Jupyter Notebook / Google Colab | Eksekusi interaktif bertahap dengan output inline per section |
-| Data Processing | Pandas, NumPy | Transformasi wide-to-long (`melt`), deduplication, komputasi statistik, matrix operations |
-| Visualization | Matplotlib, Seaborn | 11 visualisasi: stacked bar state, heatmap transisi Markov, Venn diagram, NetworkX layout, dashboard komprehensif |
-| Graph Analysis | NetworkX | Konstruksi `DiGraph`, shortest path via `nx.shortest_path()`, density via `nx.density()` |
-| Mathematics | `math`, `itertools`, `functools` | Kombinatorika (`comb`, `factorial`), GCD/LCM (`reduce(gcd,...)`), generator (`product`, `combinations`) |
-| Linear Algebra | NumPy `linalg` | Matrix exponentiation Markov (`matrix_power`), eigendecomposition steady-state (`eig`) |
-| Version Control | Git + GitHub | Source control dan dokumentasi perubahan |
+| Language | Python 3.10+ | Main language for the entire analysis pipeline |
+| Environment | Jupyter Notebook / Google Colab | Step-by-step interactive execution with inline output per section |
+| Data Processing | Pandas, NumPy | Wide-to-long transformation (`melt`), deduplication, statistical computation, matrix operations |
+| Visualization | Matplotlib, Seaborn | 11 visualizations: state stacked bar, Markov transition heatmap, Venn diagram, NetworkX layout, comprehensive dashboard |
+| Graph Analysis | NetworkX | Construction of `DiGraph`, shortest path via `nx.shortest_path()`, density via `nx.density()` |
+| Mathematics | `math`, `itertools`, `functools` | Combinatorics (`comb`, `factorial`), GCD/LCM (`reduce(gcd,...)`), generators (`product`, `combinations`) |
+| Linear Algebra | NumPy `linalg` | Markov matrix exponentiation (`matrix_power`), steady-state eigendecomposition (`eig`) |
+| Version Control | Git + GitHub | Source control and change documentation |
 
 ## 🎥 Screenshots
 
-| Dashboard Komprehensif — 11 Panel, 9 Konsep | Graf Transisi FSM dengan Shortest Path |
-|:---:|:---:|
-| <img width="1400" height="1950" alt="image" src="https://github.com/user-attachments/assets/fda92fe4-ac8b-4ea9-8f48-8a3e92b6ca4a" /> | <img width="1000" height="550" alt="image" src="https://github.com/user-attachments/assets/612ddabe-ec83-4c5c-8c11-75ef80c5ba9a" /> |
-| *Integrasi visual seluruh hasil analisis — Section 10* | *Representasi G=(V,E): density 0.917, P(Normal→PUNCAK) = 0.42% via 3 transisi* |
+### FSM Transition Graph with Shortest Path
 
-| Venn Diagram Operasi Himpunan | PMF dan Markov Chains Multi-Step |
-|:---:|:---:|
-| <img width="747" height="790" alt="image" src="https://github.com/user-attachments/assets/de6cb4f8-b8a7-4746-94d0-8d1260ef3723" /> | <img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/463a2ac1-bdb0-43a6-af46-b1b63b4506ee" /> |
-| *A ∩ B = {Bawang Merah, Bawang Putih}; 5 komoditas tidak pernah spike (complement)* | *E(X) = −12.76%; P³(Normal→PUNCAK) = 0.0042; steady-state Normal = 57.8%* |
+<p align="center">
+  <img width="680" height="450" alt="image"
+       src="https://github.com/user-attachments/assets/612ddabe-ec83-4c5c-8c11-75ef80c5ba9a" />
+</p>
+
+A representation of G=(V,E): density 0.917, P(Normal→PUNCAK) = 0.42% via 3 transitions.
+
+### Venn Diagram of Set Operations
+
+<p align="center">
+  <img width="455" height="470" alt="image"
+       src="https://github.com/user-attachments/assets/de6cb4f8-b8a7-4746-94d0-8d1260ef3723" />
+</p>
+
+A ∩ B = {Bawang Merah, Bawang Putih}; 5 commodities never spike (the complement).
+
+### PMF and Multi-Step Markov Chains
+
+<p align="center">
+  <img width="705" height="550" alt="image"
+       src="https://github.com/user-attachments/assets/463a2ac1-bdb0-43a6-af46-b1b63b4506ee" />
+</p>
+
+E(X) = −12.76%; P³(Normal→PUNCAK) = 0.0042; steady-state Normal = 57.8%.
+
+### Comprehensive Dashboard — 11 Panels, 9 Concepts
+
+<p align="center">
+  <img width="900" height="1100" alt="image"
+       src="https://github.com/user-attachments/assets/fda92fe4-ac8b-4ea9-8f48-8a3e92b6ca4a" />
+</p>
+
+A visual integration of all analysis results — Section 10.
 
 ## 📈 Results and Performance
 
-### Ringkasan Kuantitatif per Konsep
+### Quantitative Summary by Concept
 
-| # | Konsep | Metrik Kunci | Hasil Aktual |
+| # | Concept | Key Metric | Actual Result |
 |:---:|---|---|---|
-| 1 | **Finite State Machine** | Distribusi state (N = 180) | Normal `81.7%` · Siaga `10.6%` · Peringatan `4.4%` · PUNCAK `3.3%` |
-| 2 | **Recurrence Relations** | Akurasi prediksi out-of-sample (N = 20) | Rata-rata `95.17%` (error `4.83%`) |
-| 3 | **Induksi Matematis** | Konsistensi empiris formula P(n) | `20/20` kombinasi, error `0.0000%` |
-| 4 | **Teori Graf** | Density · Shortest path | `0.917` · Normal→PUNCAK: 3 transisi, P = `0.42%` |
-| 5 | **Boolean Logic** | Distribusi predikat (N = 180) | KRITIS `13` (7.2%) · AMAN_BELI `39` (21.7%) · HINDARI `6` (3.3%) |
-| 6 | **Kombinatorika** | Total skenario faktor (n = 4) | `15` skenario (2⁴ − 1) ✓ |
-| 7 | **Teori Bilangan** | GCD timing peak · Pola modulo 3 | GCD = `1` (tidak ada siklus umum) · tidak signifikan (Δ `1.81%`) |
-| 8 | **Teori Himpunan** | Kardinalitas operasi set | \|A∩B\| = `2` · \|A∪B\| = `5` · \|(A∪B)ᶜ\| = `5` |
-| 9 | **Peluang Diskrit** | E(X) global · Steady-state Markov | `−12.76%` · Normal dominan `57.8%` |
+| 1 | **Finite State Machine** | State distribution (N = 180) | Normal `81.7%` · Siaga `10.6%` · Peringatan `4.4%` · PUNCAK `3.3%` |
+| 2 | **Recurrence Relations** | Out-of-sample prediction accuracy (N = 20) | Average `95.17%` (error `4.83%`) |
+| 3 | **Mathematical Induction** | Empirical consistency of formula P(n) | `20/20` combinations, error `0.0000%` |
+| 4 | **Graph Theory** | Density · Shortest path | `0.917` · Normal→PUNCAK: 3 transitions, P = `0.42%` |
+| 5 | **Boolean Logic** | Predicate distribution (N = 180) | KRITIS `13` (7.2%) · AMAN_BELI `39` (21.7%) · HINDARI `6` (3.3%) |
+| 6 | **Combinatorics** | Total factor scenarios (n = 4) | `15` scenarios (2⁴ − 1) ✓ |
+| 7 | **Number Theory** | GCD of peak timing · Modulo-3 pattern | GCD = `1` (no common cycle) · not significant (Δ `1.81%`) |
+| 8 | **Set Theory** | Cardinality of set operations | \|A∩B\| = `2` · \|A∪B\| = `5` · \|(A∪B)ᶜ\| = `5` |
+| 9 | **Discrete Probability** | Global E(X) · Markov steady-state | `−12.76%` · Normal dominant at `57.8%` |
 
-### Output Rekomendasi per Komoditas (`rekomendasi_per_komoditas.csv`)
+### Per-Commodity Recommendation Output (`rekomendasi_per_komoditas.csv`)
 
-| Komoditas | Tingkat Risiko | Prioritas | Potensi Hemat | Timing Beli |
+| Commodity | Risk Level | Priority | Potential Savings | Buying Timing |
 |---|:---:|:---:|:---:|---|
-| Bawang Merah | **SANGAT TINGGI** | P1 | `25.4%` | Beli 4+ minggu sebelum event |
-| Bawang Putih | TINGGI | P2 | `7.1%` | Beli 3–4 minggu sebelum event |
-| Daging Ayam | SEDANG | P3 | `9.1%` | Beli 2–3 minggu sebelum event |
-| Beras | RENDAH | P4 | `2.5%` | Timing fleksibel |
-| Daging Sapi | RENDAH | P4 | `2.2%` | Timing fleksibel |
-| Cabai Rawit | RENDAH | P4 | `5.2%` | Timing fleksibel |
-| Gula Pasir | RENDAH | P4 | `0.0%` | Timing fleksibel |
-| Minyak Goreng | RENDAH | P4 | `0.0%` | Timing fleksibel |
-| Telur Ayam | RENDAH | P4 | `0.0%` | Timing fleksibel |
-| Cabai Merah | RENDAH | P4 | `0.0%` | Timing fleksibel |
+| Bawang Merah | **SANGAT TINGGI** | P1 | `25.4%` | Buy 4+ weeks before the event |
+| Bawang Putih | TINGGI | P2 | `7.1%` | Buy 3–4 weeks before the event |
+| Daging Ayam | SEDANG | P3 | `9.1%` | Buy 2–3 weeks before the event |
+| Beras | RENDAH | P4 | `2.5%` | Flexible timing |
+| Daging Sapi | RENDAH | P4 | `2.2%` | Flexible timing |
+| Cabai Rawit | RENDAH | P4 | `5.2%` | Flexible timing |
+| Gula Pasir | RENDAH | P4 | `0.0%` | Flexible timing |
+| Minyak Goreng | RENDAH | P4 | `0.0%` | Flexible timing |
+| Telur Ayam | RENDAH | P4 | `0.0%` | Flexible timing |
+| Cabai Merah | RENDAH | P4 | `0.0%` | Flexible timing |
 
-> Tingkat risiko dihitung dari composite score: kenaikan maksimum (bobot 0.6) + Coefficient of Variation × 20 + frekuensi state krisis (bobot 0.4). Potensi hemat = selisih harga median zona aman (minggu ≤ −2) vs Q75 zona bahaya (minggu −1 s/d +1).
+> Risk level is calculated from a composite score: maximum increase (weight 0.6) + Coefficient of Variation × 20 + frequency of crisis states (weight 0.4). Potential savings = the difference between the median price in the safe zone (week ≤ −2) and the Q75 price in the danger zone (week −1 to +1).
 
-### Matriks Probabilitas Transisi — Teori Graf (Section 4)
+### Transition Probability Matrix — Graph Theory (Section 4)
 
 |  | → Normal | → Siaga | → Peringatan | → PUNCAK |
 |---|:---:|:---:|:---:|:---:|
@@ -125,27 +149,27 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 | **Peringatan →** | `0.000` | `0.167` | `0.500` | `0.333` |
 | **PUNCAK →** | `0.000` | `0.167` | `0.167` | `0.667` |
 
-> Dibangun dari 160 transisi empiris (10 komoditas × 2 event × 8 langkah). Graf G = (V, E) dengan |V| = 4, |E| = 11, density = `0.917`.
+> Built from 160 empirical transitions (10 commodities × 2 events × 8 steps). Graph G = (V, E) with |V| = 4, |E| = 11, density = `0.917`.
 
-### Temuan Analitik Utama
+### Key Analytical Findings
 
-1. **Kenaikan harga hari besar bersifat selektif, bukan universal.** Dari 180 observasi, `81.7%` berada dalam state Normal dan hanya `3.3%` (6 observasi) mencapai PUNCAK. PMF menunjukkan `63.3%` observasi memiliki harga di bawah baseline minggu ke-(−4). Fenomena "harga naik menjelang hari besar" hanya terjadi pada segmen komoditas tertentu, tidak pada seluruh pasar.
+1. **Holiday price increases are selective, not universal.** Out of 180 observations, `81.7%` fall within the Normal state and only `3.3%` (6 observations) reach PUNCAK. The PMF shows that `63.3%` of observations have a price below the week-(−4) baseline. The phenomenon of "prices rising ahead of a holiday" only occurs for certain commodity segments, not across the entire market.
 
-2. **Bawang Merah adalah komoditas dengan volatilitas ekstrem.** Dari 18 observasi Bawang Merah, `55.56%` masuk state Peringatan atau PUNCAK (10 observasi), E(X) = `+23.05%` dari baseline Rp 27,532, dan kondisi KRITIS tercatat `50.0%` dari waktu (9/18 observasi), dengan contoh puncak di minggu 0 pada state Peringatan dengan kenaikan `38.1%`. Potensi penghematan `25.4%` tersedia jika pembelian dilakukan di zona aman. Berbanding terbalik, Telur Ayam mencatat `100%` state Normal di seluruh 18 observasi dengan E(X) = `−30.01%`, tidak memerlukan strategi pembelian khusus.
+2. **Bawang Merah is the commodity with extreme volatility.** Of 18 Bawang Merah observations, `55.56%` fall into the Peringatan or PUNCAK state (10 observations), E(X) = `+23.05%` from a baseline of Rp 27,532, and the KRITIS condition is recorded `50.0%` of the time (9/18 observations), with a peak example at week 0 in the Peringatan state showing an increase of `38.1%`. A potential savings of `25.4%` is available if purchases are made during the safe zone. By contrast, Telur Ayam records `100%` Normal state across all 18 observations with E(X) = `−30.01%`, requiring no special buying strategy.
 
-3. **Formula recurrence P(n) = P(n-1) × (1+r) sangat akurat untuk komoditas stabil, terbatas untuk bumbu.** Beras: akurasi `99.85%` (prediksi Rp 14,897 vs aktual Rp 14,938, selisih Rp 41). Cabai Merah: akurasi `80.25%` (prediksi Rp 25,471 vs aktual Rp 34,454, selisih Rp 8,983). Rata-rata global `95.17%` dari 20 validasi out-of-sample. Komoditas dengan growth rate `r` yang konsisten menghasilkan prediksi sangat akurat; komoditas volatile memerlukan model adaptif dengan `r` dinamis.
+3. **The recurrence formula P(n) = P(n-1) × (1+r) is highly accurate for stable commodities but limited for spices.** Beras: `99.85%` accuracy (predicted Rp 14,897 vs. actual Rp 14,938, a difference of Rp 41). Cabai Merah: `80.25%` accuracy (predicted Rp 25,471 vs. actual Rp 34,454, a difference of Rp 8,983). The global average is `95.17%` across 20 out-of-sample validations. Commodities with a consistent growth rate `r` yield highly accurate predictions; volatile commodities require an adaptive model with a dynamic `r`.
 
-4. **Induksi matematis memverifikasi konsistensi formula secara absolut.** Dari 20/20 kombinasi komoditas-event, error verifikasi relasi P(n) = P(n-1) × (1+r) adalah `0.0000%` pada seluruh transisi yang dicek. Contoh: Bawang Merah pada Lebaran — P(−4) = Rp 27,532 → P(−3) = Rp 27,532 × 1.0010 = Rp 27,559 ✓ → P(−1) = Rp 27,532 × 1.0010 × 1.0003 × 1.0803 = Rp 29,783 ✓. Formula P(n) = P(0) × ∏[i=0 to n-1](1+rᵢ) terbukti valid secara matematis untuk semua n ∈ ℕ.
+4. **Mathematical induction absolutely verifies the consistency of the formula.** Across 20/20 commodity-event combinations, the verification error for the relation P(n) = P(n-1) × (1+r) is `0.0000%` for every transition checked. Example: Bawang Merah at Lebaran — P(−4) = Rp 27,532 → P(−3) = Rp 27,532 × 1.0010 = Rp 27,559 ✓ → P(−1) = Rp 27,532 × 1.0010 × 1.0003 × 1.0803 = Rp 29,783 ✓. The formula P(n) = P(0) × ∏[i=0 to n-1](1+rᵢ) is mathematically proven valid for all n ∈ ℕ.
 
-5. **State PUNCAK tidak dapat dicapai dalam kurang dari 3 minggu dari kondisi Normal.** P¹(Normal→PUNCAK) = `0.00%`, P²(Normal→PUNCAK) = `0.00%`, P³(Normal→PUNCAK) = `0.42%`. Dari state Normal, probabilitas masih berada di Normal setelah 2 langkah mencapai `0.905`. Temuan ini memberikan dasar kuantitatif untuk rekomendasi zona aman pembelian: 3+ minggu sebelum event masih aman secara probabilistik.
+5. **The PUNCAK state cannot be reached in fewer than 3 weeks from a Normal condition.** P¹(Normal→PUNCAK) = `0.00%`, P²(Normal→PUNCAK) = `0.00%`, P³(Normal→PUNCAK) = `0.42%`. From the Normal state, the probability of still being in Normal after 2 steps reaches `0.905`. This finding provides a quantitative basis for the safe-zone buying recommendation: 3+ weeks before an event is still probabilistically safe.
 
-6. **Hanya 2 dari 10 komoditas menunjukkan spike konsisten di kedua event (A ∩ B).** A = himpunan spike Lebaran: {Bawang Putih, Bawang Merah, Daging Sapi, Daging Ayam, Gula Pasir} (|A| = 5). B = himpunan spike Tahun Baru: {Bawang Merah, Bawang Putih} (|B| = 2). A ∩ B = {Bawang Merah, Bawang Putih} (|A ∩ B| = 2). (A ∪ B)ᶜ = {Beras, Minyak Goreng, Telur Ayam, Cabai Merah, Cabai Rawit}, yang artinya 5 komoditas tidak pernah melebihi threshold spike di event manapun. Verifikasi: |A ∪ B| = 5 + 2 − 2 = 5 ✓; |U| = 5 + 5 = 10 ✓.
+6. **Only 2 of the 10 commodities show a consistent spike across both events (A ∩ B).** A = the Lebaran spike set: {Bawang Putih, Bawang Merah, Daging Sapi, Daging Ayam, Gula Pasir} (|A| = 5). B = the Tahun Baru spike set: {Bawang Merah, Bawang Putih} (|B| = 2). A ∩ B = {Bawang Merah, Bawang Putih} (|A ∩ B| = 2). (A ∪ B)ᶜ = {Beras, Minyak Goreng, Telur Ayam, Cabai Merah, Cabai Rawit}, meaning these 5 commodities never exceed the spike threshold at either event. Verification: |A ∪ B| = 5 + 2 − 2 = 5 ✓; |U| = 5 + 5 = 10 ✓.
 
-7. **Teori bilangan mengidentifikasi ketiadaan siklus umum dan pola pricing presisi.** GCD timing peak = `1` (tidak ada siklus berulang yang seragam antar komoditas), LCM = `12`. Pola modulo 3 tidak signifikan (rentang perbedaan rata-rata kenaikan antar kelas ekuivalensi hanya `1.81%`). Perubahan harga bersifat presisi (non-kelipatan besar): hanya `15.1%` perubahan harga yang merupakan kelipatan Rp 10, dengan divisibilitas terbanyak di Rp 50.
+7. **Number theory identifies the absence of a common cycle and a precise pricing pattern.** The GCD of peak timing = `1` (no uniform recurring cycle across commodities), LCM = `12`. The modulo-3 pattern is not significant (the range of average increase differences between equivalence classes is only `1.81%`). Price changes are precise (not large round numbers): only `15.1%` of price changes are multiples of Rp 10, with the highest divisibility at Rp 50.
 
-8. **PMF dan Markov steady-state menunjukkan pasar cenderung pulih ke kondisi Normal.** Distribusi steady-state: Normal `57.8%`, yang lebih tinggi dari distribusi objektif `81.7%`, namun secara arah konsisten bahwa Normal adalah kondisi dominan jangka panjang. Dari state Peringatan, probabilitas pemulihan ke Normal dalam 2 langkah adalah `P²[Peringatan→Normal]` = `0.029` (rendah), menunjukkan bahwa sekali masuk Peringatan, kondisi cenderung bertahan atau memburuk sebelum membaik.
+8. **The PMF and the Markov steady-state show that the market tends to recover toward a Normal condition.** The steady-state distribution: Normal `57.8%`, which is higher than the empirical distribution of `81.7%`, though directionally consistent with Normal being the dominant condition in the long run. From the Peringatan state, the probability of recovering to Normal within 2 steps is `P²[Peringatan→Normal]` = `0.029` (low), showing that once a commodity enters Peringatan, the condition tends to persist or worsen before improving.
 
-> 📂 Output rekomendasi per komoditas tersimpan di `outputs/rekomendasi_per_komoditas.csv`. Catatan: File output yang dihasilkan bergantung pada konfigurasi yang dipilih di Section 0.
+> 📂 The per-commodity recommendation output is saved at `outputs/rekomendasi_per_komoditas.csv`. Note: the resulting output file depends on the configuration selected in Section 0.
 
 ## 🚀 Getting Started
 
@@ -174,7 +198,6 @@ pip install -r requirements.txt
 import pandas as pd
 df_raw = pd.read_excel('data/dataset_harga_sembako_2024_2025.xlsx')
 ```
-> Pastikan file `dataset_harga_sembako_2024_2025.xlsx` sudah ditempatkan di folder `data/` sebelum menjalankan notebook.
 
 6. Run the notebook:
 ```bash
@@ -184,8 +207,8 @@ Execute the cells sequentially from top to bottom.
 
 ## ⚠️ Limitations
 
-- **Interpretasi E(X) = −12.76%:** Nilai ini diukur relatif terhadap baseline minggu ke-(−4) dan merepresentasikan rata-rata perubahan harga di seluruh 9 minggu pengamatan untuk semua komoditas. Nilai negatif didominasi oleh komoditas stabil yang harganya stagnan atau turun dari titik acuan awal (terutama Telur Ayam dengan E(X) = −30.01%). Komoditas volatile seperti Bawang Merah tetap menunjukkan E(X) positif (+23.05%).
+- **Interpretation of E(X) = −12.76%:** This value is measured relative to the week-(−4) baseline and represents the average price change across all 9 observation weeks for all commodities. The negative value is dominated by stable commodities whose prices are stagnant or declining from their initial reference point (especially Telur Ayam, with E(X) = −30.01%). Volatile commodities such as Bawang Merah still show a positive E(X) (+23.05%).
 
-- **Scope:** Analisis terbatas pada Tahun Baru 2024–2025 dan Lebaran 2025 dengan rentang 9 minggu per event. Fenomena musiman lain (Idul Adha, shock harga BBM, bencana alam) tidak tercakup dan dapat menghasilkan pola state yang berbeda secara struktural.
+- **Scope:** The analysis is limited to Tahun Baru 2024–2025 and Lebaran 2025, with a 9-week range per event. Other seasonal phenomena (Idul Adha, fuel price shocks, natural disasters) are not covered and could produce structurally different state patterns.
 
-- **Keterbatasan Teknis:** Notebook menggunakan mode interaktif (`input()` di Section 0) yang tidak kompatibel dengan `Run All`. Jalankan section secara berurutan dan ikuti prompt konfigurasi yang muncul. Output yang dihasilkan bergantung pada pilihan konfigurasi yang dipilih di Section 0. Namun mode ini sama sekali tidak mengganggu, dan malah sangat membantu jika ingin melihat kategori tertentu maupun komoditas spesifik tertentu.
+- **Technical Limitation:** The notebook uses an interactive mode (`input()` in Section 0) that is not compatible with `Run All`. Run the sections sequentially and follow the configuration prompts that appear. The resulting output depends on the configuration choices selected in Section 0. However, this mode is not disruptive at all, and is in fact quite helpful if you want to look at a particular category or a specific commodity.
