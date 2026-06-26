@@ -52,6 +52,28 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for full details.
 
 ## 📬 Contact
 
+**Ahmad Kenzy Farzaq**
+
+[![GitHub](https://img.shields.io/badge/GitHub-kenzyfarzq-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/kenzyfarzq)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-kenzyfarzq-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/kenzyfarzq-60b790320/)
+[![Email](https://img.shields.io/badge/Email-kenzyfarzq@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq@gmail.com)
+
+<br>
+
+> 💬 Found a bug or have a suggestion? [Open a new issue](https://github.com/kenzyfarzq/workforce-scheduling-optimization/issues/new).
+
+---
+
+<div align="center">
+  <sub>
+    ⭐ If you find this project useful, consider giving it a star!
+    <br>
+    Made by <a href="https://github.com/kenzyfarzq">kenzyfarzq</a> · 2026-06
+  </sub>
+</div>
+
+## 📬 Contact
+
 **[Nama Lengkap Anda]**
 
 [![GitHub](https://img.shields.io/badge/GitHub-@kenzyfarzq-181717?style=flat-square&logo=github)](https://github.com/kenzyfarzq)
