@@ -53,7 +53,7 @@ No environment variables or API keys are required. Some projects fetch their dat
 
 ## 📄 License
 
-Distributed under the **MIT License**. See [LICENSE](LICENSE) for full details.
+Distributed under the **MIT License**. See [LICENSE](https://github.com/kenzyfarzaq/data-science-projects/blob/main/LICENSE) for full details.
 
 ---
 
@@ -65,12 +65,12 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for full details.
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-kenzyfarzq-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/kenzyfarzq-60b790320/)
 [![Email](https://img.shields.io/badge/Email-kenzyfarzq@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq@gmail.com)
 
-<br>
-
 ---
 
 <div align="center">
   <sub>
+    ⭐ If you find this repository useful, consider giving it a star!
+    <br>
     Made by <a href="https://github.com/kenzyfarzq">kenzyfarzq</a>
   </sub>
 </div>
