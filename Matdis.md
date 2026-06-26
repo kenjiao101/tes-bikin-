@@ -17,7 +17,7 @@
 
 ## 📌 Overview
 
-This project applies nine discrete mathematics concepts in an integrated way to model the price dynamics of 10 staple food commodities in East Java during the periods leading up to Tahun Baru and Lebaran, using weekly SISKAPERBAPO data (covering weeks −4 through +4 relative to each event). From the `36 baris × 13 kolom` wide-format data that was loaded, a `melt` transformation produces `360 observasi`, which after deduplication based on the event-commodity-week combination become `180 observasi` valid for analysis. The analytical pipeline classifies each observation into one of 4 discrete market states via an FSM with adaptive, quantile-based thresholds, mathematically validates the recursive prediction formula via induction, and quantifies market state transition probabilities using Markov Chains. The final output consists of `11 visualisasi komprehensif`, a state transition matrix, a Venn diagram of set operations, and a `rekomendasi_per_komoditas.csv` file that classifies the 10 commodities into 4 risk levels with estimated potential savings per commodity.
+This project applies nine discrete mathematics concepts in an integrated way to model the price dynamics of 10 staple food commodities in East Java during the periods leading up to Tahun Baru and Lebaran, using weekly SISKAPERBAPO data (covering weeks −4 through +4 relative to each event). From the `36 baris × 13 kolom` wide-format data that was loaded, a `melt` transformation produces `360 observations`, which after deduplication based on the event-commodity-week combination become `180 observations` valid for analysis. The analytical pipeline classifies each observation into one of 4 discrete market states via an FSM with adaptive, quantile-based thresholds, mathematically validates the recursive prediction formula via induction, and quantifies market state transition probabilities using Markov Chains. The final output consists of `11 visualisasi komprehensif`, a state transition matrix, a Venn diagram of set operations, and a `rekomendasi_per_komoditas.csv` file that classifies the 10 commodities into 4 risk levels with estimated potential savings per commodity.
 
 ## ❓ Problem Statement
 
@@ -36,11 +36,11 @@ This project applies nine discrete mathematics concepts in an integrated way to 
 | **Source** | SISKAPERBAPO — East Java Province's Information System for the Availability and Price Development of Staple Goods |
 | **Format** | Excel (`.xlsx`) — wide format |
 | **Size (wide)** | `36 baris × 13 kolom` (2 events × 18 dates, 10 commodity columns + 3 metadata columns) |
-| **Size (long, post-melt)** | `360 observasi` → `180 observasi` after `drop_duplicates(['event','commodity','week'])` |
+| **Size (long, post-melt)** | `360 observations` → `180 observations` after `drop_duplicates(['event','commodity','week'])` |
 | **Commodities** | 10 types: Beras, Gula Pasir, Minyak Goreng, Daging Sapi, Daging Ayam, Telur Ayam, Bawang Merah, Bawang Putih, Cabai Merah, Cabai Rawit |
 | **Event** | 2 events: Lebaran, Tahun Baru |
 | **Time Coverage** | 2024–2025; week (−4) through week (+4) relative to the event day |
-| **Analysis Combinations** | `20 kombinasi` (10 commodities × 2 events, via `itertools.product`) |
+| **Analysis Combinations** | `20 combinations` (10 commodities × 2 events, via `itertools.product`) |
 
 ### Data Dictionary — Long Format (Post-Transform)
 
@@ -83,7 +83,7 @@ A representation of G=(V,E): density 0.917, P(Normal→PUNCAK) = 0.42% via 3 tra
 ### Venn Diagram of Set Operations
 
 <p align="center">
-  <img width="455" height="470" alt="image"
+  <img width="450" height="470" alt="image"
        src="https://github.com/user-attachments/assets/de6cb4f8-b8a7-4746-94d0-8d1260ef3723" />
 </p>
 
@@ -105,7 +105,7 @@ E(X) = −12.76%; P³(Normal→PUNCAK) = 0.0042; steady-state Normal = 57.8%.
        src="https://github.com/user-attachments/assets/fda92fe4-ac8b-4ea9-8f48-8a3e92b6ca4a" />
 </p>
 
-A visual integration of all analysis results — Section 10.
+A visual integration of all analysis results (Section 10).
 
 ## 📈 Results and Performance
 
