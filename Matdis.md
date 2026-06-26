@@ -21,7 +21,7 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 
 ## ❓ Problem Statement
 
-**Konteks:** Lonjakan harga bahan pokok menjelang Lebaran dan Tahun Baru adalah fenomena berulang yang berdampak pada daya beli masyarakat Jawa Timur. Data resmi SISKAPERBAPO mencatat harga harian per komoditas, namun selama ini dimanfaatkan hanya untuk pelaporan deskriptif — tanpa pemodelan formal yang dapat menghasilkan aturan keputusan terukur atau prediksi probabilistik.
+**Konteks:** Lonjakan harga bahan pokok menjelang Lebaran dan Tahun Baru adalah fenomena berulang yang berdampak pada daya beli masyarakat Jawa Timur. Data resmi SISKAPERBAPO mencatat harga harian per komoditas, namun selama ini dimanfaatkan hanya untuk pelaporan deskriptif, tanpa pemodelan formal yang dapat menghasilkan aturan keputusan terukur atau prediksi probabilistik.
 
 **Gap:** Analisis deskriptif tidak mampu menjawab pertanyaan kritis seperti: berapa probabilitas kondisi pasar bergerak dari Normal ke PUNCAK dalam 3 minggu? Komoditas mana yang secara konsisten spike di kedua event, dan mana yang spike hanya pada satu event? Seberapa akurat model rekursif sederhana dalam memprediksi harga minggu depan? Pertanyaan-pertanyaan ini membutuhkan kerangka matematis diskrit yang formal, bukan sekadar observasi visual pola harga.
 
@@ -44,7 +44,7 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 | **Cakupan Waktu** | 2024–2025; minggu ke-(−4) hingga ke-(+4) relatif terhadap hari H |
 | **Kombinasi Analisis** | `20 kombinasi` (10 komoditas × 2 event, via `itertools.product`) |
 
-> ⚠️ Dataset tidak dicommit dalam repositori ini — data bersumber dari sistem informasi resmi pemerintah Jawa Timur. Tempatkan file `dataset_harga_sembako_2024_2025.xlsx` di direktori `data/` sebelum menjalankan notebook. Lihat `data/README.md` untuk instruksi lengkap.
+> Dataset dicommit dalam repositori ini — data bersumber dari sistem informasi resmi pemerintah Jawa Timur. Tempatkan file `dataset_harga_sembako_2024_2025.xlsx` di direktori `data/` sebelum menjalankan notebook.
 
 ### Data Dictionary — Long Format (Post-Transform)
 
@@ -159,7 +159,7 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 
 ---
 
-## ⚠️ Notes / Limitations
+## ⚠️ Limitations
 
 - **Interpretasi E(X) = −12.76%:** Nilai ini diukur relatif terhadap baseline minggu ke-(−4) dan merepresentasikan rata-rata perubahan harga di seluruh 9 minggu pengamatan untuk semua komoditas. Nilai negatif didominasi oleh komoditas stabil yang harganya stagnan atau turun dari titik acuan awal (terutama Telur Ayam dengan E(X) = −30.01%). Komoditas volatile seperti Bawang Merah tetap menunjukkan E(X) positif (+23.05%).
 
@@ -170,15 +170,3 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 - **Asumsi Model:** Threshold FSM bersifat adaptif per kombinasi event-komoditas (bukan threshold absolut), sehingga angka state antara komoditas yang berbeda tidak dapat dibandingkan secara langsung. Formula recurrence mengasumsikan `r` konstan dalam periode estimasi — asumsi ini tidak terpenuhi untuk bumbu volatil (Cabai Merah error `19.75%`).
 
 - **Keterbatasan Teknis:** Notebook menggunakan mode interaktif (`input()` di Section 0) yang tidak kompatibel dengan `Run All`. Jalankan section secara berurutan dan ikuti prompt konfigurasi yang muncul. Output yang dihasilkan bergantung pada pilihan konfigurasi yang dipilih di Section 0.
-
----
-
-<div align="center">
-  <sub>
-    ⭐ Jika analisis ini bermanfaat, pertimbangkan untuk memberikan star!
-    <br>
-    Made by
-    <a href="https://github.com/[username]">Ahmad Kenzy Farzaq</a>,
-    · 2025
-  </sub>
-</div>
