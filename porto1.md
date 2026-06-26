@@ -264,7 +264,7 @@ The optimal cost curve as a function of the target service level, across the 70%
 ## 📄 License
 
 Distributed under the **MIT License**.
-See [LICENSE]([LICENSE](https://github.com/kenzyfarzq/workforce-scheduling-optimization/blob/main/LICENSE)) for full details.
+See [LICENSE](https://github.com/kenzyfarzq/workforce-scheduling-optimization/blob/main/LICENSE)) for full details.
 
 ---
 
