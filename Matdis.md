@@ -25,7 +25,7 @@ This project applies nine discrete mathematics concepts in an integrated way to 
 
 **Gap:** Descriptive analysis cannot answer critical questions such as: what is the probability of a market condition moving from Normal to PUNCAK within 3 weeks? Which commodities consistently spike across both events, and which spike in only one? How accurate is a simple recursive model at predicting next week's price? These questions require a formal discrete mathematical framework, not merely a visual observation of price patterns.
 
-**Solution:** This analytical pipeline integrates 9 discrete mathematics concepts — an FSM M = (Q, Σ, δ, q₀, F) for real-time market condition classification with adaptive thresholds based on Q25/Q50/Q75, a recursive formula P(n) = P(n-1) × (1+r) validated mathematically via induction across 20/20 combinations, a probabilistic transition graph G = (V, E) with `|V|=4, |E|=11, density=0.917`, and Markov Chains for multi-step prediction. The output is an integrated modeling system that produces strategic, directly actionable recommendations per commodity.
+**Solution:** This analytical pipeline integrates 9 discrete mathematics concepts. FSM M = (Q, Σ, δ, q₀, F) for real-time market condition classification with adaptive thresholds based on Q25/Q50/Q75, a recursive formula P(n) = P(n-1) × (1+r) validated mathematically via induction across 20/20 combinations, a probabilistic transition graph G = (V, E) with `|V|=4, |E|=11, density=0.917`, and Markov Chains for multi-step prediction. The output is an integrated modeling system that produces strategic, directly actionable recommendations per commodity.
 
 ## 📊 Dataset
 
