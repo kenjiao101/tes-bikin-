@@ -1,8 +1,8 @@
 <div align="center">
 
-# data-science-projects
+# Data Science Projects
 
-### An evolving portfolio of data science and analytics projects, built throughout my undergraduate studies in [Program Studi Anda]
+### Selected data science projects completed during my undergraduate studies.
 
 <br>
 
