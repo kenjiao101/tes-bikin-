@@ -25,7 +25,8 @@ This repository is a curated, continuously updated collection of data science pr
 
 | Project | Description |
 |---|---|
-| [`digital-divide-indonesia`](./digital-divide-indonesia) | Statistical analysis of poverty and internet access across Indonesian provinces using 2024 BPS data. Methods: Pearson correlation, linear regression, chi-square test, Cramer's V, Fisher's Exact Test. |
+| [`digital-divide-indonesia`](./digital-divide-indonesia) | Statistical analysis of poverty and internet access across Indonesian provinces using 2024 BPS data. 
+Methods: Pearson correlation, linear regression, chi-square test, Cramer's V, Fisher's Exact Test. |
 | [`discrete-math-price-dynamics-jatim`](./discrete-math-price-dynamics-jatim) | [Satu kalimat singkat: topik dan dataset yang dipakai] |
 | [`multivariate-statistical-analysis`](./multivariate-statistical-analysis) | [Satu kalimat singkat: topik dan dataset yang dipakai] |
 
@@ -66,6 +67,8 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for full details.
 [![Email](https://img.shields.io/badge/Email-kenzyfarzq@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:kenzyfarzq@gmail.com)
 
 <br>
+
+---
 
 <div align="center">
   <sub>
