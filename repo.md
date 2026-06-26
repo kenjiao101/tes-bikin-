@@ -7,9 +7,9 @@
 <br>
 
 [![License](https://img.shields.io/badge/license-MIT-3DA639?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=flat-square)]()
 [![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Jupyter](https://img.shields.io/badge/jupyter-notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)]()
+[![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=flat-square)]()
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## 📌 Overview
 
-This repository is a curated, continuously updated collection of data science projects completed during my undergraduate studies. Each folder covers a distinct analytical domain and includes relevant datasets, methodologies, and reproducibility instructions. The projects document a range of data-driven and analytical work across different problem contexts, with an emphasis on structured workflows and clear implementation. New projects are added as work progresses, with this README serving as the primary entry point and index.
+This repository is a curated, continuously updated collection of data science projects completed during my undergraduate studies. Each folder covers a distinct analytical domain and includes relevant datasets, methodologies, and reproducibility instructions. The repository serves as a centralized archive of selected projects developed throughout my degree. New projects are added as work progresses, with this README serving as the primary entry point and index.
 
 ---
 
