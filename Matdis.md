@@ -2,9 +2,6 @@
 
 ### Menganalisis pola lonjakan harga 10 komoditas sembako menjelang Tahun Baru dan Lebaran menggunakan kerangka teori matematika diskrit terintegrasi — dari FSM dengan threshold adaptif, Markov Chains multi-step, hingga operasi himpunan dan kombinatorika atas data resmi SISKAPERBAPO Jawa Timur.
 
-[![Python](https://img.shields.io/badge/python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/jupyter-notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](notebooks/)
-
 ---
 
 ## 📌 Overview
@@ -72,8 +69,6 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 ---
 
 ## 🎥 Screenshots
-
-<br>
 
 | Dashboard Komprehensif — 11 Panel, 9 Konsep | Graf Transisi FSM dengan Shortest Path |
 |:---:|:---:|
@@ -149,7 +144,7 @@ Proyek ini menerapkan sembilan konsep matematika diskrit secara terintegrasi unt
 
 8. **PMF dan Markov steady-state menunjukkan pasar cenderung pulih ke kondisi Normal.** Distribusi steady-state: Normal `57.8%`, yang lebih tinggi dari distribusi objektif `81.7%`, namun secara arah konsisten bahwa Normal adalah kondisi dominan jangka panjang. Dari state Peringatan, probabilitas pemulihan ke Normal dalam 2 langkah adalah `P²[Peringatan→Normal]` = `0.029` (rendah), menunjukkan bahwa sekali masuk Peringatan, kondisi cenderung bertahan atau memburuk sebelum membaik.
 
-> 📂 Output rekomendasi per komoditas tersimpan di `outputs/rekomendasi_per_komoditas.csv`. Catatan: File output yang dihasilkan tergantung pada konfigurasi yang dipilih di Section 0
+> 📂 Output rekomendasi per komoditas tersimpan di `outputs/rekomendasi_per_komoditas.csv`. Catatan: File output yang dihasilkan tergantung pada konfigurasi yang dipilih di Section 0.
 
 ---
 
