@@ -286,6 +286,6 @@ See [LICENSE](LICENSE) for full details.
   <sub>
     ⭐ If you find this project useful, consider giving it a star!
     <br>
-    Made by <a href="https://github.com/kenzyfarzq">kenzyfarzq</a> · Last updated: 2026-06
+    Made by <a href="https://github.com/kenzyfarzq">kenzyfarzq</a> · 2026-06
   </sub>
 </div>
