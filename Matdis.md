@@ -33,7 +33,7 @@ This project applies nine discrete mathematics concepts in an integrated way to 
 
 | Attribute | Detail |
 |---|---|
-| **Source** | SISKAPERBAPO — East Java Province's Information System for the Availability and Price Development of Staple Goods |
+| **Source** | [SISKAPERBAPO](https://siskaperbapo.jatimprov.go.id/harga-komoditas) — East Java Province's Information System for the Availability and Price Development of Staple Goods |
 | **Format** | Excel (`.xlsx`) — wide format |
 | **Size (wide)** | `36 baris × 13 kolom` (2 events × 18 dates, 10 commodity columns + 3 metadata columns) |
 | **Size (long, post-melt)** | `360 observations` → `180 observations` after `drop_duplicates(['event','commodity','week'])` |
