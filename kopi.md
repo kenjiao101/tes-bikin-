@@ -66,14 +66,11 @@ This project is an exploratory study based on primary survey data, analyzing the
 
 ## 🎥 Screenshots
 
-> 📓 **Notebook:** &nbsp;[01 - Data Cleaning & EDA](https://nbviewer.org/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/01_data_cleaning_and_eda.ipynb) &nbsp;·&nbsp; [02 - In-Depth Analysis & Regression](https://nbviewer.org/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/02_indepth_analysis_and_regression.ipynb) &nbsp;|&nbsp; [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/01_data_cleaning_and_eda.ipynb)
-
-<br>
-
 ### Consumption Pattern Summary
 
 <p align="center">
-  <img src="docs/img/consumption_habits_dashboard.png" alt="Coffee Consumption Pattern Dashboard" />
+  <img width="1492" height="985" alt="image" 
+     src="https://github.com/user-attachments/assets/6ac7901d-e5e5-4240-b248-102a8ce28319" />
 </p>
 
 Six summary charts covering coffee habits: frequency, spending, acquisition method, favorite location, drinking time, and café visit frequency.
@@ -81,7 +78,8 @@ Six summary charts covering coffee habits: frequency, spending, acquisition meth
 ### Regression Model Diagnostics
 
 <p align="center">
-  <img src="docs/img/regression_diagnostics.png" alt="Regression Diagnostics — Coffee Effect on Focus" />
+  <img width="1389" height="989" alt="image" 
+    src="https://github.com/user-attachments/assets/f1f5e005-d296-427e-b01e-61ed41a3195b" />
 </p>
 
 Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the model `Fokus = 34.47 + 11.71 × Efek Kopi`.
@@ -95,8 +93,10 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 2. **Coffee functions as a study aid, not a social activity.** `70.3%` of respondents drink coffee while working on assignments, while only `3.0%` view it as a social activity, confirming that its primary function is productivity, not socializing.
 
 3. **Study duration is the numerical variable most strongly correlated with focus.** Among all numerical variable pairs, Study Duration and Focus have the highest correlation (`r = 0.42`), higher than the correlation between Number of Cups and Focus (`r = 0.29`), suggesting that study intensity plays a greater role in perceived focus than the amount of coffee consumed.
-
-   ![Correlation Heatmap of Numerical Variables](docs/img/correlation_heatmap.png)
+<p align="center">
+   <img width="762" height="690" alt="image" 
+     src="https://github.com/user-attachments/assets/92406c36-4fc2-4f90-8e52-7d8a9da7f722" />
+</p>
    *Correlation matrix of five transformed numerical variables, showing Study Duration and Focus as the pair with the highest correlation.*
 
 4. **Coffee's effect is statistically significant on focus, but its explanatory power is limited.** The regression model `Fokus = 34.47 + 11.71 × Efek Kopi` is significant (`p < 0.001`, Pearson correlation `r = 0.4892`), but it explains only `R² = 0.2393` (`23.9%`) of the variation in focus, meaning coffee's effect is real but not the sole dominant factor.
@@ -104,8 +104,10 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 5. **Coffee acquisition method is a clear differentiator of spending.** Students who buy coffee at cafés or warungs spend an average of `Rp31,207` per week, around `60%` more than those who make it at home (`Rp19,476` per week).
 
 6. **Drinking coffee is seen more as a routine habit than a necessity.** `52.1%` of students regard drinking coffee as merely a habit, compared to `35.8%` who see it as an essential need. Both groups have similar consumption patterns (mode of `1 cup` per day), so the difference lies in attitude, not behavior.
-
-   ![Analysis of What Coffee Means to Students](docs/img/coffee_meaning_analysis.png)
+<p align="center">
+   <img width="1469" height="592" alt="image" 
+     src="https://github.com/user-attachments/assets/c225f747-50de-4081-ad3f-5f29d6710df2" />
+</p>
    *Distribution of what coffee means to students (left) and its relationship to weekly spending categories (right).*
 
 > 📂 Full visualization output (including boxplots, distributions, pairplots, and all cross-tabulations) is saved in the `results/` folder.
