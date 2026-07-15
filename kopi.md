@@ -28,41 +28,6 @@ This project is an exploratory study based on primary survey data, analyzing the
 
 **Solution:** This project cleans and structures the raw survey data through custom text parsing, then performs visual exploration, correlation analysis, cross-tabulation, and linear regression to statistically measure the extent to which coffee's effects influence perceived study focus. The result is a behavioral map of student coffee consumption along with the strength of its relationship to study productivity, serving as a useful reference for anyone interested in consumption behavior studies in a campus setting.
 
-## 🎥 Demo & Screenshots
-
-> 📓 **Notebook:** &nbsp;[01 - Data Cleaning & EDA](https://nbviewer.org/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/01_data_cleaning_and_eda.ipynb) &nbsp;·&nbsp; [02 - In-Depth Analysis & Regression](https://nbviewer.org/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/02_indepth_analysis_and_regression.ipynb) &nbsp;|&nbsp; [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/01_data_cleaning_and_eda.ipynb)
-
-<br>
-
-### Consumption Pattern Summary
-
-<p align="center">
-  <img src="docs/img/consumption_habits_dashboard.png" alt="Coffee Consumption Pattern Dashboard" />
-</p>
-
-Six summary charts covering coffee habits: frequency, spending, acquisition method, favorite location, drinking time, and café visit frequency.
-
-### Regression Model Diagnostics
-
-<p align="center">
-  <img src="docs/img/regression_diagnostics.png" alt="Regression Diagnostics — Coffee Effect on Focus" />
-</p>
-
-Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the model `Fokus = 34.47 + 11.71 × Efek Kopi`.
-
-## 🛠️ Tech Stack
-
-| Layer | Technology | Role in the Project |
-|:---:|:---:|---|
-| Language | Python 3.x | Main language for the entire pipeline, from data cleaning to regression modeling |
-| Environment | Google Colab (Jupyter Notebook) | Interactive execution and output composition |
-| Data Processing | Pandas, NumPy, `re` (regex) | Parsing free-text responses into numerical values, IQR-based outlier detection and handling, categorical variable encoding |
-| Visualization | Matplotlib, Seaborn | Boxplots, histogram + KDE, correlation heatmap, pairplot, and regression diagnostic plots |
-| Statistical Analysis | SciPy (`stats`), Scikit-learn (`LinearRegression`, `r2_score`, `mean_squared_error`) | Linear regression, manual t-statistic and p-value computation, and residual diagnostic testing |
-| Version Control | Git + GitHub | Source control and change documentation |
-
----
-
 ## 📊 Dataset
 
 ### Metadata
@@ -90,6 +55,39 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 
 > Raw data is not included in this repository because it contains respondent identity information (name, student ID, email, and WhatsApp number). The dataset available in `data/processed/` has been anonymized prior to publication.
 
+## 🛠️ Tech Stack
+
+| Layer | Technology | Role in the Project |
+|:---:|:---:|---|
+| Language | Python 3.x | Main language for the entire pipeline, from data cleaning to regression modeling |
+| Environment | Google Colab (Jupyter Notebook) | Interactive execution and output composition |
+| Data Processing | Pandas, NumPy, `re` (regex) | Parsing free-text responses into numerical values, IQR-based outlier detection and handling, categorical variable encoding |
+| Visualization | Matplotlib, Seaborn | Boxplots, histogram + KDE, correlation heatmap, pairplot, and regression diagnostic plots |
+| Statistical Analysis | SciPy (`stats`), Scikit-learn (`LinearRegression`, `r2_score`, `mean_squared_error`) | Linear regression, manual t-statistic and p-value computation, and residual diagnostic testing |
+| Version Control | Git + GitHub | Source control and change documentation |
+
+## 🎥 Screenshots
+
+> 📓 **Notebook:** &nbsp;[01 - Data Cleaning & EDA](https://nbviewer.org/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/01_data_cleaning_and_eda.ipynb) &nbsp;·&nbsp; [02 - In-Depth Analysis & Regression](https://nbviewer.org/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/02_indepth_analysis_and_regression.ipynb) &nbsp;|&nbsp; [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/[username]/coffee-consumption-survey-analysis/blob/main/notebooks/01_data_cleaning_and_eda.ipynb)
+
+<br>
+
+### Consumption Pattern Summary
+
+<p align="center">
+  <img src="docs/img/consumption_habits_dashboard.png" alt="Coffee Consumption Pattern Dashboard" />
+</p>
+
+Six summary charts covering coffee habits: frequency, spending, acquisition method, favorite location, drinking time, and café visit frequency.
+
+### Regression Model Diagnostics
+
+<p align="center">
+  <img src="docs/img/regression_diagnostics.png" alt="Regression Diagnostics — Coffee Effect on Focus" />
+</p>
+
+Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the model `Fokus = 34.47 + 11.71 × Efek Kopi`.
+
 ## 📈 Results & Performance
 
 ### Key Findings
@@ -114,7 +112,41 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 
 > 📂 Full visualization output (including boxplots, distributions, pairplots, and all cross-tabulations) is saved in the `results/` folder.
 
-## ⚠️ Notes / Limitations
+## 🚀 Getting Started
+
+> This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
+
+1. Navigate to this project folder:
+```bash
+cd discrete-math-price-dynamics-jatim
+```
+
+2. Create a virtual environment (Optional):
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. The dataset are already included in this repository. After cloning or downloading the repository, the file will already be available locally.
+
+5. **Important, reproducibility note**: the original notebook was developed in Google Colab and uses the file upload widget (`google.colab.files.upload()`). To run it locally (Jupyter/VS Code), replace that cell with direct file reading from a local folder:
+```bash
+import pandas as pd
+df_raw = pd.read_excel('data/dataset_harga_sembako_2024_2025.xlsx')
+```
+
+6. Run the notebook:
+```bash
+jupyter notebook notebooks/price_dynamics_discrete_math_analysis.ipynb
+```
+Execute the cells sequentially from top to bottom.
+
+## ⚠️ Limitations
 
 - **Scope:** This analysis covers active students at UPN Veteran Jawa Timur who voluntarily completed the survey during the data collection period, and is not intended to represent the Indonesian student population in general.
 
