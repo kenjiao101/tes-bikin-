@@ -51,8 +51,6 @@ This project is an exploratory study based on primary survey data, analyzing the
 | `efek_kopi_num` | int | Ordinal encoding of the subjective effect of coffee; predictor in the regression model | `1` |
 | `fokus_num` | float | **Dependent variable in the regression model** — perceived improvement in study focus (`0` to `100%`) | `50.0` |
 
-> Raw data is not included in this repository because it contains respondent identity information (name, student ID, email, and WhatsApp number). The dataset available in `data/processed/` has been anonymized prior to publication.
-
 ## 🛠️ Tech Stack
 
 | Layer | Technology | Role in the Project |
@@ -110,8 +108,6 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 </p>
    *Distribution of what coffee means to students (left) and its relationship to weekly spending categories (right).*
 
-> 📂 Full visualization output (including boxplots, distributions, pairplots, and all cross-tabulations) is saved in the `results/` folder.
-
 ## 🚀 Getting Started
 
 > This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
@@ -150,12 +146,6 @@ Execute the cells sequentially from top to bottom.
 
 - **Scope:** This analysis covers active students at UPN Veteran Jawa Timur who voluntarily completed the survey during the data collection period, and is not intended to represent the Indonesian student population in general.
 
-- **Data:** The dataset comes from a self-report survey using convenience sampling rather than random sampling, making it susceptible to response bias. The `Jadi cemas` subcategory of the coffee effect variable contains only `n = 3` respondents, making the mean estimate for that group statistically unstable.
-
-- **Data Privacy:** The raw data contains respondent identity information (name, student ID, email, and WhatsApp number) and is therefore not included in this repository. The dataset in `data/processed/` has had all identity columns removed to protect the privacy of all `165` respondents.
-
-- **Analysis Assumptions:** The regression model assumes that the `efek_kopi` variable can be ordinally ordered (from `Jadi cemas` to `Lebih fokus`) based on the researcher's judgment, not as a result of independent psychometric testing. Outliers are handled using IQR-based and 95th-percentile capping, not row deletion.
+- **Data Privacy:** The raw data contains respondent identity information (name, student ID, email, and WhatsApp number) and is therefore not included in this repository.
 
 - **Generalization:** An `R² = 0.2393` indicates that coffee's effect explains only a small portion of the variation in perceived study focus, so the relationship found is correlational rather than causal, and has not been validated on other populations or time periods.
-
-- **Technical Note:** The source notebook uses an interactive upload flow (`google.colab.files.upload()`), so running it locally requires a minor adjustment to the data-reading cell, replacing it with a `pd.read_csv()` call pointing to `data/processed/`.
