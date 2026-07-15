@@ -10,8 +10,7 @@
 4. [Tech Stack](#-tech-stack)
 5. [Screenshots](#-screenshots)
 6. [Results and Performance](#-results-and-performance)
-7. [Getting Started](#-getting-started)
-8. [Limitations](#-limitations)
+7. [Limitations](#-limitations)
 ---
 
 ## 📌 Overview
@@ -107,40 +106,6 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
      src="https://github.com/user-attachments/assets/c225f747-50de-4081-ad3f-5f29d6710df2" />
 </p>
    *Distribution of what coffee means to students (left) and its relationship to weekly spending categories (right).*
-
-## 🚀 Getting Started
-
-> This project is part of a larger collection repository. Clone the collection repo first (see the root README), then navigate into this folder.
-
-1. Navigate to this project folder:
-```bash
-cd discrete-math-price-dynamics-jatim
-```
-
-2. Create a virtual environment (Optional):
-```bash
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. The dataset are already included in this repository. After cloning or downloading the repository, the file will already be available locally.
-
-5. **Important, reproducibility note**: the original notebook was developed in Google Colab and uses the file upload widget (`google.colab.files.upload()`). To run it locally (Jupyter/VS Code), replace that cell with direct file reading from a local folder:
-```bash
-import pandas as pd
-df_raw = pd.read_excel('data/dataset_harga_sembako_2024_2025.xlsx')
-```
-
-6. Run the notebook:
-```bash
-jupyter notebook notebooks/price_dynamics_discrete_math_analysis.ipynb
-```
-Execute the cells sequentially from top to bottom.
 
 ## ⚠️ Limitations
 
