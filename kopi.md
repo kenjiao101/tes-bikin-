@@ -1,25 +1,24 @@
-<div align="center">
-
 # Analysis of Coffee Consumption Behavior and Its Effect on Students' Study Focus
 
-### Analyzing the coffee consumption patterns of `165` students using Python to measure its effect on study duration and focus
+Analyzing the coffee consumption patterns of `165` students using Python to measure its effect on study duration and focus
 
-<br>
+## 📝 Table of Contents
 
-[![Status](https://img.shields.io/badge/status-completed-blue?style=flat-square)]()
-[![Python](https://img.shields.io/badge/python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/jupyter-notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](notebooks/)
-[![Last Commit](https://img.shields.io/github/last-commit/[username]/coffee-consumption-survey-analysis?style=flat-square)](https://github.com/[username]/coffee-consumption-survey-analysis/commits)
-
-</div>
-
+1. [Overview](#-overview)
+2. [Problem Statement](#-problem-statement)
+3. [Objectives](#-objectives)
+4. [Dataset](#-dataset)
+5. [Tech Stack](#-tech-stack)
+6. [Methodology](#-methodology)
+7. [Workflow](#-workflow)
+8. [Results and Performance](#-results-and-performance)
+9. [Getting Started](#-getting-started)
+10. [Limitations](#-limitations)
 ---
 
 ## 📌 Overview
 
 This project is an exploratory study based on primary survey data, analyzing the coffee consumption patterns of university students and their relationship with study duration and focus. Data was collected independently through a Google Form questionnaire distributed to `165` students at Universitas Pembangunan Nasional "Veteran" Jawa Timur, then cleaned using custom text parsing functions before moving into visual exploration, correlation analysis, cross-tabulation, and linear regression. This project is intended as a reference for researchers, data practitioners, or anyone interested in data-driven studies of student consumption behavior. The primary outputs are two analysis notebooks, a set of exploratory visualizations, and a regression model that quantifies the strength of the relationship between the subjective effects of coffee and perceived study focus.
-
----
 
 ## ❓ Problem Statement
 
@@ -28,8 +27,6 @@ This project is an exploratory study based on primary survey data, analyzing the
 **Gap:** No quantitative picture existed linking coffee habits (frequency, acquisition method, location, timing) to their impact on student study duration and focus in this environment, nor was there any statistical testing of the common assumption that coffee improves focus.
 
 **Solution:** This project cleans and structures the raw survey data through custom text parsing, then performs visual exploration, correlation analysis, cross-tabulation, and linear regression to statistically measure the extent to which coffee's effects influence perceived study focus. The result is a behavioral map of student coffee consumption along with the strength of its relationship to study productivity, serving as a useful reference for anyone interested in consumption behavior studies in a campus setting.
-
----
 
 ## 🎥 Demo & Screenshots
 
@@ -52,8 +49,6 @@ Six summary charts covering coffee habits: frequency, spending, acquisition meth
 </p>
 
 Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the model `Fokus = 34.47 + 11.71 × Efek Kopi`.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -95,8 +90,6 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 
 > Raw data is not included in this repository because it contains respondent identity information (name, student ID, email, and WhatsApp number). The dataset available in `data/processed/` has been anonymized prior to publication.
 
----
-
 ## 📈 Results & Performance
 
 ### Key Findings
@@ -121,8 +114,6 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 
 > 📂 Full visualization output (including boxplots, distributions, pairplots, and all cross-tabulations) is saved in the `results/` folder.
 
----
-
 ## ⚠️ Notes / Limitations
 
 - **Scope:** This analysis covers active students at UPN Veteran Jawa Timur who voluntarily completed the survey during the data collection period, and is not intended to represent the Indonesian student population in general.
@@ -136,11 +127,3 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 - **Generalization:** An `R² = 0.2393` indicates that coffee's effect explains only a small portion of the variation in perceived study focus, so the relationship found is correlational rather than causal, and has not been validated on other populations or time periods.
 
 - **Technical Note:** The source notebook uses an interactive upload flow (`google.colab.files.upload()`), so running it locally requires a minor adjustment to the data-reading cell, replacing it with a `pd.read_csv()` call pointing to `data/processed/`.
-
-<div align="center">
-  <sub>
-    ⭐ If you find this analysis useful, consider giving it a star!
-    <br>
-    Made by <a href="https://github.com/[username]">[Name]</a> · 2026-07
-  </sub>
-</div>
