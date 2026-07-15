@@ -1,19 +1,17 @@
 # Analysis of Coffee Consumption Behavior and Its Effect on Students' Study Focus
 
-Analyzing the coffee consumption patterns of `165` students using Python to measure its effect on study duration and focus
+### Analyzing the coffee consumption patterns of `165` students using Python to measure its effect on study duration and focus
 
 ## 📝 Table of Contents
 
 1. [Overview](#-overview)
 2. [Problem Statement](#-problem-statement)
-3. [Objectives](#-objectives)
-4. [Dataset](#-dataset)
-5. [Tech Stack](#-tech-stack)
-6. [Methodology](#-methodology)
-7. [Workflow](#-workflow)
-8. [Results and Performance](#-results-and-performance)
-9. [Getting Started](#-getting-started)
-10. [Limitations](#-limitations)
+3. [Dataset](#-dataset)
+4. [Tech Stack](#-tech-stack)
+5. [Screenshots](#-screenshots)
+6. [Results and Performance](#-results-and-performance)
+7. [Getting Started](#-getting-started)
+8. [Limitations](#-limitations)
 ---
 
 ## 📌 Overview
