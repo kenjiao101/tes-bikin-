@@ -19,7 +19,7 @@ This project is an exploratory study based on primary survey data, analyzing the
 
 ## ❓ Problem Statement
 
-**Context:** Coffee is a daily staple for many students during their academic life, especially when working on assignments, but consumption patterns, spending, and the effects on learning ability are rarely measured systematically on campus. An internal survey of `165` students revealed highly varied responses — ranging from the number of cups per day to perceptions of improved focus — making it difficult to draw conclusions without structured data processing.
+**Context:** Coffee is a daily staple for many students during their academic life, especially when working on assignments, but consumption patterns, spending, and the effects on learning ability are rarely measured systematically on campus. An internal survey of `165` students revealed highly varied responses, ranging from the number of cups per day to perceptions of improved focus, making it difficult to draw conclusions without structured data processing.
 
 **Gap:** No quantitative picture existed linking coffee habits (frequency, acquisition method, location, timing) to their impact on student study duration and focus in this environment, nor was there any statistical testing of the common assumption that coffee improves focus.
 
