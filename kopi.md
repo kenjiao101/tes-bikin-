@@ -67,7 +67,7 @@ This project is an exploratory study based on primary survey data, analyzing the
 ### Consumption Pattern Summary
 
 <p align="center">
-  <img width="1492" height="985" alt="image" 
+  <img width="942" height="590" alt="image" 
      src="https://github.com/user-attachments/assets/6ac7901d-e5e5-4240-b248-102a8ce28319" />
 </p>
 
@@ -76,7 +76,7 @@ Six summary charts covering coffee habits: frequency, spending, acquisition meth
 ### Regression Model Diagnostics
 
 <p align="center">
-  <img width="1389" height="989" alt="image" 
+  <img width="839" height="589" alt="image" 
     src="https://github.com/user-attachments/assets/f1f5e005-d296-427e-b01e-61ed41a3195b" />
 </p>
 
@@ -92,7 +92,7 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 
 3. **Study duration is the numerical variable most strongly correlated with focus.** Among all numerical variable pairs, Study Duration and Focus have the highest correlation (`r = 0.42`), higher than the correlation between Number of Cups and Focus (`r = 0.29`), suggesting that study intensity plays a greater role in perceived focus than the amount of coffee consumed.
 <p align="center">
-   <img width="762" height="690" alt="image" 
+   <img width="462" height="392" alt="image" 
      src="https://github.com/user-attachments/assets/92406c36-4fc2-4f90-8e52-7d8a9da7f722" />
 </p>
    *Correlation matrix of five transformed numerical variables, showing Study Duration and Focus as the pair with the highest correlation.*
@@ -103,7 +103,7 @@ Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the
 
 6. **Drinking coffee is seen more as a routine habit than a necessity.** `52.1%` of students regard drinking coffee as merely a habit, compared to `35.8%` who see it as an essential need. Both groups have similar consumption patterns (mode of `1 cup` per day), so the difference lies in attitude, not behavior.
 <p align="center">
-   <img width="1469" height="592" alt="image" 
+   <img width="829" height="352" alt="image" 
      src="https://github.com/user-attachments/assets/c225f747-50de-4081-ad3f-5f29d6710df2" />
 </p>
    *Distribution of what coffee means to students (left) and its relationship to weekly spending categories (right).*
