@@ -2,6 +2,12 @@
 
 ### Analyzing the coffee consumption patterns of `165` students using Python to measure its effect on study duration and focus
 
+<p align="center">
+
+[![Live Dashboard](https://img.shields.io/badge/Live-Dashboard-red?style=for-the-badge&logo=streamlit&logoColor=white)](https://kenzydarderdor.streamlit.app/)
+
+</p>
+
 ## 📝 Table of Contents
 
 1. [Overview](#-overview)
@@ -62,6 +68,12 @@ This project is an exploratory study based on primary survey data, analyzing the
 | Version Control | Git + GitHub | Source control and change documentation |
 
 ## 🎥 Demo and Screenshots
+
+### Live Interactive Dashboard
+
+👉 https://kenzydarderdor.streamlit.app/
+
+> Explore the dashboard interactively to filter, visualize, and inspect the survey results before viewing the screenshots below.
 
 ### Consumption Pattern Summary
 
