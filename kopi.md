@@ -9,7 +9,7 @@
 3. [Dataset](#-dataset)
 4. [Tech Stack](#-tech-stack)
 5. [Screenshots](#-screenshots)
-6. [Results and Performance](#-results-and-performance)
+6. [Results and Performance](#-results-&-performance)
 7. [Limitations](#-limitations)
 ---
 
@@ -61,7 +61,9 @@ This project is an exploratory study based on primary survey data, analyzing the
 | Statistical Analysis | SciPy (`stats`), Scikit-learn (`LinearRegression`, `r2_score`, `mean_squared_error`) | Linear regression, manual t-statistic and p-value computation, and residual diagnostic testing |
 | Version Control | Git + GitHub | Source control and change documentation |
 
-## 🎥 Screenshots
+## 🎥 Demo and Screenshots
+
+https://kenzydarderdor.streamlit.app/ 
 
 ### Consumption Pattern Summary
 
