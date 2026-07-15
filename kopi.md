@@ -8,8 +8,8 @@
 2. [Problem Statement](#-problem-statement)
 3. [Dataset](#-dataset)
 4. [Tech Stack](#-tech-stack)
-5. [Demo & Screenshots](#-demo-and-screenshots)
-6. [Results & Performance](#-results-&-performance)
+5. [Demo and Screenshots](#-demo-and-screenshots)
+6. [Results and Performance](#-results-and-performance)
 7. [Limitations](#-limitations)
 ---
 
