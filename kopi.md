@@ -2,7 +2,7 @@
 
 ### Analyzing the coffee consumption patterns of `165` students using Python to measure its effect on study duration and focus
 
-[![Live Dashboard](https://img.shields.io/badge/Live-Dashboard-red?style=for-the-badge&logo=streamlit&logoColor=white)](https://kenzydarderdor.streamlit.app/)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://kenzydarderdor.streamlit.app/)
 
 ## 📝 Table of Contents
 
