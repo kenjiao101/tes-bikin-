@@ -81,7 +81,7 @@ Six summary charts covering coffee habits: frequency, spending, acquisition meth
 
 Regression scatter plot, residual plot, Q-Q plot, and residual histogram for the model `Fokus = 34.47 + 11.71 × Efek Kopi`.
 
-## 📈 Results & Performance
+## 📈 Results and Performance
 
 ### Key Findings
 
